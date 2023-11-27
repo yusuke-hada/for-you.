@@ -82,7 +82,7 @@ test:
 
 production:
   <<: *default
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
+  database: for_you_production
+  username: for_you_production_user
+  password: <%= ENV['MYSITE_DATABASE_PASSWORD'] %>
 
