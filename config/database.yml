@@ -79,8 +79,10 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
+
 production:
   <<: *default
-  database: for_you__production
-  username: for_you_
-  password: <%= ENV["FOR_YOU__DATABASE_PASSWORD"] %>
+  database: for_you_production
+  username: for_you_production_user
+  password: <%= ENV['MYSITE_DATABASE_PASSWORD'] %>
+
