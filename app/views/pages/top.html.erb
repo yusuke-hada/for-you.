@@ -1,29 +1,9 @@
 <div class="bg-red-100 pb-6 sm:pb-8 lg:pb-12">
   <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
-    <header class="text-gray-600 body-font">
-        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-          <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-yellow-500 rounded-full" viewBox="0 0 24 24">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-            </svg>
-            <span class="ml-3 text-xl">for you.</span>
-          </a>
-          <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-            <a class="mr-5 hover:text-gray-900">First Link</a>
-            <a class="mr-5 hover:text-gray-900">Second Link</a>
-            <a class="mr-5 hover:text-gray-900">Third Link</a>
-            <a class="mr-5 hover:text-gray-900">Fourth Link</a>
-          </nav>
-        </div>
-    </header>
     <section class="min-h-96 relative flex flex-1 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-gray-100 py-16 shadow-lg md:py-20 xl:py-48">
       <!-- image - start -->
-      <img src="https://images.unsplash.com/photo-1618004652321-13a63e576b80?auto=format&q=75&fit=crop&w=1500" loading="lazy" alt="Photo by Fakurian Design" class="absolute inset-0 h-full w-full object-cover object-center" />
+      <%= image_tag 'top_image.png', loading: 'lazy', class: 'absolute inset-0 h-full w-full object-center' %>
       <!-- image - end -->
-
-      <!-- overlay - start -->
-      <div class="absolute inset-0 bg-indigo-500 mix-blend-multiply"></div>
-      <!-- overlay - end -->
 
       <!-- text start -->
       <div class="relative flex flex-col items-center p-4 sm:max-w-xl">
