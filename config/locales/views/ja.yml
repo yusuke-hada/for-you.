@@ -1,5 +1,5 @@
 ja:
   users:
-    new:
+    step1:
       title: 'ユーザー登録'
-      next_step: '次のステップへ'
+      next_step: '次へ'
