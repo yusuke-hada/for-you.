@@ -3,3 +3,6 @@ ja:
     step1:
       title: 'ユーザー登録'
       next_step: '次へ'
+    step2:
+      title: 'ユーザー登録'
+      next_step: '次へ'

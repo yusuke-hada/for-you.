@@ -8,3 +8,8 @@ ja:
         email: 'メールアドレス'
         password: 'パスワード'
         password_confirmation: 'パスワード(確認)'
+        age: '年齢'
+        gender: '性別'
+        business: '職業'
+        hobby: '趣味'
+
