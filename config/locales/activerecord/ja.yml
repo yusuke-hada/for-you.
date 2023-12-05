@@ -12,4 +12,15 @@ ja:
         gender: '性別'
         business: '職業'
         hobby: '趣味'
+  enums:
+    user:
+      gender:
+        man: '男性'
+        woman: '女性'
+        other: 'その他'
+      role:
+        general: '一般'
+        admin: '管理者'
+
+          
 
