@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
-  has_many :wish_lists
+  has_many :wish_lists, dependent: :destroy
   accepts_nested_attributes_for :wish_lists
   validates :name, length: { maximum: 252 }, presence: true
   validates :email, presence: true, uniqueness: true
