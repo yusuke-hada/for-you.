@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
+  has_many :wish_lists
   validates :name, length: { maximum: 252 }, presence: true
   validates :email, presence: true, uniqueness: true
   validates :password, length: { minimum: 5 }, if: -> { new_record? || changes[:crypted_password] }
