@@ -9,3 +9,6 @@ ja:
       select_gender: '性別を選んでください'
       input_hobby: '趣味：複数回答可'
       delimit_hobby: '、や・で区切って下さい'
+    step3:
+      title: '欲しい物リスト'
+      submit: '登録する'

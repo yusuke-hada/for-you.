@@ -12,6 +12,9 @@ ja:
         gender: '性別'
         business: '職業'
         hobby: '趣味'
+      wish_list:
+        item_name: '欲しいもの'
+        description: '詳細'
   enums:
     user:
       gender:
