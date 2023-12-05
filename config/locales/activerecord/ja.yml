@@ -1,0 +1,29 @@
+ja:
+  activerecord:
+    models:
+      user: 'ユーザー'
+    attributes:
+      user:
+        name: 'ニックネーム'
+        email: 'メールアドレス'
+        password: 'パスワード'
+        password_confirmation: 'パスワード(確認)'
+        age: '年齢'
+        gender: '性別'
+        business: '職業'
+        hobby: '趣味'
+      wish_list:
+        item_name: '欲しいもの'
+        description: '詳細'
+  enums:
+    user:
+      gender:
+        man: '男性'
+        woman: '女性'
+        other: 'その他'
+      role:
+        general: '一般'
+        admin: '管理者'
+
+          
+

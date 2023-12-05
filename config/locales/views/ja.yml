@@ -1,0 +1,14 @@
+ja:
+  users:
+    step1:
+      title: 'ユーザー登録'
+      next_step: '次へ'
+    step2:
+      title: 'ユーザー登録'
+      next_step: '次へ'
+      select_gender: '性別を選んでください'
+      input_hobby: '趣味：複数回答可'
+      delimit_hobby: '、や・で区切って下さい'
+    step3:
+      title: '欲しい物リスト'
+      submit: '登録する'

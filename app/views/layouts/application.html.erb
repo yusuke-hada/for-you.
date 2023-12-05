@@ -12,7 +12,9 @@
 
   <body>
     <%= render 'shared/header' %>
-    <%= yield %>
+    <div class="flex justify-center items-center min-h-screen bg-red-100">
+      <%= yield %>
+    </div>
     <%= render 'shared/footer' %>
   </body>
 </html>
