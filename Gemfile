@@ -74,5 +74,6 @@ group :test do
   gem 'selenium-webdriver'
 end
 
-gem 'sorcery'
 gem 'enum_help'
+gem 'sorcery'
+

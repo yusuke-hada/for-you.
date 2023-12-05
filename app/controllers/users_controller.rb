@@ -41,15 +41,13 @@ class UsersController < ApplicationController
 
     session[:user_id] = @user.id
     redirect_to root_path, notice: '登録が完了しました'
-
-    rescue ActiveRecord::RecordInvalid
-      render '/users/step1', alert: '登録に失敗しました'
+  rescue ActiveRecord::RecordInvalid
+    render '/users/step1', alert: '登録に失敗しました'
   end
 
   def edit; end
 
   def update; end
-
 
   private
 
@@ -58,11 +56,12 @@ class UsersController < ApplicationController
   end
 
   def wish_list_params
-    params.require(:user).permit( wish_lists_attributes: [:item_name, :description])[:wish_lists_attributes].values
+    params.require(:user).permit(wish_lists_attributes: %i[item_name description])[:wish_lists_attributes].values
   end
 
   def split_hobby(hobby_str)
-    return [] if hobby_str.nil? 
+    return [] if hobby_str.nil?
+
     hobby_str.split(/[,、・]/).reject(&:empty?)
   end
 end
