@@ -20,7 +20,7 @@ class UsersController < ApplicationController
       age: user_params[:age],
       gender: user_params[:gender],
       business: user_params[:business],
-      hobby: user_params[:hobby],
+      hobby: split_hobby(user_params[:hobby])
     )
     if @user.save
       session[:user_id] = @user.id
@@ -39,5 +39,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :age, :gender, :business, :hobby)
+  end
+
+  def split_hobby(hobby_str)
+    hobby_str.split(/[,、・]/).reject(&:empty?)
   end
 end
