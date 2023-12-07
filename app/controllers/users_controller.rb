@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :validation_check_step1, only: :step2
+  before_action :validation_check_step2, only: :step3
+
   def step1
     @user = User.new
   end
@@ -61,7 +64,35 @@ class UsersController < ApplicationController
 
   def split_hobby(hobby_str)
     return [] if hobby_str.nil?
-
     hobby_str.split(/[,、・]/).reject(&:empty?)
+  end
+
+  def validation_check_step1
+    session[:name] = user_params[:name]
+    session[:email] = user_params[:email]
+    session[:password] = user_params[:password]
+    session[:password_confirmation] = user_params[:password_confirmation]
+    @user = User.new(
+      name: session[:name],
+      email: session[:email],
+      password: session[:password],
+      password_confirmation: session[:password_confirmation]
+    )
+    binding.pry
+    render '/users/step1' unless @user.valid?
+  end
+
+  def validation_check_step2
+    session[:age] = user_params[:age]
+    session[:gender] = user_params[:gender]
+    session[:business] = user_params[:business]
+    session[:hobby] = user_params[:hobby]
+    @user = User.new(
+      age: session[:age],
+      gender: session[:gender],
+      business: session[:business],
+      hobby: session[:hobby]
+    )
+    render '/users/step2' unless @user.valid?
   end
 end
