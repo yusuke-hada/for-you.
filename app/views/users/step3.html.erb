@@ -5,7 +5,7 @@
     <div class="w-8 h-8 rounded-full bg-blue-200 text-white text-center leading-8">3</div>
   </div>
   <h1 class="mb-5 text-4xl text-center"><%= t('.title') %></h1>
-  <%= form_for @user, url: users_path, local: true, class: "w-96 mx-auto p-6 bg-white rounded-lg shadow-md" do |f| %>
+  <%= form_for @user, url: users_path, local: true,  html: { id: "registration_form", class: "w-96 mx-auto p-6 bg-white rounded-lg shadow-md"} do |f| %>
     <%= f.fields_for :wish_lists, @user.wish_lists.build do |wl| %>
       <div class="mb-4">
         <%= wl.label :item_name, class: "block text-gray-700 text-sm font-bold mb-2" %>
