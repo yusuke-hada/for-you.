@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('ageError').style.display = 'none';
       }
 
+    
+
     if (!isValid) {
         event.preventDefault();
     }

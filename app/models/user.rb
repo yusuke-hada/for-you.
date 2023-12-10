@@ -3,7 +3,8 @@ class User < ApplicationRecord
   has_many :wish_lists, dependent: :destroy
   accepts_nested_attributes_for :wish_lists
   validates :name, length: { maximum: 252 }, presence: true
-  validates :email, presence: true, uniqueness: true
+  VALID_EMAIL_REGEX =  /\A[a-zA-Z0-9_+-]+(\.[a-zA-Z0-9_+-]+)*@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}\z/
+  validates :email, { presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }}
   validates :password, length: { minimum: 5 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: lambda {new_record? || changes[:crypted_password] || changes[:reset_password_token]}
