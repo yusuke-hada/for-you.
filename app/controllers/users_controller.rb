@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  #before_action :validation_check_step1, only: :step2
-  before_action :validation_check_step2, only: :step3
+ # before_action :validation_check_step2, only: :step3
 
   def step1
     @user = User.new
@@ -68,6 +67,7 @@ class UsersController < ApplicationController
   end
 
   def validation_check_step2
+    session[:name] = user_params[:name]
     session[:age] = user_params[:age]
     session[:gender] = user_params[:gender]
     session[:business] = user_params[:business]
