@@ -37,10 +37,11 @@ class UsersController < ApplicationController
       wish_list_params.each do |wish_list_param|
         @user.wish_lists.build(wish_list_param)
       end
-      
+
       @user.save!
     end
 
+    session.clear
     session[:user_id] = @user.id
     redirect_to root_path, notice: '登録が完了しました'
 
