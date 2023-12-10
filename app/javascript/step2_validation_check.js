@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('genderError').style.display = 'none';
     }
 
-    if (business.length >20 ){
+    if (business.length > 20 ){
         document.getElementById('businessError').textContent = '職業は20文字以内である必要があります';
         document.getElementById('businessError').style.display = 'block';
         isValid = false;
@@ -34,9 +34,13 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('businessError').style.display = 'none';
     }
 
-    
-
-    
+    if (hobby.length > 255 ){
+        document.getElementById('hobbyError').textContent = '趣味は255文字以内である必要があります';
+        document.getElementById('hobbyError').style.display = 'block';
+        isValid = false;
+    } else {
+        document.getElementById('hobbyError').style.display = 'none';
+    }
 
     if (!isValid) {
         event.preventDefault();
