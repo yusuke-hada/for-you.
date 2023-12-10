@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
- # before_action :validation_check_step2, only: :step3
 
   def step1
     @user = User.new
@@ -34,17 +33,20 @@ class UsersController < ApplicationController
         business: session[:business],
         hobby: split_hobby(session[:hobby])
       )
-      @user.save!
 
       wish_list_params.each do |wish_list_param|
-        @user.wish_lists.create!(wish_list_param)
+        @user.wish_lists.build(wish_list_param)
       end
+      
+      @user.save!
     end
 
     session[:user_id] = @user.id
     redirect_to root_path, notice: '登録が完了しました'
+
   rescue ActiveRecord::RecordInvalid
-    render '/users/step1', alert: '登録に失敗しました'
+    flash.now[:alert] = @user.errors.full_messages
+    render '/users/step1'
   end
 
   def edit; end
