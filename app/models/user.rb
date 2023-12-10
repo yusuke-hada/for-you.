@@ -11,6 +11,7 @@ class User < ApplicationRecord
   # validates :reset_password_token, uniqueness: true, allow_nil: true
   validates :age, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 120 }
   validates :gender, presence: true
+  validates :business, length: { maximum: 20 }
   enum gender: { man: 0, woman: 1, other: 2 }
   enum role: { general: 0, admin: 1 }
 end
