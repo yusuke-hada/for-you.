@@ -65,19 +65,4 @@ class UsersController < ApplicationController
     return [] if hobby_str.nil?
     hobby_str.split(/[,、・]/).reject(&:empty?)
   end
-
-  def validation_check_step2
-    session[:name] = user_params[:name]
-    session[:age] = user_params[:age]
-    session[:gender] = user_params[:gender]
-    session[:business] = user_params[:business]
-    session[:hobby] = user_params[:hobby]
-    @user = User.new(
-      age: session[:age],
-      gender: session[:gender],
-      business: session[:business],
-      hobby: session[:hobby]
-    )
-    render '/users/step2' unless @user.valid?
-  end
 end
