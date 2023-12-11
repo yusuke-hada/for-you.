@@ -1,0 +1,8 @@
+<% flash.each do |message_type, messages| %>
+  <% messages.each do |msg| %>
+    <div class="fixed top-28 left-1/2 transform -translate-x-1/2 shadow-lg rounded px-4 py-2 text-sm <%= tailwind_alert_class(message_type) %>">
+      <%= msg %>
+    </div>
+  <% end %>
+<% end %>
+

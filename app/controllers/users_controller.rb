@@ -46,8 +46,9 @@ class UsersController < ApplicationController
     redirect_to root_path, notice: '登録が完了しました'
 
   rescue ActiveRecord::RecordInvalid
+    session.clear
     flash.now[:alert] = @user.errors.full_messages
-    render '/users/step1'
+    render step1_users_path, status: :unprocessable_entity
   end
 
   def edit; end
