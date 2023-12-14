@@ -6,7 +6,7 @@
     <div class="w-8 h-8 rounded-full bg-blue-200 text-center leading-8">3</div>
   </div>
   <h1 class="mb-5 text-4xl text-center"><%= t('.title') %></h1>
-    <%= form_for @user, url: step3_users_path, method: :get, local: true, html: { id: "registration_form", class: "w-96 mx-auto p-6 bg-white rounded-lg shadow-md"} do |f| %>
+    <%= form_for @user, url: step3_users_path, method: :get, local: true, html: { "data-turbo": "false", id: "registration_form", class: "w-96 mx-auto p-6 bg-white rounded-lg shadow-md"} do |f| %>
       <div class="mb-4">
         <%= f.label :age, class: "block text-gray-700 text-sm font-bold mb-2" %>
         <%= f.number_field :age, id: "age", min: 0, max: 120, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outlin " %>

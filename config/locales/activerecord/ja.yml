@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       user: 'ユーザー'
+      wish_list: '欲しいものリスト'
     attributes:
       user:
         name: '名前'
@@ -13,6 +14,9 @@ ja:
         business: '職業'
         hobby: '趣味'
       wish_list:
+        item_name: '欲しいもの'
+        description: '詳細'
+      wish_lists:
         item_name: '欲しいもの'
         description: '詳細'
     errors:

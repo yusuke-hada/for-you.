@@ -47,8 +47,7 @@ class UsersController < ApplicationController
 
   rescue ActiveRecord::RecordInvalid
     session.clear
-    flash.now[:alert] = @user.errors.full_messages
-    render step1_users_path, status: :unprocessable_entity
+    redirect_to step1_users_path, alert: @user.errors.full_messages
   end
 
   def edit; end
