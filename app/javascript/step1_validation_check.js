@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
       let password = document.getElementById('password').value;
       let passwordConfirmation = document.getElementById('password_confirmation').value;
       const pattern = /^[a-zA-Z0-9_+-]+(\.[a-zA-Z0-9_+-]+)*@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/;
-
+      
       if (name.length === 0) {
         document.getElementById('nameError').textContent = '名前を入力してください。';
         document.getElementById('nameError').style.display = 'block';
