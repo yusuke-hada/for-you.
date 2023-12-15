@@ -54,6 +54,12 @@ class UsersController < ApplicationController
 
   def update; end
 
+  def check_email
+    email = params[:email]
+    user_exists = User.exists?(email: email)
+    render json: { exists: user_exists }
+  end
+
   private
 
   def user_params
