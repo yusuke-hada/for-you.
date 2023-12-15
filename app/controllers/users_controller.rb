@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def step1
     @user = User.new
   end
@@ -32,22 +33,32 @@ class UsersController < ApplicationController
         business: session[:business],
         hobby: split_hobby(session[:hobby])
       )
-      @user.save!
 
       wish_list_params.each do |wish_list_param|
-        @user.wish_lists.create!(wish_list_param)
+        @user.wish_lists.build(wish_list_param)
       end
+
+      @user.save!
     end
 
+    session.clear
     session[:user_id] = @user.id
-    redirect_to root_path, notice: '登録が完了しました'
+    redirect_to root_path, notice: t('registration.success')
+
   rescue ActiveRecord::RecordInvalid
-    render '/users/step1', alert: '登録に失敗しました'
+    session.clear
+    redirect_to step1_users_path, alert: @user.errors.full_messages
   end
 
   def edit; end
 
   def update; end
+
+  def check_email
+    email = params[:email]
+    user_exists = User.exists?(email: email)
+    render json: { exists: user_exists }
+  end
 
   private
 
@@ -61,7 +72,6 @@ class UsersController < ApplicationController
 
   def split_hobby(hobby_str)
     return [] if hobby_str.nil?
-
     hobby_str.split(/[,、・]/).reject(&:empty?)
   end
 end
