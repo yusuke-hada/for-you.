@@ -43,7 +43,7 @@ class UsersController < ApplicationController
 
     session.clear
     session[:user_id] = @user.id
-    redirect_to root_path, notice: t('registration.success')
+    redirect_to root_path, notice: t('.success')
 
   rescue ActiveRecord::RecordInvalid
     session.clear
