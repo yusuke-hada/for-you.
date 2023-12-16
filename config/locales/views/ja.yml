@@ -2,6 +2,7 @@ ja:
   defaults:
     login: 'ログイン'
     logout: 'ログアウト'
+    registration: '会員登録'
   users:
     step1:
       title: 'ユーザー登録'
@@ -24,6 +25,7 @@ ja:
       success: 'ログインしました'
       failed: 'ログインに失敗しました'
     destroy:
+      confirm: 'ログアウトしますか？'
       success: 'ログアウトしました'
   errors:
       models:
