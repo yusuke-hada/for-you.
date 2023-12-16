@@ -1,4 +1,8 @@
 ja:
+  defaults:
+    login: 'ログイン'
+    logout: 'ログアウト'
+    registration: '会員登録'
   users:
     step1:
       title: 'ユーザー登録'
@@ -12,4 +16,50 @@ ja:
     step3:
       title: '欲しい物リスト'
       submit: '登録する'
+    create:
+      success: '登録が完了しました'
+  user_sessions:
+    new:
+      title: 'ログイン'
+    create:
+      success: 'ログインしました'
+      failed: 'ログインに失敗しました'
+    destroy:
+      confirm: 'ログアウトしますか？'
+      success: 'ログアウトしました'
+  errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: "を入力してください"
+            email:
+              blank: "を入力してください"
+              invalid: "は不正な値です"
+              taken: "は既に存在します"
+            password:
+              too_short: "は短すぎます（最小%{count}文字）"
+            password_confirmation:
+              blank: "を入力してください"
+              confirmation: 'パスワードが一致しません'
+            age:
+              blank: "を入力してください"
+              not_a_number: "は数値で入力してください"
+            gender:
+              blank: "を選択してください"
+        wish_list:
+          attributes:
+            item_name:
+              blank: "を入力してください"
+            description:
+              blank: "を入力してください"
+      messages:
+        blank: "を入力してください"
+        too_short: "は短すぎます（最小%{count}文字）"
+        not_a_number: "は数値で入力してください"
+        invalid: "は不正な値です"
+        greater_than_or_equal_to: "は%{count}以上の値にしてください"
+        less_than_or_equal_to: "は%{count}以下の値にしてください"
+        confirmation: 'が一致しません'
+    
   
