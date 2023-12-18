@@ -1,0 +1,9 @@
+# .rubocop.yml
+
+# Style/Documentationルールを適用しない
+Style/Documentation:
+  Enabled: false
+
+# Style/FrozenStringLiteralCommentルールを適用しない
+Style/FrozenStringLiteralComment:
+  Enabled: false
