@@ -2,6 +2,7 @@ Rails.application.routes.draw do
    get 'login', to: 'user_sessions#new'  
    post 'login', to: 'user_sessions#create'  
    delete 'logout', to: 'user_sessions#destroy'
+   # ログイン前と後でrootを分ける
    constraints ->  request { request.session[:user_id].present? } do
     root to: 'pages#after_login_top', as: :logged_in_root
   end
