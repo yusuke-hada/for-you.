@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def step1
     @user = User.new
   end
@@ -44,7 +43,6 @@ class UsersController < ApplicationController
     session.clear
     session[:user_id] = @user.id
     redirect_to root_path, notice: t('.success')
-
   rescue ActiveRecord::RecordInvalid
     session.clear
     redirect_to step1_users_path, alert: @user.errors.full_messages
@@ -56,7 +54,7 @@ class UsersController < ApplicationController
 
   def check_email
     email = params[:email]
-    user_exists = User.exists?(email: email)
+    user_exists = User.exists?(email:)
     render json: { exists: user_exists }
   end
 
@@ -72,6 +70,7 @@ class UsersController < ApplicationController
 
   def split_hobby(hobby_str)
     return [] if hobby_str.nil?
+
     hobby_str.split(/[,、・]/).reject(&:empty?)
   end
 end
