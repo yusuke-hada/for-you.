@@ -11,12 +11,16 @@ class GiftSuggestionsController < ApplicationController
   def create
     @gift_suggestion = current_user.gift_suggestions.build(gift_suggestion_params)
 
-    if @gift_suggestion.save
-      @answer = @gift_suggestion.get_suggestion
-      binding.pry
-      redirect_to  user_gift_suggestion_path(current_user, @gift_suggestion)
+    if @gift_suggestion.valid?
+      @gift_suggestion.result = @gift_suggestion.get_suggestion
+      if @gift_suggestion.save
+        redirect_to user_gift_suggestion_path(current_user, @gift_suggestion)
+      else
+        flash.now[:alert] = "失敗しました"
+        render :new
+      end
     else
-      flash.now[:alert] = "失敗しました"
+      flash.now[:alert] = "入力内容に誤りがあります"
       render :new
     end
   end
