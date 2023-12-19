@@ -15,4 +15,9 @@ class GiftSuggestionsController < ApplicationController
     end
   end
 
+  def new
+    @gift_suggestion = GiftSuggestion.new
+  end
+
+  def create ;end
 end

@@ -1,0 +1,2 @@
+class GiftSuggestion < ApplicationRecord
+end
