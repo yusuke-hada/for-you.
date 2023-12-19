@@ -77,3 +77,4 @@ end
 
 gem 'enum_help'
 gem 'sorcery'
+gem "ruby-openai"

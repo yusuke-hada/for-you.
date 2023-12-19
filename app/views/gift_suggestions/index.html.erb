@@ -1,0 +1,11 @@
+<div class="question">
+  <%= form_with(url: user_gift_suggestions_path, method: :get) do |f| %>
+    <%= f.label :question,"相談内容" %>
+    <%= f.text_field :question, size: 50 %>
+    <%= f.submit "プレゼントを提案" %>
+  <% end %>
+</div>
+
+<div class="answer">
+  <%= @answer %>
+</div>
