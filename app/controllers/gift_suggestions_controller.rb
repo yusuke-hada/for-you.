@@ -1,23 +1,34 @@
 require 'openai'
 class GiftSuggestionsController < ApplicationController
   def index
-    if params[:question].present?
-        client = OpenAI::Client.new(access_token: Rails.application.credentials.API_KEYS[:OPENAI_API])
-        response = client.chat(
-        parameters: {
-            model: "gpt-3.5-turbo",
-            messages: [
-                { role: "system", content: "対象者の性別、年齢、趣味、職業、興味に基づいて、一つのギフトアイデア（商品名のみ）を教えてください"},
-                { role: "user", content: params[:question] }
-            ]
-        })
-        @answer = response.dig("choices", 0, "message", "content")
-    end
+    @gift_suggestions = GiftSuggestion.new
   end
 
   def new
     @gift_suggestion = GiftSuggestion.new
   end
 
-  def create ;end
+  def create
+    @gift_suggestion = current_user.gift_suggestions.build(gift_suggestion_params)
+
+    if @gift_suggestion.save
+      @answer = @gift_suggestion.get_suggestion
+      binding.pry
+      redirect_to  user_gift_suggestion_path(current_user, @gift_suggestion)
+    else
+      flash.now[:alert] = "失敗しました"
+      render :new
+    end
+  end
+
+  def show
+    @gift_suggestion = GiftSuggestion.find(params[:id])
+  end
+
+  private
+
+  def gift_suggestion_params
+    params.require(:gift_suggestion).permit(:age, :gender, :business, :hobby, :interest, :purpose, :relationship, :user_id)
+  end
+
 end
