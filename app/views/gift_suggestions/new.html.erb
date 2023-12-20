@@ -1,39 +1,40 @@
 <div class="container max-w-2xl mx-auto ">
-  <h1 class="mb-5 text-4xl text-center">ギフト相談</h1>
+  <h1 class="mb-5 text-4xl text-center"><%= t('.title') %></h1>
   <%= form_with model: @gift_suggestion, url:  user_gift_suggestions_path, local: true, data: { turbo: false }, class: "w-full p-6 bg-white rounded-lg" do |f| %>
+    <h2 class="mb-5 text-2xl text-center"><%= t('.enter_info') %></h2>
     <div class="flex flex-wrap -mx-2">
-    <div class="w-full md:w-1/2 px-2 mb-4">
-      <%= f.label :age, class: "block text-gray-700 text-sm font-bold mb-2" %>
-      <%= f.number_field :age, min: 0, max: 120, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outlin" %>
-    </div>
-    <div class="w-full md:w-1/2 px-2 mb-4">
-      <%= f.label :gender, class: "block text-gray-700 text-sm font-bold mb-2" %>
-      <%= f.select :gender, User.genders.keys.map { |k| [I18n.t("enums.user.gender.#{k}"),k]},
+      <div class="w-full md:w-1/2 px-2 mb-4">
+        <%= f.label :age, class: "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= f.number_field :age, min: 0, max: 120, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outlin" %>
+      </div>
+      <div class="w-full md:w-1/2 px-2 mb-4">
+        <%= f.label :gender, class: "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= f.select :gender, User.genders.keys.map { |k| [I18n.t("enums.user.gender.#{k}"),k]},
                  { prompt: t('.select_gender') }, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
-    </div>
-    <div class="w-full md:w-1/2 px-2 mb-4">
-      <%= f.label :business, class: "block text-gray-700 text-sm font-bold mb-2" %>
-      <%= f.text_field :business, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" %>
-    </div>
-    <div class="w-full md:w-1/2 px-2 mb-4">
-      <%= f.label :hobby, t('.input_hobby'), class: "block text-gray-700 text-sm font-bold mb-2" %>
-      <%= f.text_field :hobby, placeholder: t('.delimit_hobby'), class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" %>
-    </div>
-    <div class="w-full md:w-1/2 px-2 mb-4">
-      <%= f.label :interest, class: "block text-gray-700 text-sm font-bold mb-2" %>
-      <%= f.text_field :interest, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" %>
-    </div>
-    <div class="w-full md:w-1/2 px-2 mb-4">
-      <%= f.label :purpose, class: "block text-gray-700 text-sm font-bold mb-2" %>
-      <%= f.text_field :purpose, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" %>
-    </div>
-    <div class="w-full md:w-1/2 px-2 mb-4">
-      <%= f.label :relationship, class: "block text-gray-700 text-sm font-bold mb-2" %>
-      <%= f.text_field :relationship, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" %>
-    </div>
+      </div>
+      <div class="w-full md:w-1/2 px-2 mb-4">
+        <%= f.label :business, class: "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= f.text_field :business, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" %>
+      </div>
+      <div class="w-full md:w-1/2 px-2 mb-4">
+        <%= f.label :hobby, t('.input_hobby'), class: "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= f.text_field :hobby, placeholder: t('.delimit_hobby'), class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" %>
+      </div>
+      <div class="w-full md:w-1/2 px-2 mb-4">
+        <%= f.label :interest, class: "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= f.text_field :interest, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" %>
+      </div>
+      <div class="w-full md:w-1/2 px-2 mb-4">
+        <%= f.label :purpose, class: "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= f.text_field :purpose, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" %>
+      </div>
+      <div class="w-full md:w-1/2 px-2 mb-4">
+        <%= f.label :relationship, class: "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= f.text_field :relationship, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" %>
+      </div>
     </div>
     <div class="flex items-center justify-between">
-      <%= f.submit "提案を受ける", class: " mx-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+      <%= f.submit t('.submit'), class: " mx-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
     </div>
   <% end %>
 </div>
