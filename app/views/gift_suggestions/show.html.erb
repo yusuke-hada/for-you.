@@ -1,17 +1,19 @@
-<h1 class="text-center text-2xl font-bold mb-4">ギフト提案結果</h1>
+<div class="container max-w-2xl mx-auto ">
+  <h1 class="text-center text-2xl font-bold mb-4">ギフト提案結果</h1>
 
-<div class="max-w-2xl mx-auto mb-6">
-  <h2 class="text-xl font-bold mb-3">ユーザーの入力:</h2>
-  <p><%= @gift_suggestion.format_input %></p>
-</div>
+  <div class="max-w-2xl mx-auto mb-6">
+    <h2 class="text-xl font-bold mb-3">ユーザーの入力:</h2>
+    <p><%= @gift_suggestion.format_input %></p>
+  </div>
 
-<div class="max-w-2xl mx-auto">
-  <% if @answer.present? %>
-    <p class="text-lg mb-4">以下の情報に基づいて、AIが提案したギフトアイデアです</p>
-    <div class="bg-gray-100 p-4 rounded-lg">
-      <%= @answer %>
-    </div>
-  <% else %>
-    <p>ギフト提案は見つかりませんでした。</p>
-  <% end %>
+  <div class="max-w-2xl mx-auto">
+    <% if @gift_suggestion.result.present? %>
+      <p class="text-lg mb-4">以下の情報に基づいて、AIが提案したギフトアイデアです</p>
+      <div class="bg-gray-100 p-4 rounded-lg">
+        <%= @gift_suggestion.result %>
+      </div>
+    <% else %>
+      <p>ギフト提案は見つかりませんでした。</p>
+    <% end %>
+  </div>
 </div>

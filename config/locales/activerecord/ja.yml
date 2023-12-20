@@ -19,6 +19,14 @@ ja:
       wish_lists:
         item_name: '欲しいもの'
         description: '詳細'
+      gift_suggestion:
+        age: '年齢'
+        gender: '性別'
+        business: '職業'
+        hobby: '趣味'
+        interest: '興味のあること'
+        purpose: 'プレゼントの目的'
+        relationship: '関係性'
   enums:
     user:
       gender:

@@ -1,7 +1,7 @@
 require 'openai'
 class GiftSuggestionsController < ApplicationController
   def index
-    @gift_suggestions = GiftSuggestion.new
+    @gift_suggestions =  current_user.gift_suggestions
   end
 
   def new
@@ -10,17 +10,18 @@ class GiftSuggestionsController < ApplicationController
 
   def create
     @gift_suggestion = current_user.gift_suggestions.build(gift_suggestion_params)
-
-    if @gift_suggestion.valid?
-      @gift_suggestion.result = @gift_suggestion.get_suggestion
-      if @gift_suggestion.save
-        redirect_to user_gift_suggestion_path(current_user, @gift_suggestion)
-      else
-        flash.now[:alert] = "失敗しました"
-        render :new
-      end
+  
+    unless @gift_suggestion.valid?
+      flash.now[:alert] = @gift_suggestion.errors.full_messages
+      return render :new
+    end
+  
+    @gift_suggestion.result = @gift_suggestion.get_suggestion
+  
+    if @gift_suggestion.save
+      redirect_to user_gift_suggestion_path(current_user, @gift_suggestion)
     else
-      flash.now[:alert] = "入力内容に誤りがあります"
+      flash.now[:alert] = @gift_suggestion.get_suggestion
       render :new
     end
   end
@@ -33,6 +34,12 @@ class GiftSuggestionsController < ApplicationController
 
   def gift_suggestion_params
     params.require(:gift_suggestion).permit(:age, :gender, :business, :hobby, :interest, :purpose, :relationship, :user_id)
+  end
+
+  def split_hobby(hobby_str)
+    return [] if hobby_str.nil?
+
+    hobby_str.split(/[,、・]/).reject(&:empty?)
   end
 
 end

@@ -27,6 +27,10 @@ ja:
     destroy:
       confirm: 'ログアウトしますか？'
       success: 'ログアウトしました'
+  gift_suggestions:
+    new:
+      title: 'AIに相談する'
+      
   errors:
       models:
         user:
