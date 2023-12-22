@@ -1,19 +1,27 @@
-<div class="container max-w-2xl mx-auto ">
-  <h1 class="text-center text-2xl font-bold mb-4">ギフト提案結果</h1>
+<div class="container max-w-2xl mx-auto p-4">
+  <h1 class="text-center text-3xl font-bold mb-6">ギフト提案結果</h1>
 
-  <div class="max-w-2xl mx-auto mb-6">
-    <h2 class="text-xl font-bold mb-3">ユーザーの入力:</h2>
-    <p><%= @gift_suggestion.format_input %></p>
+  <div class="mb-8">
+  <h2 class="text-xl font-semibold mb-4">ユーザーの入力:</h2>
+  <div class="bg-gray-100 p-3 rounded-md text-center">
+    <p><strong>年齢:</strong> <%= @gift_suggestion.age %></p>
+    <p><strong>性別:</strong> <%= I18n.t("enums.gift_suggestion.gender.#{@gift_suggestion.gender}") %></p>
+    <p><strong>職業:</strong> <%= @gift_suggestion.business %></p>
+    <p><strong>趣味:</strong> <%= @gift_suggestion.hobby %></p>
+    <p><strong>興味:</strong> <%= @gift_suggestion.interest %></p>
+    <p><strong>プレゼントの目的:</strong> <%= @gift_suggestion.purpose %></p>
+    <p><strong>関係性:</strong> <%= @gift_suggestion.relationship %></p>
   </div>
+</div>
 
-  <div class="max-w-2xl mx-auto">
+  <div>
     <% if @gift_suggestion.result.present? %>
-      <p class="text-lg mb-4">以下の情報に基づいて、AIが提案したギフトアイデアです</p>
-      <div class="bg-gray-100 p-4 rounded-lg">
+      <p class="text-lg font-semibold mb-4">AIからの提案:</p>
+      <div class="bg-white p-4 rounded-lg shadow-md">
         <%= @gift_suggestion.result %>
       </div>
     <% else %>
-      <p>ギフト提案は見つかりませんでした。</p>
+      <p class="text-red-600">ギフト提案は見つかりませんでした。</p>
     <% end %>
   </div>
 </div>

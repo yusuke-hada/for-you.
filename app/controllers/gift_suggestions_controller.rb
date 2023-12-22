@@ -1,7 +1,7 @@
 require 'openai'
 class GiftSuggestionsController < ApplicationController
   def index
-    @gift_suggestions =  current_user.gift_suggestions
+    @gift_suggestions = current_user.gift_suggestions
   end
 
   def new
@@ -10,14 +10,15 @@ class GiftSuggestionsController < ApplicationController
 
   def create
     @gift_suggestion = current_user.gift_suggestions.build(gift_suggestion_params)
-  
+    @gift_suggestion.hobby = split_hobby(@gift_suggestion.hobby)
+
     unless @gift_suggestion.valid?
       flash.now[:alert] = @gift_suggestion.errors.full_messages
       return render :new
     end
-  
+
     @gift_suggestion.result = @gift_suggestion.get_suggestion
-  
+
     if @gift_suggestion.save
       redirect_to user_gift_suggestion_path(current_user, @gift_suggestion)
     else
@@ -41,5 +42,4 @@ class GiftSuggestionsController < ApplicationController
 
     hobby_str.split(/[,、・]/).reject(&:empty?)
   end
-
 end

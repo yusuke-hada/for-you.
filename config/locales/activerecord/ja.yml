@@ -36,5 +36,8 @@ ja:
       role:
         general: '一般'
         admin: '管理者'
-          
-
+    gift_suggestion:
+      gender:
+        man: '男性'
+        woman: '女性'
+        other: 'その他'
