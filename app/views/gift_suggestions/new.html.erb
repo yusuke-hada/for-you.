@@ -1,6 +1,6 @@
 <div class="container max-w-2xl mx-auto ">
   <h1 class="mb-5 text-4xl text-center"><%= t('.title') %></h1>
-  <%= form_with model: @gift_suggestion, url:  user_gift_suggestions_path, local: true, data: { turbo: false }, class: "w-full p-6 bg-white rounded-lg" do |f| %>
+  <%= form_with model: @gift_suggestion, url: user_gift_suggestions_path(current_user), local: true, data: { turbo: false }, class: "w-full p-6 bg-white rounded-lg" do |f| %>
     <h2 class="mb-5 text-2xl text-center"><%= t('.enter_info') %></h2>
     <div class="flex flex-wrap -mx-2">
       <div class="w-full md:w-1/2 px-2 mb-4">
