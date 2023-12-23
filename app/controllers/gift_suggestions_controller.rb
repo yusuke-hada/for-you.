@@ -9,8 +9,9 @@ class GiftSuggestionsController < ApplicationController
   end
 
   def create
-    @gift_suggestion = current_user.gift_suggestions.build(gift_suggestion_params)
-    @gift_suggestion.hobby = split_hobby(@gift_suggestion.hobby)
+    @gift_suggestion = current_user.gift_suggestions.build(gift_suggestion_params.except(:hobbies))
+    @gift_suggestion.hobbies = split_hobby(gift_suggestion_params[:hobbies])
+    binding.pry
 
     unless @gift_suggestion.valid?
       flash.now[:alert] = @gift_suggestion.errors.full_messages
@@ -34,7 +35,7 @@ class GiftSuggestionsController < ApplicationController
   private
 
   def gift_suggestion_params
-    params.require(:gift_suggestion).permit(:age, :gender, :business, :hobby, :interest, :purpose, :relationship, :user_id)
+    params.require(:gift_suggestion).permit(:age, :gender, :business, :interest, :purpose, :relationship, :user_id, :hobbies)
   end
 
   def split_hobby(hobby_str)

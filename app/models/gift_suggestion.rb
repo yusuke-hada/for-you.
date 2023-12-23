@@ -2,7 +2,7 @@ class GiftSuggestion < ApplicationRecord
   belongs_to :user
   validates :age, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 120 }
   validates :business, presence: true, length: { maximum: 20 }
-  validates :hobby, presence: true, length: { maximum: 20 }
+  validates :hobbies, presence: true, length: { maximum: 20 }
   validates :interest, presence: true, length: { maximum: 20 }
   validates :purpose, presence: true, length: { maximum: 20 }
   validates :relationship, presence: true, length: { maximum: 20 }
@@ -24,6 +24,6 @@ class GiftSuggestion < ApplicationRecord
   end
 
   def format_input
-    "年齢: #{age}, 性別: #{gender}, 職業: #{business}, 趣味: #{hobby}, 興味: #{interest}, プレゼントの目的: #{purpose}, 関係性: #{relationship}"
+    "年齢: #{age}, 性別: #{gender}, 職業: #{business}, 趣味: #{hobbies}, 興味: #{interest}, プレゼントの目的: #{purpose}, 関係性: #{relationship}"
   end
 end

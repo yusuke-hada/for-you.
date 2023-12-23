@@ -23,7 +23,7 @@ ja:
         age: '年齢'
         gender: '性別'
         business: '職業'
-        hobby: '趣味'
+        hobbies: '趣味'
         interest: '興味のあること'
         purpose: 'プレゼントの目的'
         relationship: '関係性'
