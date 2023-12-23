@@ -11,7 +11,6 @@ class GiftSuggestionsController < ApplicationController
   def create
     @gift_suggestion = current_user.gift_suggestions.build(gift_suggestion_params.except(:hobbies))
     @gift_suggestion.hobbies = split_hobby(gift_suggestion_params[:hobbies])
-    binding.pry
 
     unless @gift_suggestion.valid?
       flash.now[:alert] = @gift_suggestion.errors.full_messages

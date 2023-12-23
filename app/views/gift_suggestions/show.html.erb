@@ -7,7 +7,7 @@
     <p><strong>年齢:</strong> <%= @gift_suggestion.age %></p>
     <p><strong>性別:</strong> <%= I18n.t("enums.gift_suggestion.gender.#{@gift_suggestion.gender}") %></p>
     <p><strong>職業:</strong> <%= @gift_suggestion.business %></p>
-    <p><strong>趣味:</strong> <%= @gift_suggestion.hobby %></p>
+    <p><strong>趣味:</strong> <%= @gift_suggestion.hobbies.join(", ") %></p>
     <p><strong>興味:</strong> <%= @gift_suggestion.interest %></p>
     <p><strong>プレゼントの目的:</strong> <%= @gift_suggestion.purpose %></p>
     <p><strong>関係性:</strong> <%= @gift_suggestion.relationship %></p>
@@ -17,7 +17,7 @@
   <div>
     <% if @gift_suggestion.result.present? %>
       <p class="text-lg font-semibold mb-4">AIからの提案:</p>
-      <div class="bg-white p-4 rounded-lg shadow-md">
+      <div class="bg-white p-4 rounded-lg shadow-md text-center">
         <%= @gift_suggestion.result %>
       </div>
     <% else %>
