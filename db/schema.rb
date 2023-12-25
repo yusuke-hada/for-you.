@@ -10,9 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 20_231_205_063_425) do
+ActiveRecord::Schema[7.0].define(version: 20_231_222_125_921) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
+
+  create_table 'gift_suggestions', force: :cascade do |t|
+    t.integer 'age', null: false
+    t.integer 'gender', null: false
+    t.string 'business', limit: 20, null: false
+    t.string 'interest', limit: 20, null: false
+    t.string 'purpose', limit: 20, null: false
+    t.string 'relationship', limit: 20, null: false
+    t.bigint 'user_id', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.string 'result'
+    t.string 'hobbies', default: [], array: true
+    t.index ['user_id'], name: 'index_gift_suggestions_on_user_id'
+  end
 
   create_table 'users', force: :cascade do |t|
     t.string 'email', null: false
@@ -38,5 +53,6 @@ ActiveRecord::Schema[7.0].define(version: 20_231_205_063_425) do
     t.index ['user_id'], name: 'index_wish_lists_on_user_id'
   end
 
+  add_foreign_key 'gift_suggestions', 'users'
   add_foreign_key 'wish_lists', 'users'
 end

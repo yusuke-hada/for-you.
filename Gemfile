@@ -76,5 +76,5 @@ group :test do
 end
 
 gem 'enum_help'
+gem 'ruby-openai'
 gem 'sorcery'
-gem "ruby-openai"
