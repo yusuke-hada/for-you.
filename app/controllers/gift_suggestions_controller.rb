@@ -34,7 +34,10 @@ class GiftSuggestionsController < ApplicationController
   private
 
   def gift_suggestion_params
-    params.require(:gift_suggestion).permit(:age, :gender, :business, :interest, :purpose, :relationship, :user_id, :hobbies)
+    params.require(:gift_suggestion).permit(
+      :age, :gender, :business, :interest,
+      :purpose, :relationship, :user_id, :hobbies
+    )
   end
 
   def split_hobby(hobby_str)
