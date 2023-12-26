@@ -1,4 +1,5 @@
 require 'openai'
+require 'rakuten_web_service'
 class GiftSuggestionsController < ApplicationController
   def index
     @gift_suggestions = current_user.gift_suggestions
@@ -18,7 +19,7 @@ class GiftSuggestionsController < ApplicationController
     end
 
     @gift_suggestion.result = @gift_suggestion.get_suggestion
-
+    
     if @gift_suggestion.save
       redirect_to user_gift_suggestion_path(current_user, @gift_suggestion)
     else
@@ -29,6 +30,7 @@ class GiftSuggestionsController < ApplicationController
 
   def show
     @gift_suggestion = GiftSuggestion.find(params[:id])
+    @items = RakutenWebService::Ichiba::Item.search(keyword: @gift_suggestion.result, hits: 3)
   end
 
   private

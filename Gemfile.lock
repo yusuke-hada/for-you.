@@ -213,6 +213,8 @@ GEM
       zeitwerk (~> 2.5)
     rainbow (3.1.1)
     rake (13.1.0)
+    rakuten_web_service (1.13.2)
+      json (~> 2.3)
     rdoc (6.6.0)
       psych (>= 4.0.0)
     regexp_parser (2.8.2)
@@ -304,6 +306,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 5.0)
   rails (~> 7.0.8)
+  rakuten_web_service
   rubocop
   rubocop-rails
   ruby-openai

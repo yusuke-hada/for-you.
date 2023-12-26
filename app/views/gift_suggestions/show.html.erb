@@ -1,27 +1,57 @@
 <div class="container max-w-2xl mx-auto p-4">
-  <h1 class="text-center text-3xl font-bold mb-6">ギフト提案結果</h1>
+  <h1 class="text-center text-3xl font-bold mb-6"><%= t('.title') %></h1>
 
   <div class="mb-8">
-  <h2 class="text-xl font-semibold mb-4">ユーザーの入力:</h2>
-  <div class="bg-gray-100 p-3 rounded-md text-center">
-    <p><strong>年齢:</strong> <%= @gift_suggestion.age %></p>
-    <p><strong>性別:</strong> <%= I18n.t("enums.gift_suggestion.gender.#{@gift_suggestion.gender}") %></p>
-    <p><strong>職業:</strong> <%= @gift_suggestion.business %></p>
-    <p><strong>趣味:</strong> <%= @gift_suggestion.hobbies.join(", ") %></p>
-    <p><strong>興味:</strong> <%= @gift_suggestion.interest %></p>
-    <p><strong>プレゼントの目的:</strong> <%= @gift_suggestion.purpose %></p>
-    <p><strong>関係性:</strong> <%= @gift_suggestion.relationship %></p>
+    <h2 class="text-xl font-semibold mb-4"><%= t('.user_result') %></h2>
+    <div class="bg-gray-100 p-3 rounded-md text-center">
+      <p><strong><%= GiftSuggestion.human_attribute_name(:age) %>:</strong> <%= @gift_suggestion.age %></p>
+      <p><strong><%= GiftSuggestion.human_attribute_name(:gender) %>:</strong> <%= I18n.t("enums.gift_suggestion.gender.#{@gift_suggestion.gender}") %></p>
+      <p><strong><%= GiftSuggestion.human_attribute_name(:business) %>:</strong> <%= @gift_suggestion.business %></p>
+      <p><strong><%= GiftSuggestion.human_attribute_name(:hobbies) %>:</strong> <%= @gift_suggestion.hobbies.join(", ") %></p>
+      <p><strong><%= GiftSuggestion.human_attribute_name(:interest) %>:</strong> <%= @gift_suggestion.interest %></p>
+      <p><strong><%= GiftSuggestion.human_attribute_name(:purpose) %>:</strong> <%= @gift_suggestion.purpose %></p>
+      <p><strong><%= GiftSuggestion.human_attribute_name(:relationship) %>:</strong> <%= @gift_suggestion.relationship %></p>
+    </div>
   </div>
-</div>
 
   <div>
     <% if @gift_suggestion.result.present? %>
-      <p class="text-lg font-semibold mb-4">AIからの提案:</p>
+      <p class="text-lg font-semibold mb-4"><%= t('.ai_result') %></p>
       <div class="bg-white p-4 rounded-lg shadow-md text-center">
         <%= @gift_suggestion.result %>
       </div>
     <% else %>
-      <p class="text-red-600">ギフト提案は見つかりませんでした</p>
+      <p class="text-red-600"><%= t('.no_result') %></p>
     <% end %>
   </div>
+
+  <% if @items.any? %>
+    <h2 class="text-center text-xl font-bold my-4"><%= t('.rakuten_title') %></h2>
+    <div class="flex flex-wrap justify-between">
+      <% @items.each do |item| %>
+        <div class="flex flex-col items-center w-1/3 p-4">
+          <%= link_to item.url, target: "_blank" do %>
+            <% if item.medium_image_urls.present? %>
+              <%= image_tag item.medium_image_urls.first, class: 'w-full h-auto' %>
+            <% end %>
+            <h3 class="text-lg font-semibold mt-2">
+              <%= item.name %>
+            </h3>
+            <p class="mt-1"><%= item.price %>円</p>
+          <% end %>
+        </div>
+      <% end %>
+        <div class="flex justify-center">
+          <button class="text-center bg-blue-500 hover:bg-blue-400 text-white rounded px-4 py-2 mt-4">
+            <%= link_to t('.rakuten_more_link'), "https://search.rakuten.co.jp/search/mall/#{CGI.escape(@gift_suggestion.result)}", target: "_blank" %>
+          </button>
+        </div>
+    </div>
+  <% else %>
+      <div class="flex justify-center">
+        <button class="text-center bg-blue-500 hover:bg-blue-400 text-white rounded px-4 py-2 mt-4">
+          <%= link_to t('.google_search_link'), "https://www.google.com/search?q=#{CGI.escape(@gift_suggestion.result)}", target: "_blank" %>
+        </button>
+      </div>
+  <% end %>
 </div>

@@ -16,7 +16,7 @@ class GiftSuggestion < ApplicationRecord
         model: 'gpt-3.5-turbo',
         messages: [
           { role: 'system',
-            content: '以下の情報に基づいてプレゼント提案(商品名を一つ、理由などを述べずに商品名だけ、ネットショップで購入出来る現実的なもの)を行ってください、提案には"「","」"を付けないでください' },
+            content: '以下の情報に基づいてプレゼント提案(商品名を一つ、理由などを述べずに必ず商品名だけ、ネットショップで購入出来る現実的なもの)を行ってください、提案には"「","」"を付けないでください' },
           { role: 'user', content: format_input }
         ]
       }
@@ -25,6 +25,14 @@ class GiftSuggestion < ApplicationRecord
   end
 
   def format_input
-    "年齢: #{age}, 性別: #{gender}, 職業: #{business}, 趣味: #{hobbies}, 興味: #{interest}, プレゼントの目的: #{purpose}, 関係性: #{relationship}"
+    [
+      "#{GiftSuggestion.human_attribute_name(:age)}: #{age}",
+      "#{GiftSuggestion.human_attribute_name(:gender)}: #{gender}",
+      "#{GiftSuggestion.human_attribute_name(:business)}: #{business}",
+      "#{GiftSuggestion.human_attribute_name(:hobbies)}: #{hobbies}",
+      "#{GiftSuggestion.human_attribute_name(:interest)}: #{interest}",
+      "#{GiftSuggestion.human_attribute_name(:purpose)}: #{purpose}",
+      "#{GiftSuggestion.human_attribute_name(:relationship)}: #{relationship}"
+    ].join(", ")
   end
 end
