@@ -19,7 +19,7 @@ class GiftSuggestionsController < ApplicationController
     end
 
     @gift_suggestion.result = @gift_suggestion.get_suggestion
-
+    
     if @gift_suggestion.save
       redirect_to user_gift_suggestion_path(current_user, @gift_suggestion)
     else

@@ -25,13 +25,14 @@ class GiftSuggestion < ApplicationRecord
   end
 
   def format_input
-    binding.pry
-    "#{GiftSuggestion.human_attribute_name(:age)}: #{age}, " +
-    "#{GiftSuggestion.human_attribute_name(:gender)}: #{gender}, " +
-    "#{GiftSuggestion.human_attribute_name(:business)}: #{business}, " +
-    "#{GiftSuggestion.human_attribute_name(:hobbies)}: #{hobbies}, " +
-    "#{GiftSuggestion.human_attribute_name(:interest)}: #{interest}, " +
-    "#{GiftSuggestion.human_attribute_name(:purpose)}: #{purpose}, " +
-    "#{GiftSuggestion.human_attribute_name(:relationship)}: #{relationship}"
+    [
+      "#{GiftSuggestion.human_attribute_name(:age)}: #{age}",
+      "#{GiftSuggestion.human_attribute_name(:gender)}: #{gender}",
+      "#{GiftSuggestion.human_attribute_name(:business)}: #{business}",
+      "#{GiftSuggestion.human_attribute_name(:hobbies)}: #{hobbies}",
+      "#{GiftSuggestion.human_attribute_name(:interest)}: #{interest}",
+      "#{GiftSuggestion.human_attribute_name(:purpose)}: #{purpose}",
+      "#{GiftSuggestion.human_attribute_name(:relationship)}: #{relationship}"
+    ].join(", ")
   end
 end

@@ -76,6 +76,6 @@ group :test do
 end
 
 gem 'enum_help'
+gem 'rakuten_web_service'
 gem 'ruby-openai'
 gem 'sorcery'
-gem 'rakuten_web_service'
