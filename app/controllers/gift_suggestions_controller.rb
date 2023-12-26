@@ -30,7 +30,7 @@ class GiftSuggestionsController < ApplicationController
 
   def show
     @gift_suggestion = GiftSuggestion.find(params[:id])
-    @items = RakutenWebService::Ichiba::Item.search(keyword: @gift_suggestion.result)
+    @items = RakutenWebService::Ichiba::Item.search(keyword: @gift_suggestion.result, hits: 3)
   end
 
   private

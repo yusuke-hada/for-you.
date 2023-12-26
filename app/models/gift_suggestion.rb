@@ -16,7 +16,7 @@ class GiftSuggestion < ApplicationRecord
         model: 'gpt-3.5-turbo',
         messages: [
           { role: 'system',
-            content: '以下の情報に基づいてプレゼント提案(商品名を一つ、理由などを述べずに商品名だけ、ネットショップで購入出来る現実的なもの)を行ってください、提案には"「","」"を付けないでください' },
+            content: '以下の情報に基づいてプレゼント提案(商品名を一つ、理由などを述べずに必ず商品名だけ、ネットショップで購入出来る現実的なもの)を行ってください、提案には"「","」"を付けないでください' },
           { role: 'user', content: format_input }
         ]
       }
