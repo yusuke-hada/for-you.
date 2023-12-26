@@ -1,4 +1,5 @@
 require 'openai'
+require 'rakuten_web_service'
 class GiftSuggestionsController < ApplicationController
   def index
     @gift_suggestions = current_user.gift_suggestions
@@ -29,6 +30,7 @@ class GiftSuggestionsController < ApplicationController
 
   def show
     @gift_suggestion = GiftSuggestion.find(params[:id])
+    @items = RakutenWebService::Ichiba::Item.search(keyword: @gift_suggestion.result)
   end
 
   private
