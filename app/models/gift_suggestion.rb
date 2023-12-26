@@ -25,6 +25,13 @@ class GiftSuggestion < ApplicationRecord
   end
 
   def format_input
-    "年齢: #{age}, 性別: #{gender}, 職業: #{business}, 趣味: #{hobbies}, 興味: #{interest}, プレゼントの目的: #{purpose}, 関係性: #{relationship}"
+    binding.pry
+    "#{GiftSuggestion.human_attribute_name(:age)}: #{age}, " +
+    "#{GiftSuggestion.human_attribute_name(:gender)}: #{gender}, " +
+    "#{GiftSuggestion.human_attribute_name(:business)}: #{business}, " +
+    "#{GiftSuggestion.human_attribute_name(:hobbies)}: #{hobbies}, " +
+    "#{GiftSuggestion.human_attribute_name(:interest)}: #{interest}, " +
+    "#{GiftSuggestion.human_attribute_name(:purpose)}: #{purpose}, " +
+    "#{GiftSuggestion.human_attribute_name(:relationship)}: #{relationship}"
   end
 end
