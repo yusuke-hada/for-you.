@@ -78,3 +78,4 @@ end
 gem 'enum_help'
 gem 'ruby-openai'
 gem 'sorcery'
+gem 'rakuten_web_service'
