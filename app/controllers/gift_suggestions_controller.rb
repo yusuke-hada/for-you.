@@ -2,8 +2,8 @@ require 'openai'
 require 'rakuten_web_service'
 class GiftSuggestionsController < ApplicationController
   def index
-    @gift_suggestions = current_user.gift_suggestions
-  end
+    @gift_suggestions = current_user.gift_suggestions.page(params[:page]).per(5)
+  end  
 
   def new
     @gift_suggestion = GiftSuggestion.new
@@ -31,6 +31,12 @@ class GiftSuggestionsController < ApplicationController
   def show
     @gift_suggestion = GiftSuggestion.find(params[:id])
     @items = RakutenWebService::Ichiba::Item.search(keyword: @gift_suggestion.result, hits: 3)
+  end
+
+  def destroy
+    gift_suggestion = current_user.gift_suggestions.find(params[:id])
+    gift_suggestion.destroy!
+    redirect_to user_gift_suggestions_path(current_user), success: t('.success'), status: :see_other
   end
 
   private

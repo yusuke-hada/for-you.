@@ -28,6 +28,9 @@ ja:
       confirm: 'ログアウトしますか？'
       success: 'ログアウトしました'
   gift_suggestions:
+    index:
+      title: 'プレゼント相談履歴'
+      confirm: '本当に削除しますか？'
     new:
       title: 'AIに相談する'
       enter_info: '相手の情報を入力してください'

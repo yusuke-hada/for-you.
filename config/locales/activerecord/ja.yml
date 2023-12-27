@@ -27,6 +27,8 @@ ja:
         interest: '興味のあること'
         purpose: 'プレゼントの目的'
         relationship: '関係性'
+        created_at: '相談日時'
+        result: '提案された商品'
   enums:
     user:
       gender:
