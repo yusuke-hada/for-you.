@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       get 'step2'
       get 'step3'
     end
-    resources :gift_suggestions, only: %i[index new create show]
+    resources :gift_suggestions, only: %i[index new create show destroy]
     resources :wish_lists
   end
 end
