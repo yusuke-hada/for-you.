@@ -29,7 +29,7 @@ ja:
       success: 'ログアウトしました'
   gift_suggestions:
     index:
-      title: 'プレゼント相談履歴'
+      title: 'プレゼント相談履歴一覧'
       confirm: '本当に削除しますか？'
     new:
       title: 'AIに相談する'
@@ -39,13 +39,15 @@ ja:
       delimit_hobby: '、や・で区切って下さい'
       submit: '提案を受ける'
     show:
-      title: 'ギフト提案結果'
+      title: 'プレゼント提案結果'
       user_result: 'ユーザーの入力:'
       ai_result: 'AIからの提案:'
       no_result: 'ギフト提案は見つかりませんでした'
       rakuten_title: '楽天市場の検索上位'
       google_search_link: 'Googleで検索する'
       rakuten_more_link: '楽天市場で検索結果を更に見る'
+      suggestion_again: 'もう一度相談する'
+      back_to_list: '相談履歴一覧に戻る'
     destroy:
       success: '削除しました'
   errors:
