@@ -17,4 +17,8 @@ Rails.application.routes.draw do
     resources :gift_suggestions, only: %i[index new create show destroy]
     resources :wish_lists
   end
+  get 'autocomplete/business', to: 'autocomplete#business'
+  get 'autocomplete/interest', to: 'autocomplete#interest'
+  get 'autocomplete/relationship', to: 'autocomplete#relationship'
+  get 'autocomplete/purpose', to: 'autocomplete#purpose'
 end
