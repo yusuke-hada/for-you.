@@ -2,7 +2,7 @@ require 'openai'
 require 'rakuten_web_service'
 class GiftSuggestionsController < ApplicationController
   def index
-    @gift_suggestions = current_user.gift_suggestions.page(params[:page]).per(5)
+    @gift_suggestions = current_user.gift_suggestions.order(created_at: :desc).page(params[:page]).per(5)
   end  
 
   def new
