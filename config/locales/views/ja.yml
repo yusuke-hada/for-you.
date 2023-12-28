@@ -3,6 +3,9 @@ ja:
     login: 'ログイン'
     logout: 'ログアウト'
     registration: '会員登録'
+  pages:
+    after_login_top:
+      consult_ai: 'AIにプレゼントを相談する'
   users:
     step1:
       title: 'ユーザー登録'
