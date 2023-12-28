@@ -41,17 +41,13 @@
           <% end %>
         </div>
       <% end %>
-        <div class="flex justify-center">
-          <button class="text-center bg-blue-500 hover:bg-blue-400 text-white rounded px-4 py-2 mt-4">
-            <%= link_to t('.rakuten_more_link'), "https://search.rakuten.co.jp/search/mall/#{CGI.escape(@gift_suggestion.result)}", target: "_blank" %>
-          </button>
-        </div>
+    </div>
+    <div class="flex justify-center mt-4">
+      <%= link_to t('.rakuten_more_link'), "https://search.rakuten.co.jp/search/mall/#{CGI.escape(@gift_suggestion.result)}", target: "_blank", class: "bg-blue-500 hover:bg-blue-400 text-white rounded px-4 py-2" %>
     </div>
   <% else %>
-      <div class="flex justify-center">
-        <button class="text-center bg-blue-500 hover:bg-blue-400 text-white rounded px-4 py-2 mt-4">
-          <%= link_to t('.google_search_link'), "https://www.google.com/search?q=#{CGI.escape(@gift_suggestion.result)}", target: "_blank" %>
-        </button>
-      </div>
+    <div class="flex justify-center mt-4">
+      <%= link_to t('.google_search_link'), "https://www.google.com/search?q=#{CGI.escape(@gift_suggestion.result)}", target: "_blank", class: "bg-blue-500 hover:bg-blue-400 text-white rounded px-4 py-2" %>
+    </div>
   <% end %>
 </div>

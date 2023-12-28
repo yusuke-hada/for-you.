@@ -43,7 +43,7 @@ ja:
       user_result: 'ユーザーの入力:'
       ai_result: 'AIからの提案:'
       no_result: 'ギフト提案は見つかりませんでした'
-      rakuten_title: '楽天市場の検索上位三件'
+      rakuten_title: '楽天市場の検索上位'
       google_search_link: 'Googleで検索する'
       rakuten_more_link: '楽天市場で検索結果を更に見る'
   errors:
