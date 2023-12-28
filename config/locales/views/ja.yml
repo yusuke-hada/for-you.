@@ -46,6 +46,8 @@ ja:
       rakuten_title: '楽天市場の検索上位'
       google_search_link: 'Googleで検索する'
       rakuten_more_link: '楽天市場で検索結果を更に見る'
+    destroy:
+      success: '削除しました'
   errors:
       models:
         user:

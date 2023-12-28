@@ -1,6 +1,7 @@
 require 'openai'
 require 'rakuten_web_service'
 class GiftSuggestionsController < ApplicationController
+  
   def index
     @gift_suggestions = current_user.gift_suggestions.order(created_at: :desc).page(params[:page]).per(5)
   end  
@@ -36,7 +37,7 @@ class GiftSuggestionsController < ApplicationController
   def destroy
     gift_suggestion = current_user.gift_suggestions.find(params[:id])
     gift_suggestion.destroy!
-    redirect_to user_gift_suggestions_path(current_user), success: t('.success'), status: :see_other
+    redirect_to user_gift_suggestions_path(current_user), notice: t('.success'), status: :see_other
   end
 
   private
