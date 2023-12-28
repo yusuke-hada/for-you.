@@ -1,0 +1,2 @@
+class AutocompleteController < ApplicationController
+end

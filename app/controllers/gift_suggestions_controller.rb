@@ -4,7 +4,7 @@ class GiftSuggestionsController < ApplicationController
 
   def index
     @gift_suggestions = current_user.gift_suggestions.order(created_at: :desc).page(params[:page]).per(5)
-  end  
+  end
 
   def new
     @gift_suggestion = GiftSuggestion.new
