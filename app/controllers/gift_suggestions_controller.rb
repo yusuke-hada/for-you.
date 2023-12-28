@@ -1,7 +1,7 @@
 require 'openai'
 require 'rakuten_web_service'
 class GiftSuggestionsController < ApplicationController
-  
+
   def index
     @gift_suggestions = current_user.gift_suggestions.order(created_at: :desc).page(params[:page]).per(5)
   end  
@@ -19,12 +19,12 @@ class GiftSuggestionsController < ApplicationController
       return render :new
     end
 
-    @gift_suggestion.result = @gift_suggestion.get_suggestion
+    @gift_suggestion.result = @gift_suggestion.generate_suggestion
     
     if @gift_suggestion.save
       redirect_to user_gift_suggestion_path(current_user, @gift_suggestion)
     else
-      flash.now[:alert] = @gift_suggestion.get_suggestion
+      flash.now[:alert] = @gift_suggestion.errors.full_messages
       render :new
     end
   end
