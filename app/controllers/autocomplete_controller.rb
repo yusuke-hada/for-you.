@@ -3,13 +3,12 @@ class AutocompleteController < ApplicationController
     query = params[:q]
     businesses = GiftSuggestion.where('business LIKE ?', "%#{query}%").distinct.pluck(:business)
     html = businesses.map { |business| 
-      "<li role='option'>#{business}</li>"
+      "<li class='hover:bg-blue-400 hover:text-white' role='option'>#{business}</li>"
     }.join('')
   
     render html: html.html_safe
   end
   
-
   def interest
   
   end
