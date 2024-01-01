@@ -13,8 +13,13 @@ Rails.application.routes.draw do
       get 'step1'
       get 'step2'
       get 'step3'
+      get 'autocomplete/business', to: 'autocomplete#business'
+      get 'autocomplete/interest', to: 'autocomplete#interest'
+      get 'autocomplete/relationship', to: 'autocomplete#relationship'
+      get 'autocomplete/purpose', to: 'autocomplete#purpose'
     end
-    resources :gift_suggestions, only: %i[index new create show destroy]
+    resources :gift_suggestions, only: %i[index new create show destroy] do
+    end
     resources :wish_lists
   end
 end
