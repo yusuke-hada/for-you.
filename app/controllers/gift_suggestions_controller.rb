@@ -40,6 +40,12 @@ class GiftSuggestionsController < ApplicationController
     redirect_to user_gift_suggestions_path(current_user), notice: t('.success'), status: :see_other
   end
 
+  def business
+    query = params[:q].downcase 
+    suggestions = GiftSuggestion.where('LOWER(business) LIKE ?', "%#{query}%").pluck('DISTINCT business').take(10)
+    render json: suggestions.map { |business| { label: business } }
+  end
+
   private
 
   def gift_suggestion_params

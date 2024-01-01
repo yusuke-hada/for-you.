@@ -1,9 +1,14 @@
 class AutocompleteController < ApplicationController
   def business
-    query = params[:term]
-    suggestions = GiftSuggestion.where('business LIKE ?', "%#{query}%").distinct.limit(10)
-    render json: suggestions.map { |suggestion| { label: suggestion.business } }
+    query = params[:q]
+    businesses = GiftSuggestion.where('business LIKE ?', "%#{query}%").distinct.pluck(:business)
+    html = businesses.map { |business| 
+      "<li role='option'>#{business}</li>"
+    }.join('')
+  
+    render html: html.html_safe
   end
+  
 
   def interest
   
