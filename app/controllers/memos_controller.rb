@@ -38,9 +38,9 @@ class MemosController < ApplicationController
     @memo.destroy!
     redirect_to user_memos_path, notice: "メモを削除しました"
   end
-end
 
-private
+
+  private
 
   def memo_params
     params.require(:memo).permit()
@@ -49,4 +49,4 @@ private
   def set_memo
     @memo = current_user.memos.find(params[:id])
   end
-
+end
