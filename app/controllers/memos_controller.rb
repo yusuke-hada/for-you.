@@ -1,8 +1,7 @@
 class MemosController < ApplicationController
   before_action :set_memo, only: [:edit,:update,:destroy]
   def index
-    @q = Memo.ransack(params[:q])
-    @memos = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
+    @memos = Memo.all
   end
 
   def new
@@ -11,6 +10,7 @@ class MemosController < ApplicationController
 
   def create
     @memo = current_user.memos.build(memo_params)
+    binding.pry
     if @memo.save
       redirect_to user_memos_path(current_user),  notice: "メモを作成しました"
     else
@@ -43,7 +43,7 @@ class MemosController < ApplicationController
   private
 
   def memo_params
-    params.require(:memo).permit()
+    params.require(:memo).permit(:name, :goods, :time, :user_id)
   end
 
   def set_memo
