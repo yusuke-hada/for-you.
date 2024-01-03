@@ -29,6 +29,10 @@ ja:
         relationship: '関係性'
         created_at: '相談日時'
         result: '提案された商品'
+      memo:
+        name: '名前'
+        goods: 'プレゼント'
+        time: 'いつ頂いたか'
   enums:
     user:
       gender:

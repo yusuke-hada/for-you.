@@ -53,6 +53,27 @@ ja:
       back_to_list: '相談履歴一覧に戻る'
     destroy:
       success: '削除しました'
+  memos:
+    index:
+      title: 'メモ一覧'
+      who_gave: '誰に頂いたか'
+      what_got: '何を頂いたか'
+      when_got: 'いつ頂いたか'
+      confirm: '本当に削除しますか？'
+      search_word: '検索ワード'
+      search: '検索する'
+    new:
+      title: 'メモ作成'
+      submit: '作成する'
+    create:
+      success: 'メモを作成しました'
+    edit:
+      title: 'メモ編集'
+      submit: '編集する'
+    update:
+      success: 'メモを編集しました'
+    destroy:
+      success: 'メモを削除しました'
   errors:
       models:
         user:

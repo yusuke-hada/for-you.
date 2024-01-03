@@ -37,7 +37,7 @@ class GiftSuggestionsController < ApplicationController
   def destroy
     gift_suggestion = current_user.gift_suggestions.find(params[:id])
     gift_suggestion.destroy!
-    redirect_to user_gift_suggestions_path(current_user), notice: t('.success'), status: :see_other
+    redirect_to user_gift_suggestions_path(current_user), alert: t('.success'), status: :see_other
   end
 
   private

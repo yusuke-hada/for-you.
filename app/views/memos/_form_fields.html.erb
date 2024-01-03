@@ -1,10 +1,10 @@
 <div class="mb-4">
   <%= f.label :name, class: "block text-gray-700 text-sm font-bold mb-2" %>
-  <%= f.text_field :name, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", placeholder: "誰にいただいたか" %>
+  <%= f.text_field :name, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", placeholder: t('memos.index.who_gave') %>
 </div>
 <div class="mb-4">
   <%= f.label :goods, class: "block text-gray-700 text-sm font-bold mb-2" %>
-  <%= f.text_field :goods, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", placeholder: "何をいただいたか" %>
+  <%= f.text_field :goods, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", placeholder: t('memos.index.what_got') %>
 </div>
 <div class="mb-4">
   <%= f.label :time, class: "block text-gray-700 text-sm font-bold mb-2" %>

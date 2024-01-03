@@ -13,22 +13,18 @@ class MemosController < ApplicationController
   def create
     @memo = current_user.memos.build(memo_params)
     if @memo.save
-      redirect_to user_memos_path(current_user),  notice: "メモを作成しました"
+      redirect_to user_memos_path(current_user), notice: t('.success')
     else
       flash.now[:alert] = @memo.errors.full_messages
       render :new
     end
   end
 
-  def show
-    @memo = Memo.find(params[:id])
-  end
-
   def edit ;end
 
   def update
     if @memo.update(memo_params)
-      redirect_to user_memos_path(current_user), notice: "メモを編集しました"
+      redirect_to user_memos_path(current_user), notice: t('.success')
     else
       flash.now[:alert] = @memo.errors.full_messages
       render :edit
@@ -37,7 +33,7 @@ class MemosController < ApplicationController
 
   def destroy
     @memo.destroy!
-    redirect_to user_memos_path, notice: "メモを削除しました"
+    redirect_to user_memos_path, alert: t('.success'), status: :see_other
   end
 
 
