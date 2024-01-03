@@ -1,7 +1,9 @@
 class MemosController < ApplicationController
   before_action :set_memo, only: [:edit,:update,:destroy]
+
   def index
-    @memos = Memo.all
+    @q = Memo.ransack(params[:q])
+    @memos = @q.result(distinct: true).includes(:user).page(params[:page]).order("created_at desc")
   end
 
   def new

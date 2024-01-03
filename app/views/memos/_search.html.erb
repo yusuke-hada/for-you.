@@ -1,0 +1,5 @@
+<%= search_form_for @q, url: url, class: "flex justify-center items-center space-x-2" do |f| %>
+  <%= f.search_field :name_or_goods_cont, class: "form-input w-64 border-gray-300 shadow-sm px-1", placeholder: '検索ワード' %>
+  <%= f.submit '検索', class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline" %>
+<% end %>
+

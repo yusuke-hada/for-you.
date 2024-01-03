@@ -1,5 +1,6 @@
 <div class="container mx-auto p-4">
   <h1 class="text-2xl font-bold text-center mb-10">メモ一覧</h1>
+  <%= render 'search', q: @q, url: user_memos_path(current_user) %>
 
   <div class="mt-4 mb-10 overflow-auto">
     <table class="min-w-full table-auto bg-white rounded-lg shadow">
