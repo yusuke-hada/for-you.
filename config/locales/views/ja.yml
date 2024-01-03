@@ -6,6 +6,9 @@ ja:
   pages:
     after_login_top:
       consult_ai: 'AIにプレゼントを相談する'
+      ai_description: '渡したい相手の情報を入力して提案を受けよう'
+      memo_function: 'メモする'
+      memo_description: '誰かから頂いたプレゼントを記録しよう'
   users:
     step1:
       title: 'ユーザー登録'
@@ -62,6 +65,7 @@ ja:
       confirm: '本当に削除しますか？'
       search_word: '検索ワード'
       search: '検索する'
+      create: '新規作成'
     new:
       title: 'メモ作成'
       submit: '作成する'
@@ -103,6 +107,7 @@ ja:
       messages:
         blank: "を入力してください"
         too_short: "は短すぎます（最小%{count}文字）"
+        too_long: "は長すぎます(最長%{count}文字)"
         not_a_number: "は数値で入力してください"
         invalid: "は不正な値です"
         greater_than_or_equal_to: "は%{count}以上の値にしてください"
