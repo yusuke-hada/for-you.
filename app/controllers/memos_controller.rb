@@ -10,7 +10,6 @@ class MemosController < ApplicationController
 
   def create
     @memo = current_user.memos.build(memo_params)
-    binding.pry
     if @memo.save
       redirect_to user_memos_path(current_user),  notice: "メモを作成しました"
     else
