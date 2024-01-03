@@ -13,7 +13,7 @@ class MemosController < ApplicationController
     if @memo.save
       redirect_to user_memos_path(current_user),  notice: "メモを作成しました"
     else
-      flash.now[:alert] = "メモの作成に失敗しました"
+      flash.now[:alert] = @memo.errors.full_messages
       render :new
     end
   end
@@ -28,7 +28,7 @@ class MemosController < ApplicationController
     if @memo.update(memo_params)
       redirect_to user_memos_path(current_user), notice: "メモを編集しました"
     else
-      flash.now['danger'] = "編集に失敗しました"
+      flash.now[:alert] = @memo.errors.full_messages
       render :edit
     end
   end
