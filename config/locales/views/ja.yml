@@ -9,6 +9,8 @@ ja:
       ai_description: '渡したい相手の情報を入力して提案を受けよう'
       memo_function: 'メモする'
       memo_description: '誰かから頂いたプレゼントを記録しよう'
+      wish_list: '欲しいものリスト一覧'
+      list_description: 'ユーザーがどのようなものが欲しいか検索しよう'
   users:
     step1:
       title: 'ユーザー登録'

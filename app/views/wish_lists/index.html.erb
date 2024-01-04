@@ -21,7 +21,7 @@
         <% @wish_lists.each do |wish_list| %>
           <tr class="hover:bg-gray-100">
             <td class="border px-4 py-2"><%= wish_list.user.age %></td>
-            <td class="border px-4 py-2"><%= wish_list.user.gender %></td>
+            <td class="border px-4 py-2"><%= I18n.t("enums.user.gender.#{wish_list.user.gender}") %></td>
             <td class="border px-4 py-2"><%= wish_list.user.business%></td>
             <td class="border px-4 py-2"><%= wish_list.user.hobby&.join(",") %></td>
             <td class="border px-4 py-2"><%= wish_list.item_name %></td>
