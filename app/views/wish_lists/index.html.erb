@@ -1,21 +1,22 @@
 <div class="container mx-auto p-4">
   <div class="flex justify-center mb-10">
     <div class="flex items-center">
-      <h1 class="text-2xl font-bold">ほしい物リスト</h1>
+      <h1 class="text-2xl font-bold"><%= t('.title') %></h1>
       <%= link_to t('.create'), new_user_wish_list_path(current_user), class: "bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline ml-4" %>
     </div>
   </div>
+  <%= render 'search', q: @q, url: user_wish_lists_path(current_user) %>
 
   <div class="mt-4 mb-10 overflow-auto">
     <table class="min-w-full table-auto bg-white rounded-lg shadow">
       <thead class="bg-gray-200">
         <tr>
-          <th class="px-4 py-2 text-left">年齢</th>
-          <th class="px-4 py-2 text-left">性別</th>
-          <th class="px-4 py-2 text-left">職業</th>
-          <th class="px-4 py-2 text-left">趣味</th>
-          <th class="px-4 py-2 text-left">商品名</th>
-          <th class="px-4 py-2 text-left">商品詳細</th>
+          <th class="px-4 py-2 text-left"><%= User.human_attribute_name(:age) %></th>
+          <th class="px-4 py-2 text-left"><%= User.human_attribute_name(:gender) %></th>
+          <th class="px-4 py-2 text-left"><%= User.human_attribute_name(:business) %></th>
+          <th class="px-4 py-2 text-left"><%= User.human_attribute_name(:hobby) %></th>
+          <th class="px-4 py-2 text-left"><%= WishList.human_attribute_name(:item_name) %></th>
+          <th class="px-4 py-2 text-left"><%= WishList.human_attribute_name(:description) %></th>
         </tr>
       </thead>
       <tbody>

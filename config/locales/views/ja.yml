@@ -80,6 +80,25 @@ ja:
       success: 'メモを編集しました'
     destroy:
       success: 'メモを削除しました'
+  wish_lists:
+    index:
+      title: '欲しいものリスト一覧'
+      confirm: '本当に削除しますか？'
+      search_word: '検索ワード'
+      create: '新規作成'
+      search: '検索する'
+    new:
+      title: '欲しいものリスト作成'
+      submit: '作成する'
+    create:
+      success: '欲しいものリストを作成しました'
+    edit:
+      title: '欲しいものリスト編集'
+      submit: '編集する'
+    update:
+      success: '欲しいものリストを編集しました'
+    destroy:
+      success: '欲しいものリストを削除しました'
   errors:
       models:
         user:
