@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     end
     resources :gift_suggestions, only: %i[index new create show destroy] do
     end
-    resources :wish_lists
+    resources :wish_lists, only: %i[index edit update destroy]
     resources :memos, only: %i[index new create edit update destroy]
   end
 end

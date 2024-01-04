@@ -1,5 +1,8 @@
 class WishListsController < ApplicationController
-  def index; end
+  def index
+    @q = WishList.ransack(params[:q])
+    @wish_lists = @q.result(distinct: true).includes(:user).page(params[:page]).order("created_at desc")
+  end
 
   def new; end
 
