@@ -1,2 +1,34 @@
-<h1>WishLists#index</h1>
-<p>Find me in app/views/wish_lists/index.html.erb</p>
+<div class="container mx-auto p-4">
+  <div class="flex justify-center mb-10">
+    <div class="flex items-center">
+      <h1 class="text-2xl font-bold">ほしい物リスト</h1>
+    </div>
+  </div>
+
+  <div class="mt-4 mb-10 overflow-auto">
+    <table class="min-w-full table-auto bg-white rounded-lg shadow">
+      <thead class="bg-gray-200">
+        <tr>
+          <th class="px-4 py-2 text-left">年齢</th>
+          <th class="px-4 py-2 text-left">性別</th>
+          <th class="px-4 py-2 text-left">職業</th>
+          <th class="px-4 py-2 text-left">趣味</th>
+          <th class="px-4 py-2 text-left">商品名</th>
+          <th class="px-4 py-2 text-left">商品詳細</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @wish_lists.each do |wish_list| %>
+          <tr class="hover:bg-gray-100">
+            <td class="border px-4 py-2"><%= wish_list.user.age %></td>
+            <td class="border px-4 py-2"><%= wish_list.user.gender %></td>
+            <td class="border px-4 py-2"><%= wish_list.user.business%></td>
+            <td class="border px-4 py-2"><%= wish_list.user.hobby.join(", ") %></td>
+            <td class="border px-4 py-2"><%= wish_list.item_name %></td>
+            <td class="border px-4 py-2"><%= wish_list.description %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
