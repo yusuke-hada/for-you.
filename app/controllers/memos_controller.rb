@@ -40,7 +40,7 @@ class MemosController < ApplicationController
   private
 
   def memo_params
-    params.require(:memo).permit(:name, :goods, :time, :user_id)
+    params.require(:memo).permit(:name, :goods, :time)
   end
 
   def set_memo

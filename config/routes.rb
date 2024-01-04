@@ -18,9 +18,8 @@ Rails.application.routes.draw do
       get 'autocomplete/relationship', to: 'autocomplete#relationship'
       get 'autocomplete/purpose', to: 'autocomplete#purpose'
     end
-    resources :gift_suggestions, only: %i[index new create show destroy] do
-    end
-    resources :wish_lists, only: %i[index edit update destroy]
+    resources :gift_suggestions, only: %i[index new create show destroy]
+    resources :wish_lists, only: %i[index new create edit update destroy]
     resources :memos, only: %i[index new create edit update destroy]
   end
 end
