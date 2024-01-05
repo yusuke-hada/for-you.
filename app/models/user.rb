@@ -23,4 +23,8 @@ class User < ApplicationRecord
   validates :hobby, length: { maximum: 255 }
   enum gender: { man: 0, woman: 1, other: 2 }
   enum role: { general: 0, admin: 1 }
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["age", "business", "gender", "hobby"]
+  end
 end

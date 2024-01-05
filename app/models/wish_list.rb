@@ -4,7 +4,7 @@ class WishList < ApplicationRecord
   validates :description, length: { maximum: 252 }, presence: true
 
   def self.ransackable_attributes(auth_object = nil)
-    ["created_at", "description", "id", "item_name", "updated_at", "user_id"]
+    ["description", "item_name"]
   end
 
   def self.ransackable_associations(auth_object = nil)

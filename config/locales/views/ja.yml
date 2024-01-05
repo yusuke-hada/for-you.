@@ -84,7 +84,7 @@ ja:
     index:
       title: '欲しいものリスト一覧'
       confirm: '本当に削除しますか？'
-      search_word: '検索ワード'
+      search_word: '欲しいもの・詳細'
       create: '新規作成'
       search: '検索する'
     new:
