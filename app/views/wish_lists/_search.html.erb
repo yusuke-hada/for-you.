@@ -1,22 +1,22 @@
 <%= search_form_for @q, url: url, class: "flex flex-wrap justify-center items-center space-x-2" do |f| %>
-  <div class="flex space-x mb-2">
-    <%= f.number_field :user_age_gteq, class: "form-input w-32 border-gray-300 shadow-sm px-1", placeholder: User.human_attribute_name(:age) %>
-    <%= f.label :user_age_lteq, "〜" %>
-    <%= f.number_field :user_age_lteq, class: "form-input w-32 border-gray-300 shadow-sm px-1", placeholder: User.human_attribute_name(:age) %>
+  <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 mb-2">
+    <%= f.number_field :user_age_gteq, class: "form-input w-full sm:w-32 border-gray-300 shadow-sm px-1", placeholder: User.human_attribute_name(:age) %>
+    <%= f.label :user_age_lteq, "〜", class: "self-center" %>
+    <%= f.number_field :user_age_lteq, class: "form-input w-full sm:w-32 border-gray-300 shadow-sm px-1", placeholder: User.human_attribute_name(:age) %>
   </div>
-  <div class="mb-2">
-    <%= f.select :user_gender_eq, options_for_select([[User.human_attribute_name(:gender), '']] + User.genders.keys.map { |key| [I18n.t("enums.user.gender.#{key}"), key] }), {}, class: "form-select w-64 border-gray-300 shadow-sm text-gray-400"%>
+  <div class="mb-2 w-full sm:w-auto">
+    <%= f.select :user_gender_eq, options_for_select([[User.human_attribute_name(:gender), '']] + User.genders.keys.map { |key| [I18n.t("enums.user.gender.#{key}"), key] }), {}, class: "form-select w-full sm:w-64 border-gray-300 shadow-sm text-gray-400"%>
   </div>
-  <div class="mb-2">
-    <%= f.search_field :user_business_cont, class: "form-input w-64 border-gray-300 shadow-sm px-1", placeholder: User.human_attribute_name(:business) %>
+  <div class="mb-2 w-full sm:w-auto">
+    <%= f.search_field :user_business_cont, class: "form-input w-full sm:w-64 border-gray-300 shadow-sm px-1", placeholder: User.human_attribute_name(:business) %>
   </div>
-  <div class="mb-2">
-    <%= text_field_tag :hobby, params[:hobby], class: "form-input w-64 border-gray-300 shadow-sm px-1", placeholder: User.human_attribute_name(:hobby) %>
+  <div class="mb-2 w-full sm:w-auto">
+    <%= text_field_tag :hobby, params[:hobby], class: "form-input w-full sm:w-64 border-gray-300 shadow-sm px-1", placeholder: User.human_attribute_name(:hobby) %>
   </div>
-  <div class="mb-2">
-    <%= f.search_field :item_name_or_description_cont, class: "form-input w-64 border-gray-300 shadow-sm px-1", placeholder:  t('wish_lists.index.search_word') %>
+  <div class="mb-2 w-full sm:w-auto">
+    <%= f.search_field :item_name_or_description_cont, class: "form-input w-full sm:w-64 border-gray-300 shadow-sm px-1", placeholder: t('wish_lists.index.search_word') %>
   </div>
-  <div class="mb-2">
+  <div class="mb-2 w-full sm:w-auto text-center sm:text-left">
     <%= f.submit t('memos.index.search'), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline" %>
   </div>
 <% end %>
