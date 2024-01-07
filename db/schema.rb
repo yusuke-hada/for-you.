@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_04_122441) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_07_022100) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -39,6 +39,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_04_122441) do
     t.index ["user_id"], name: "index_memos_on_user_id"
   end
 
+  create_table "message_cards", force: :cascade do |t|
+    t.string "recipient_name", limit: 252, null: false
+    t.text "message", null: false
+    t.string "background_image", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_message_cards_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "crypted_password"
@@ -65,5 +75,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_04_122441) do
 
   add_foreign_key "gift_suggestions", "users"
   add_foreign_key "memos", "users"
+  add_foreign_key "message_cards", "users"
   add_foreign_key "wish_lists", "users"
 end

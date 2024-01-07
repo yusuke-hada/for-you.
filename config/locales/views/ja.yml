@@ -11,6 +11,8 @@ ja:
       memo_description: '誰かから頂いたプレゼントを記録しよう'
       wish_list: '欲しいものリスト一覧'
       list_description: 'ユーザーがどのようなものが欲しいか検索しよう'
+      message_card: 'メッセージカード作成'
+      card_description: '背景を選んでメッセージを入力しよう'
   users:
     step1:
       title: 'ユーザー登録'
