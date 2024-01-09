@@ -7,6 +7,10 @@ class MessageCardsController < ApplicationController
 
   def new
     @message_card = MessageCard.new
+    @background_images = MessageCard::BACKGROUND_IMAGES
+    @background_images_urls = @background_images.transform_values do |key|
+      generate_presigned_url(key)
+    end
   end
 
   def create
@@ -39,8 +43,14 @@ class MessageCardsController < ApplicationController
 
   private
 
+  def generate_presigned_url(key)
+    s3 = Aws::S3::Resource.new(region: 'ap-northeast-1')
+    signer = Aws::S3::Presigner.new(client: s3.client)
+    signer.presigned_url(:get_object, bucket: 'foryoustrage', key: key, expires_in: 3600)
+  end
+
   def message_card_params
-    params.require(:message_card).permit(:name, :goods, :time)
+    params.require(:message_card).permit(:recipient_name, :message, :background_image)
   end
 
   def set_message_card

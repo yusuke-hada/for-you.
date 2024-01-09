@@ -1,2 +1,41 @@
-<h1>MessageCards#new</h1>
-<p>Find me in app/views/message_cards/new.html.erb</p>
+<%= javascript_include_tag 'background_image_preview' %>
+<div class="container mx-auto p-4">
+  <h1 class="text-xl font-bold mb-4">メッセージカード作成</h1>
+
+  <div class="flex justify-between">
+    <div class="w-full max-w-lg">
+      <%= form_with(model: @message_card, url: user_message_cards_path(current_user), local: true, data: { turbo: false }, class: "w-full max-w-lg") do |f| %>
+
+        <div class="mb-4">
+          <%= f.label :recipient_name, class: "block text-gray-700 text-sm font-bold mb-2" %>
+          <%= f.text_field :recipient_name, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", placeholder: "宛先名" %>
+        </div>
+
+        <div class="mb-4">
+          <%= f.label :message, class: "block text-gray-700 text-sm font-bold mb-2" %>
+          <%= f.text_area :message, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", placeholder: "メッセージ内容" %>
+        </div>
+
+        <div class="mb-4">
+          <%= f.label :background_image, class: "block text-gray-700 text-sm font-bold mb-2" %>
+          <%= f.select :background_image, 
+              options_for_select(@background_images.keys.map { |key| [key.humanize, key] }, selected: @message_card.background_image),
+              { include_blank: '選択してください' },
+              class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <%= f.submit "作成", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+        </div>
+      <% end %>
+    </div>
+  <div id="image_preview" class="w-full md:w-1/2">
+    <script>
+      var urls = <%= raw @background_images_urls.to_json %>;
+    </script>
+  </div>
+  </div>
+  </div>
+<script>
+var urls = <%= raw @background_images_urls.to_json %>;
+</script>
