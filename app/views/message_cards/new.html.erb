@@ -5,17 +5,6 @@
   <div class="flex justify-between">
     <div class="w-full max-w-lg">
       <%= form_with(model: @message_card, url: user_message_cards_path(current_user), local: true, data: { turbo: false }, class: "w-full max-w-lg") do |f| %>
-
-        <div class="mb-4">
-          <%= f.label :recipient_name, class: "block text-gray-700 text-sm font-bold mb-2" %>
-          <%= f.text_field :recipient_name, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", placeholder: "宛先名" %>
-        </div>
-
-        <div class="mb-4">
-          <%= f.label :message, class: "block text-gray-700 text-sm font-bold mb-2" %>
-          <%= f.text_area :message, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", placeholder: "メッセージ内容" %>
-        </div>
-
         <div class="mb-4">
           <%= f.label :background_image, class: "block text-gray-700 text-sm font-bold mb-2" %>
           <%= f.select :background_image, 
@@ -23,19 +12,34 @@
               { include_blank: '選択してください' },
               class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
         </div>
-
+        <div class="mb-4">
+          <%= f.label :recipient_name, class: "block text-gray-700 text-sm font-bold mb-2" %>
+          <%= f.text_field :recipient_name, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", placeholder: "宛先名" %>
+        </div>
+        <div class="mb-4">
+          <%= f.label :message, class: "block text-gray-700 text-sm font-bold mb-2" %>
+          <%= f.text_area :message, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", row: 10, placeholder: "メッセージ内容" %>
+        </div>
         <div class="flex items-center justify-between">
           <%= f.submit "作成", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
         </div>
       <% end %>
     </div>
-  <div id="image_preview" class="w-full md:w-1/2">
-    <script>
-      var urls = <%= raw @background_images_urls.to_json %>;
-    </script>
+    <div id="image_preview" class="w-full md:w-1/2 relative">
+      <div id="image_container" class="absolute inset-0">
+        <!--  background_imageの表示  -->
+      </div>
+      <div class="absolute inset-0 flex flex-col items-center p-24 ">
+        <div id="preview-recipient-name" class="text-2xl text-black">
+          <!-- recipient_nameの表示 -->
+        </div>
+        <div id="preview-message" class="text-lg text-black mt-4 flex-grow whitespace-pre-wrap">
+          <!-- messageの表示 -->
+        </div>
+      </div>
+    </div>
   </div>
-  </div>
-  </div>
+</div>
 <script>
-var urls = <%= raw @background_images_urls.to_json %>;
+  let urls = <%= raw @background_images_urls.to_json %>;
 </script>
