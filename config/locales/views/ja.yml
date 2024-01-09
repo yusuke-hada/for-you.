@@ -101,6 +101,14 @@ ja:
       success: '欲しいものリストを編集しました'
     destroy:
       success: '欲しいものリストを削除しました'
+  message_cards:
+    index:
+      title: 'メッセージカード一覧'
+    new:
+      title: 'メッセージカード作成'
+      select_image: '背景画像を選択してください'
+      message_content: 'メッセージ内容'
+      submit: '作成する'
   errors:
       models:
         user:

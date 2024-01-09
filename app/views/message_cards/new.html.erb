@@ -1,6 +1,6 @@
 <%= javascript_include_tag 'background_image_preview' %>
 <div class="container mx-auto p-4">
-  <h1 class="text-xl font-bold mb-4">メッセージカード作成</h1>
+  <h1 class="text-xl font-bold mb-4"><%= t('.title') %></h1>
 
   <div class="flex justify-between">
     <div class="w-full max-w-lg">
@@ -9,19 +9,19 @@
           <%= f.label :background_image, class: "block text-gray-700 text-sm font-bold mb-2" %>
           <%= f.select :background_image, 
               options_for_select(@background_images.keys.map { |key| [key.humanize, key] }, selected: @message_card.background_image),
-              { include_blank: '選択してください' },
+              { include_blank: t('.select_image') },
               class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
         </div>
         <div class="mb-4">
           <%= f.label :recipient_name, class: "block text-gray-700 text-sm font-bold mb-2" %>
-          <%= f.text_field :recipient_name, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", placeholder: "宛先名" %>
+          <%= f.text_field :recipient_name, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"%>
         </div>
         <div class="mb-4">
           <%= f.label :message, class: "block text-gray-700 text-sm font-bold mb-2" %>
-          <%= f.text_area :message, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", row: 10, placeholder: "メッセージ内容" %>
+          <%= f.text_area :message, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", rows: 9, placeholder: t('.message_content') %>
         </div>
         <div class="flex items-center justify-between">
-          <%= f.submit "作成", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+          <%= f.submit t('.submit') , class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
         </div>
       <% end %>
     </div>
