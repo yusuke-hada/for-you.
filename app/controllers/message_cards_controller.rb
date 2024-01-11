@@ -16,12 +16,13 @@ class MessageCardsController < ApplicationController
   def create
     @message_card = current_user.message_cards.build(message_card_params)
     if @message_card.save
-      redirect_to user_message_cards_path(current_user), notice: t('.success')
+      render json: { message_card_id: @message_card.id, user_id: current_user.id }
     else
-      flash.now[:alert] = @message_card.errors.full_messages
-      render :new
+      render json: { errors: @message_card.errors.full_messages }, status: :unprocessable_entity
     end
   end
+  
+  
 
   def show ;end
 
@@ -39,6 +40,21 @@ class MessageCardsController < ApplicationController
   def destroy
     @message_card.destroy!
     redirect_to user_message_cards_path, alert: t('.success'), status: :see_other
+  end
+  
+  def image
+    @user = User.find(params[:user_id])
+    @message_card = @user.message_cards.find(params[:id])
+  
+    begin
+      image_data = @message_card.generate_image_with_text
+      send_data image_data, type: 'image/jpeg', disposition: 'inline'
+    rescue => e
+      # エラーログを記録
+      Rails.logger.error "画像生成エラー: #{e.message}"
+      # エラー時の処理（例えば、ユーザーにエラーメッセージを表示する）
+      # ここでエラーレスポンスを返すか、デフォルト画像を表示する等の処理を記述します
+    end
   end
 
   private

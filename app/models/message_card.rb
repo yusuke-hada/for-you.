@@ -17,6 +17,55 @@ class MessageCard < ApplicationRecord
     generate_presigned_url(key)
   end
 
+  def generate_image
+    image = MiniMagick::Image.open(self.background_image_url)
+    image.combine_options do |c|
+      c.gravity "center"
+      c.draw "text 0,0 '#{self.recipient_name}'"
+      c.draw "text 0,20 '#{self.message}'"
+      c.pointsize 20
+      c.fill "black"
+    end
+    # 生成された画像を保存
+    image_path = Rails.root.join('public', 'images', "generated_#{self.id}.jpg")
+    image.write(image_path)
+
+    # 画像へのパスを返す
+    "/images/generated_#{self.id}.jpg"
+  end
+
+  def generate_image_with_text
+    image = MiniMagick::Image.open(self.background_image_url)
+    font_path = Rails.root.join('public', 'fonts', 'NotoSansJP-VariableFont_wght.ttf').to_s
+    
+    image.combine_options do |c|
+      c.font font_path
+      c.gravity 'center'
+      c.pointsize 60 
+      c.stroke 'black'
+      c.strokewidth 2
+      c.draw "text 0,-310 '#{self.recipient_name}'"
+      c.fill 'black'
+    end
+
+    message_lines = self.message.split("\n")
+    start_offset_y = -200
+    line_height = 70
+
+    message_lines.each_with_index do |line, index|
+      image.combine_options do |c|
+        c.font font_path
+        c.gravity 'center'
+        c.pointsize 40
+        c.stroke 'black'
+        c.strokewidth 2
+        c.draw "text 0,#{start_offset_y + (line_height * index)} '#{line}'"
+        c.fill 'black'
+      end
+    end
+    image.to_blob
+  end
+
   private
 
   def generate_presigned_url(key)
