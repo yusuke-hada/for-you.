@@ -2,7 +2,8 @@ class MessageCardsController < ApplicationController
   before_action :set_message_card, only: [:show,:edit,:update,:destroy]
 
   def index
-    @message_cards = current_user.message_cards.order(created_at: :desc).page(params[:page]).per(5)
+    @q = MessageCard.ransack(params[:q])
+    @message_cards = @q.result(distinct: true).includes(:user).page(params[:page]).order("created_at desc")
   end
 
   def new
@@ -21,8 +22,6 @@ class MessageCardsController < ApplicationController
       render json: { errors: @message_card.errors.full_messages }, status: :unprocessable_entity
     end
   end
-  
-  
 
   def show ;end
 

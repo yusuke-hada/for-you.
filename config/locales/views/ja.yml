@@ -104,11 +104,17 @@ ja:
   message_cards:
     index:
       title: 'メッセージカード一覧'
+      confirm: '本当に削除しますか？'
+      create: '新規作成'
+      search_word: '宛名・メッセージ'
+      search: '検索する'
     new:
       title: 'メッセージカード作成'
       select_image: '背景画像を選択してください'
       message_content: 'メッセージ内容'
       submit: '作成する'
+    destroy:
+      success: 'メッセージカードを削除しました'
   instructions:
     title: "使い方の説明"
     steps:

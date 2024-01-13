@@ -66,6 +66,14 @@ class MessageCard < ApplicationRecord
     image.to_blob
   end
 
+  def self.ransackable_attributes(auth_object = nil)
+    %w[recipient_name message]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["user"]
+  end
+
   private
 
   def generate_presigned_url(key)
