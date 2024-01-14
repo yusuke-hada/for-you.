@@ -15,6 +15,23 @@ document.addEventListener("DOMContentLoaded", function() {
           messagePreview.innerHTML = messageInput.value.replace(/\n/g, '<br>');
         }
     }
+
+    function updateInitialPreview() {
+        let selectedKey = imageSelect.value;
+        currentImageUrl = urls[selectedKey];
+        
+        if (currentImageUrl) {
+            let imgTag = new Image();
+            imgTag.src = currentImageUrl;
+            imageContainer.innerHTML = '';
+            imageContainer.appendChild(imgTag);
+        }
+
+        updateTextPreview();
+    }
+
+    // 初期プレビューを設定
+    updateInitialPreview();
   
     imageSelect.addEventListener('change', function() {
       let selectedKey = this.value;

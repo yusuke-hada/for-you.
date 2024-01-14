@@ -1,5 +1,5 @@
 class MessageCardsController < ApplicationController
-  before_action :set_message_card, only: [:show,:edit,:update,:destroy]
+  before_action :set_message_card, only: [:edit,:update,:destroy]
 
   def index
     @q = MessageCard.ransack(params[:q])
@@ -24,14 +24,17 @@ class MessageCardsController < ApplicationController
   end
 
   def edit
+    @background_images = MessageCard::BACKGROUND_IMAGES
+    @background_images_urls = @background_images.transform_values do |key|
+      generate_presigned_url(key)
+    end
   end
 
   def update
     if @message_card.update(message_card_params)
-      redirect_to user_message_cards_path(current_user), notice: t('.success')
+      render json: { message_card_id: @message_card.id, user_id: current_user.id }
     else
-      flash.now[:alert] = @message_card.errors.full_messages
-      render :edit
+      render json: { errors: @message_card.errors.full_messages }, status: :unprocessable_entity
     end
   end
 

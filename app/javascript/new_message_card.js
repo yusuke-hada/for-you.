@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
       
       let formData = new FormData(form);
       fetch(form.action, {
-        method: 'POST',
+        method: form.method,
         body: formData
       })
       .then(response => response.json())
