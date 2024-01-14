@@ -33,6 +33,10 @@ ja:
         name: '名前'
         goods: 'プレゼント'
         time: 'いつ頂いたか'
+      message_card:
+        recipient_name: '宛名'
+        message: 'メッセージ'
+        background_image: '背景画像'
   enums:
     user:
       gender:

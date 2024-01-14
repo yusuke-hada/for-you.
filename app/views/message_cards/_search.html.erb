@@ -1,0 +1,4 @@
+<%= search_form_for @q, url: url, class: "flex justify-center items-center space-x-2" do |f| %>
+  <%= f.search_field :recipient_name_or_message_cont, class: "form-input w-64 border-gray-300 shadow-sm px-1", placeholder:  t('message_cards.index.search_word') %>
+  <%= f.submit t('message_cards.index.search'), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline" %>
+<% end %>

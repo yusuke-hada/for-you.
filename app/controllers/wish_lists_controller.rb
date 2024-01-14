@@ -9,7 +9,7 @@ class WishListsController < ApplicationController
       @wish_lists = @wish_lists.joins(:user).merge(User.with_hobby(params[:hobby]))
     end
 
-    @wish_lists = @wish_lists.page(params[:page]).order("wish_lists.created_at desc")
+    @wish_lists = @wish_lists.page(params[:page]).order("wish_lists.created_at desc").per(10)
   end
 
   def new

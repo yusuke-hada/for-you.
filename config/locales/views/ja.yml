@@ -11,6 +11,8 @@ ja:
       memo_description: '誰かから頂いたプレゼントを記録しよう'
       wish_list: '欲しいものリスト一覧'
       list_description: 'ユーザーがどのようなものが欲しいか検索しよう'
+      message_card: 'メッセージカード作成'
+      card_description: '背景を選んでメッセージを入力しよう'
   users:
     step1:
       title: 'ユーザー登録'
@@ -99,6 +101,33 @@ ja:
       success: '欲しいものリストを編集しました'
     destroy:
       success: '欲しいものリストを削除しました'
+  message_cards:
+    index:
+      title: 'メッセージカード一覧'
+      confirm: '本当に削除しますか？'
+      create: '新規作成'
+      search_word: '宛名・メッセージ'
+      search: '検索する'
+    new:
+      title: 'メッセージカード作成'
+      select_image: '背景画像を選択してください'
+      message_content: 'メッセージ内容'
+      submit: '作成する'
+    edit:
+      title: 'メッセージカード編集'
+    destroy:
+      success: 'メッセージカードを削除しました'
+    image:
+      image_error: '画像を生成できませんでした'
+  instructions:
+    title: "使い方の説明"
+    steps:
+      - "必要な情報をすべて入力してください"
+      - "画像を選択すると、プレビューが表示されます"
+      - "作成ボタンを押すと、画像が生成され新しいタブで開きます"
+      - "印刷する場合サイズはA5またはハガキになります"
+      - "レイアウトは横にしてください"
+      - "お使いの環境によってデザインがズレるため倍率をカスタムに変更し縮小すると綺麗になります"
   errors:
       models:
         user:
