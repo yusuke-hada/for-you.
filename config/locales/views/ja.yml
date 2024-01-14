@@ -119,6 +119,14 @@ ja:
       success: 'メッセージカードを削除しました'
     image:
       image_error: '画像を生成できませんでした'
+  profiles:
+    show:
+      title: 'プロフィール詳細'
+      edit_profile: 'プロフィール編集'
+    edit:
+      title: 'プロフィール編集'
+      delimit_hobby: '、や・で区切って下さい'
+      submit: '編集する'
   instructions:
     title: "使い方の説明"
     steps:
