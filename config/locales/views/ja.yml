@@ -33,6 +33,7 @@ ja:
   user_sessions:
     new:
       title: 'ログイン'
+      register_link: '会員登録はこちらから'
     create:
       success: 'ログインしました'
       failed: 'ログインに失敗しました'
