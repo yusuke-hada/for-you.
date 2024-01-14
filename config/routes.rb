@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
   root to: 'pages#top'
   get 'users/check_email', to: 'users#check_email'
+  resource :profile, only: %i[show edit update]
   resources :users, only: %i[new create edit update] do
     collection do
       get 'step1'
