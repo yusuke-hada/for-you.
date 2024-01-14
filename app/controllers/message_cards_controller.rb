@@ -51,10 +51,8 @@ class MessageCardsController < ApplicationController
       image_data = @message_card.generate_image_with_text
       send_data image_data, type: 'image/jpeg', disposition: 'inline'
     rescue => e
-      # エラーログを記録
-      Rails.logger.error "画像生成エラー: #{e.message}"
-      # エラー時の処理（例えば、ユーザーにエラーメッセージを表示する）
-      # ここでエラーレスポンスを返すか、デフォルト画像を表示する等の処理を記述します
+      Rails.logger.error "#{e.message}"
+      render json: { error: I18n.t('message_cards.image.image_error') }, status: :internal_server_error
     end
   end
 

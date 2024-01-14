@@ -8,7 +8,12 @@ document.addEventListener("DOMContentLoaded", function() {
         method: form.method,
         body: formData
       })
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('ネットワークレスポンスが正常ではありません。');
+        }
+        return response.json();
+      })
       .then(data => {
         if (data.message_card_id) {
           let image_url = `/users/${data.user_id}/message_cards/${data.message_card_id}/image`;
@@ -16,7 +21,10 @@ document.addEventListener("DOMContentLoaded", function() {
           window.location.href = `/users/${data.user_id}/message_cards`;
         }
       })
-      .catch(error => console.error('Error:', error));
+      .catch(error => {
+        console.error('Fetch Error:', error);
+        alert('エラーが発生しました');
+      });
     });
   });
   

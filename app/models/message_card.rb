@@ -26,11 +26,8 @@ class MessageCard < ApplicationRecord
       c.pointsize 20
       c.fill "black"
     end
-    # 生成された画像を保存
     image_path = Rails.root.join('public', 'images', "generated_#{self.id}.jpg")
     image.write(image_path)
-
-    # 画像へのパスを返す
     "/images/generated_#{self.id}.jpg"
   end
 
