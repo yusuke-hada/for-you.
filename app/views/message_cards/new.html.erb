@@ -6,25 +6,7 @@
   <div class="flex flex-col md:flex-row justify-between">
     <div class="w-full mb-8 md:mb-0 md:max-w-lg">
       <%= form_with(model: @message_card, url: user_message_cards_path(current_user), local: true, data: { turbo: false }, class: "w-full max-w-lg") do |f| %>
-        <div class="mb-4">
-          <%= f.label :background_image, class: "block text-gray-700 text-sm font-bold mb-2" %>
-          <%= f.select :background_image, 
-              options_for_select(@background_images.keys.map { |key| [key.humanize, key] }, selected: @message_card.background_image),
-              { include_blank: t('.select_image') },
-              class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
-        </div>
-        <div class="mb-4">
-          <%= f.label :recipient_name, class: "block text-gray-700 text-sm font-bold mb-2" %>
-          <%= f.text_field :recipient_name, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"%>
-        </div>
-        <div class="mb-4">
-          <%= f.label :message, class: "block text-gray-700 text-sm font-bold mb-2" %>
-          <%= f.text_area :message, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", rows: 9, placeholder: t('.message_content') %>
-        </div>
-        <div class="flex items-center justify-between">
-          <%= f.submit t('.submit') , class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
-        </div>
-        <%= f.hidden_field :preview_data, id: 'message-card-preview-data' %>
+        <%= render 'form_fields', f: f %>
       <% end %>
       <div class="mt-8 p-4 bg-gray-100 rounded-lg shadow-inner">
         <h2 class="text-lg font-semibold mb-3"><%= t('instructions.title') %></h2>

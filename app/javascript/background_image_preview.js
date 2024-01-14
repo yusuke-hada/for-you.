@@ -32,9 +32,8 @@ document.addEventListener("DOMContentLoaded", function() {
         messagePreview.textContent = '';
       }
     });
-    
+
     // Update text preview when the text inputs change
     recipientNameInput.addEventListener('input', updateTextPreview);
     messageInput.addEventListener('input', updateTextPreview);
   });
-  

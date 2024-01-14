@@ -2,7 +2,7 @@
   <div class="flex justify-center mb-10">
     <div class="flex items-center">
       <%= link_to t('.title'), user_message_cards_path(current_user), class: "text-2xl font-bold hover:text-gray-500 " %>
-      <%= link_to t('.create'),new_user_message_card_path(current_user), class: "bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline ml-4" %>
+      <%= link_to t('.create'), new_user_message_card_path(current_user), class: "bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline ml-4", data: { turbo: false } %>
     </div>
   </div>
   <%= render 'search', q: @q, url: user_message_cards_path(current_user) %>
@@ -42,5 +42,8 @@
         <% end %>      
       </tbody>
     </table>
+  </div>
+  <div class="flex justify-center my-8">
+    <%= paginate @message_cards %>
   </div>
 </div>

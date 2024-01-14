@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     resources :gift_suggestions, only: %i[index new create show destroy]
     resources :wish_lists, only: %i[index new create edit update destroy]
     resources :memos, only: %i[index new create edit update destroy]
-    resources :message_cards do
+    resources :message_cards, only: %i[index new create edit update destroy] do
       member do
         get 'image'
       end

@@ -1,2 +1,34 @@
-<h1>MessageCards#edit</h1>
-<p>Find me in app/views/message_cards/edit.html.erb</p>
+
+<div class="container mx-auto p-4">
+  <h1 class="text-xl font-bold mb-4"><%= t('.title') %></h1>
+
+  <div class="flex flex-col md:flex-row justify-between">
+    <div class="w-full mb-8 md:mb-0 md:max-w-lg">
+      <%= form_with(model: @message_card, url: user_message_cards_path(current_user, @message_card), local: true, data: { turbo: false }, class: "w-full max-w-lg") do |f| %>
+        <%= render 'form_fields', f: f %>
+      <% end %>
+      <div class="mt-8 p-4 bg-gray-100 rounded-lg shadow-inner">
+        <h2 class="text-lg font-semibold mb-3"><%= t('instructions.title') %></h2>
+        <ul class="list-disc pl-5">
+          <% t('instructions.steps').each do |step| %>
+            <li><%= step %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div id="image_preview" class="w-full md:w-1/2 relative">
+      <div id="image_container" class="absolute inset-0">
+        <!--  background_imageの表示  -->
+      </div>
+      <div class="absolute inset-0 flex flex-col items-center p-24 lg:p-28 ">
+        <div id="preview-recipient-name" class="text-2xl text-black">
+          <!-- recipient_nameの表示 -->
+        </div>
+        <div id="preview-message" class="text-xl text-black mt-4 flex-grow whitespace-pre-wrap">
+          <!-- messageの表示 -->
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>

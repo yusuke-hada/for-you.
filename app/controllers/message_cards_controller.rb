@@ -3,7 +3,7 @@ class MessageCardsController < ApplicationController
 
   def index
     @q = MessageCard.ransack(params[:q])
-    @message_cards = @q.result(distinct: true).includes(:user).page(params[:page]).order("created_at desc")
+    @message_cards = @q.result(distinct: true).includes(:user).page(params[:page]).order("created_at desc").per(10)
   end
 
   def new
@@ -23,9 +23,8 @@ class MessageCardsController < ApplicationController
     end
   end
 
-  def show ;end
-
-  def edit ;end
+  def edit
+  end
 
   def update
     if @message_card.update(message_card_params)

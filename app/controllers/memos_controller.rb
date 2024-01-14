@@ -3,7 +3,7 @@ class MemosController < ApplicationController
 
   def index
     @q = Memo.ransack(params[:q])
-    @memos = @q.result(distinct: true).includes(:user).page(params[:page]).order("created_at desc")
+    @memos = @q.result(distinct: true).includes(:user).page(params[:page]).order("created_at desc").per(10)
   end
 
   def new
