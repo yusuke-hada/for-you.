@@ -6,6 +6,23 @@ ja:
     profile: 'プロフィール'
     top: 'トップページ'
   pages:
+    top:
+      header: 'プレゼントに迷ったら'
+      subheader: 'for you'
+      experience_button: 'for youを体験する'
+      ai_section_title: 'AIにプレゼントの相談ができます'
+      ai_section_subtitle: 'プレゼントが思い浮かばない時の手助けになるかも知れません'
+      ai_section_text: '渡したい相手の年齢・性別・職業・趣味・興味のあること・関係性・プレゼントの目的などを入力することでそれらの情報を参考にAIがプレゼントを提案してくれます'
+      ai_section_subtext: 'またその商品名を楽天市場で検索をかけ上位3商品を提案します'
+      message_section_title: 'メッセージカードを作成できます'
+      message_section_subtitle: 'プレゼントに合わせて一緒にメッセージカードもいかがですか？'
+      message_section_text: '背景画像を選択し宛名を入力したらメッセージを入力しましょう'
+      message_section_subtext: 'ハガキもしくはA5サイズで印刷することが出来ます'
+      other_function: 'その他の機能'
+      wish_list: '欲しいものリスト'
+      wish_list_text: 'ユーザーの登録情報からあなたがプレゼントを贈りたい相手に似た条件の相手がどんなものが欲しいのか検索しましょう'
+      memo_function: 'メモ機能'
+      memo_text: '誰に何を貰ったのか忘れてしまうこともありますので忘れないように記録しておきましょう'
     after_login_top:
       consult_ai: 'AIにプレゼントを相談する'
       ai_description: '渡したい相手の情報を入力して提案を受けよう'
@@ -133,46 +150,46 @@ ja:
   instructions:
     title: "使い方の説明"
     steps:
-      - "必要な情報をすべて入力してください"
-      - "画像を選択すると、プレビューが表示されます"
-      - "作成ボタンを押すと、画像が生成され新しいタブで開きます"
-      - "印刷する場合サイズはA5またはハガキになります"
-      - "レイアウトは横にしてください"
-      - "お使いの環境によってデザインがズレるため倍率をカスタムに変更し縮小すると綺麗になります"
+      - '必要な情報をすべて入力してください'
+      - '画像を選択すると、プレビューが表示されます'
+      - '作成ボタンを押すと、画像が生成され新しいタブで開きます'
+      - '印刷する場合サイズはA5またはハガキになります'
+      - 'レイアウトは横にしてください'
+      - 'お使いの環境によってデザインがズレるため倍率をカスタムに変更し縮小すると綺麗になります'
   errors:
       models:
         user:
           attributes:
             name:
-              blank: "を入力してください"
+              blank: 'を入力してください'
             email:
-              blank: "を入力してください"
-              invalid: "は不正な値です"
-              taken: "は既に存在します"
+              blank: 'を入力してください'
+              invalid: 'は不正な値です'
+              taken: 'は既に存在します'
             password:
-              too_short: "は短すぎます（最小%{count}文字）"
+              too_short: 'は短すぎます（最小%{count}文字）'
             password_confirmation:
-              blank: "を入力してください"
+              blank: 'を入力してください'
               confirmation: 'パスワードが一致しません'
             age:
-              blank: "を入力してください"
-              not_a_number: "は数値で入力してください"
+              blank: 'を入力してください'
+              not_a_number: 'は数値で入力してください'
             gender:
-              blank: "を選択してください"
+              blank: 'を選択してください'
         wish_list:
           attributes:
             item_name:
-              blank: "を入力してください"
+              blank: 'を入力してください'
             description:
-              blank: "を入力してください"
+              blank: 'を入力してください'
       messages:
-        blank: "を入力してください"
-        too_short: "は短すぎます（最小%{count}文字）"
-        too_long: "は長すぎます(最長%{count}文字)"
-        not_a_number: "は数値で入力してください"
-        invalid: "は不正な値です"
-        greater_than_or_equal_to: "は%{count}以上の値にしてください"
-        less_than_or_equal_to: "は%{count}以下の値にしてください"
+        blank: 'を入力してください'
+        too_short: 'は短すぎます（最小%{count}文字）'
+        too_long: 'は長すぎます(最長%{count}文字)'
+        not_a_number: 'は数値で入力してください'
+        invalid: 'は不正な値です'
+        greater_than_or_equal_to: 'は%{count}以上の値にしてください'
+        less_than_or_equal_to: 'は%{count}以下の値にしてください'
         confirmation: 'が一致しません'
     
   

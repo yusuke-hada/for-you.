@@ -3,10 +3,10 @@
     <section class="min-h-96 relative flex flex-1 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-gray-100 py-16 shadow-lg md:py-20 xl:py-48">
       <%= image_tag 'top_images.png', loading: 'lazy', class: 'absolute inset-0 h-full w-full object-center' %>
       <div class="relative flex flex-col items-center p-4 sm:max-w-xl">
-        <p class="mb-4 text-center text-lg text-black sm:text-xl md:mb-8">If you are wondering what to get for your gift</p>
-        <h1 class="mb-8 text-center text-4xl font-bold text-black sm:text-5xl md:mb-12 md:text-6xl">for you</h1>
+        <p class="mb-4 text-center text-lg text-black sm:text-xl md:mb-8"><%= t('.header')%></p>
+        <h1 class="mb-8 text-center text-4xl font-bold text-black sm:text-5xl md:mb-12 md:text-6xl"><%= t('.subheader')%></h1>
         <div class="flex w-full flex-col gap-2.5 sm:flex-row sm:justify-center">
-          <%= link_to 'for youを体験する', login_path, class: 'inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base' %>
+          <%= link_to t('.experience_button'), login_path, class:'inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base', data: { turbo: false } %>
         </div>
       </div>
     </section>
@@ -16,11 +16,11 @@
           <%= image_tag 'gift_suggestion.gif' %>
         </div>
         <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-          <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">AIにプレゼントの相談ができます
-            <br class="hidden lg:inline-block">プレゼントが思い浮かばない時の手助けになるかも知れません
+          <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900"><%= t('.ai_section_title')%>
+            <br class="hidden lg:inline-block"><%= t('.ai_section_subtitle')%>
           </h1>
-          <p class="mb-8 leading-relaxed">渡したい相手の年齢・性別・職業・趣味・興味のあること・関係性・プレゼントの目的などを入力することでそれらの情報を参考にAIがプレゼントを提案してくれます
-            <br class="mb-8 leading-relaxed">またその商品名を楽天市場で検索をかけ上位3商品を提案します
+          <p class="mb-8 leading-relaxed"><%= t('.ai_section_text')%>
+            <br class="mb-8 leading-relaxed"><%= t('.ai_section_subtext')%>
           </p>
         </div>
       </div>
@@ -31,11 +31,11 @@
           <%= image_tag 'message_card.gif' %>
         </div>
         <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-          <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">メッセージカードを作成できます
-            <br class="hidden lg:inline-block">プレゼントに合わせて一緒にメッセージカードもいかがですか？
+          <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900"><%= t('.message_section_title')%>
+            <br class="hidden lg:inline-block"><%= t('.message_section_subtitle')%>
           </h1>
-          <p class="mb-8 leading-relaxed">背景画像を選択し宛名を入力したらメッセージを入力しましょう
-            <br class="mb-8 leading-relaxed">ハガキもしくはA5サイズで印刷することが出来ます
+          <p class="mb-8 leading-relaxed"><%= t('.message_section_text')%>
+            <br class="mb-8 leading-relaxed"><%= t('.message_section_subtext')%>
           </p>
         </div>
       </div>
@@ -43,7 +43,7 @@
     <section class="text-gray-600 body-font">
       <div class="container px-5 py-24 mx-auto">
         <div class="text-center mb-20">
-          <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">その他の機能</h1>
+          <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4"><%= t('.other_function')%></h1>
           <div class="flex mt-6 justify-center">
             <div class="w-16 h-1 rounded-full bg-indigo-500 inline-flex"></div>
           </div>
@@ -56,8 +56,8 @@
               </svg>
             </div>
             <div class="flex-grow">
-              <h2 class="text-gray-900 text-lg title-font font-medium mb-3">ほしい物リスト</h2>
-              <p class="leading-relaxed text-base">ユーザーの登録情報からあなたがプレゼントを贈りたい相手に似た条件の相手がどんなものが欲しいのか検索しましょう</p>
+              <h2 class="text-gray-900 text-lg title-font font-medium mb-3"><%= t('.wish_list')%></h2>
+              <p class="leading-relaxed text-base"><%= t('.wish_list_text')%></p>
             </div>
           </div>
           <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
@@ -67,8 +67,8 @@
               </svg>          
             </div>
             <div class="flex-grow">
-              <h2 class="text-gray-900 text-lg title-font font-medium mb-3">メモ機能</h2>
-              <p class="leading-relaxed text-base">誰に何を貰ったのか忘れてしまうこともありますので忘れないように記録しておきましょう</p>
+              <h2 class="text-gray-900 text-lg title-font font-medium mb-3"><%= t('.memo_function')%></h2>
+              <p class="leading-relaxed text-base"><%= t('.memo_text')%></p>
             </div>
           </div>
           <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
@@ -84,7 +84,7 @@
           </div>
         </div> 
         <div class="flex justify-center">
-          <%= link_to 'for youを体験する', login_path, class: 'inline-block rounded-lg bg-indigo-500 px-8 py-3 mt-8 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base' %>
+          <%= link_to t('.experience_button'), login_path, class: 'inline-block rounded-lg bg-indigo-500 px-8 py-3 mt-5 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base', data: { turbo: false } %>
         </div>  
       </div>
     </section>
