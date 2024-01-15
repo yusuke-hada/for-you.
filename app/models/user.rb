@@ -11,7 +11,7 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 5 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: lambda { new_record? || changes[:crypted_password] || changes[:reset_password_token] }
-  # validates :reset_password_token, uniqueness: true, allow_nil: true
+  validates :reset_password_token, uniqueness: true, allow_nil: true
   validates :age, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 120 }
   validates :gender, presence: true
   validates :business, length: { maximum: 20 }

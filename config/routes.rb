@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'password_resets/new'
-  get 'password_resets/create'
-  get 'password_resets/edit'
-  get 'password_resets/update'
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
@@ -12,6 +8,7 @@ Rails.application.routes.draw do
   root to: 'pages#top'
   get 'users/check_email', to: 'users#check_email'
   resource :profile, only: %i[show edit update]
+  resources :password_resets, only: %i[new create edit update]
   resources :users, only: %i[new create] do
     collection do
       get 'step1'

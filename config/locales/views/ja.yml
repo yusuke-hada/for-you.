@@ -51,12 +51,18 @@ ja:
     new:
       title: 'ログイン'
       register_link: '会員登録はこちらから'
+      password_reset: 'パスワードを忘れた方はこちらから'
     create:
       success: 'ログインしました'
       failed: 'ログインに失敗しました'
     destroy:
       confirm: 'ログアウトしますか？'
       success: 'ログアウトしました'
+  password_resets:
+    new:
+      title: 'パスワードリセット'
+      subtitle: 'メールアドレスを入力してください'
+      submit: 'メールを送信する'
   gift_suggestions:
     index:
       title: 'プレゼント相談履歴一覧'
