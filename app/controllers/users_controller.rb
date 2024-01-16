@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: %i[step1 step2 step3 create]
+  skip_before_action :require_login
   def step1
     @user = User.new
   end
