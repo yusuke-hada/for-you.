@@ -63,6 +63,13 @@ ja:
       title: 'パスワードリセット'
       subtitle: 'メールアドレスを入力してください'
       submit: 'メールを送信する'
+    create:
+      success: 'メールを送信しました'
+    edit:
+      title: 'パスワードリセット'
+      submit: '作成する'
+    update:
+      success: 'パスワードを変更しました'
   gift_suggestions:
     index:
       title: 'プレゼント相談履歴一覧'
@@ -173,6 +180,7 @@ ja:
               invalid: 'は不正な値です'
               taken: 'は既に存在します'
             password:
+              blank: 'を入力してください'
               too_short: 'は短すぎます（最小%{count}文字）'
             password_confirmation:
               blank: 'を入力してください'

@@ -19,12 +19,13 @@ class PasswordResetsController < ApplicationController
     @user = User.load_from_reset_password_token(params[:id])
     return not_authenticated if @user.blank?
 
+    @user.password = params[:user][:password]
     @user.password_confirmation = params[:user][:password_confirmation]
 
-    if @user.change_password(params[:user][:password])
-      redirect_to login_path, success: t('.success')
+    if @user.save 
+      redirect_to login_path, notice: t('.success')
     else
-      flash.now[:danger] = t('.fail')
+      flash.now[:alert] = @user.errors.full_messages
       render :edit
     end
   end

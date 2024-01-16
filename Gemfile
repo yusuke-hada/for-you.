@@ -62,6 +62,7 @@ group :development do
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
   gem 'web-console'
+  gem 'letter_opener_web'
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
@@ -83,3 +84,4 @@ gem 'kaminari'
 gem 'ransack'
 gem 'aws-sdk-s3'
 gem 'mini_magick'
+gem 'config'

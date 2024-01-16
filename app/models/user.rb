@@ -8,10 +8,10 @@ class User < ApplicationRecord
   validates :name, length: { maximum: 252 }, presence: true
   VALID_EMAIL_REGEX = /\A[a-zA-Z0-9_+-]+(\.[a-zA-Z0-9_+-]+)*@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}\z/
   validates :email, { presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX } }
-  validates :password, length: { minimum: 5 }, if: -> { new_record? || changes[:crypted_password] }
+  validates :password, presence: true, length: { minimum: 5 }, if: -> { new_record? || changes[:crypted_password] || reset_password_token.present? }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: lambda { new_record? || changes[:crypted_password] || changes[:reset_password_token] }
-  validates :reset_password_token, uniqueness: true, allow_nil: true
+  validates :reset_password_token, presence: true, uniqueness: true, allow_nil: true
   validates :age, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 120 }
   validates :gender, presence: true
   validates :business, length: { maximum: 20 }
