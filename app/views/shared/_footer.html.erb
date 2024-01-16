@@ -4,8 +4,12 @@
       <%= image_tag 'icon_logo.png', class: 'w-30 h-24' %>
       <span class="-ml-7 text-xl">for you.</span>
     </a>
-    <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2023 for you. —
-       <a href="https://twitter.com/ohd_runteq44" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">@ohd_runteq44</a>
+    <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
+      © 2023 for you. —
+      <%= link_to '@ohd_runteq44', 'https://twitter.com/ohd_runteq44', class: 'text-gray-600 ml-1', rel: 'noopener noreferrer', target: '_blank' %>
+    </p>
+    <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
+      <%= link_to t('defaults.privacy_policy'), pages_privacy_policy_path, class: 'text-gray-600 ml-1' %>
     </p>
   </div>
 </footer>
