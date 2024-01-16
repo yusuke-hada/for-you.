@@ -66,7 +66,7 @@ ja:
     create:
       success: 'メールを送信しました'
     edit:
-      title: 'パスワードリセット'
+      title: '新しいパスワードを作成する'
       submit: '作成する'
     update:
       success: 'パスワードを変更しました'
