@@ -5,6 +5,8 @@ ja:
     registration: '会員登録'
     profile: 'プロフィール'
     top: 'トップページ'
+  messages:
+    require_login: 'ログインして下さい'
   pages:
     top:
       header: 'プレゼントに迷ったら'
