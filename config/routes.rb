@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
   root to: 'pages#top'
   get 'users/check_email', to: 'users#check_email'
   resource :profile, only: %i[show edit update]
+  resources :password_resets, only: %i[new create edit update]
   resources :users, only: %i[new create] do
     collection do
       get 'step1'
