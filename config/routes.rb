@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     root to: 'pages#after_login_top', as: :logged_in_root
   end
   root to: 'pages#top'
+  get 'pages/privacy_policy', to: 'pages#privacy_policy'
   get 'users/check_email', to: 'users#check_email'
   resource :profile, only: %i[show edit update]
   resources :password_resets, only: %i[new create edit update]

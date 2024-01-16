@@ -5,6 +5,7 @@ ja:
     registration: '会員登録'
     profile: 'プロフィール'
     top: 'トップページ'
+    privacy_policy: 'プライバシーポリシー'
   messages:
     require_login: 'ログインして下さい'
   pages:
@@ -34,6 +35,8 @@ ja:
       list_description: 'ユーザーがどのようなものが欲しいか検索しよう'
       message_card: 'メッセージカード'
       card_description: '背景を選んでメッセージを入力しよう'
+    privacy_policy:
+      home: 'トップページに戻る'
   users:
     step1:
       title: 'ユーザー登録'
