@@ -5,6 +5,8 @@ ja:
     registration: '会員登録'
     profile: 'プロフィール'
     top: 'トップページ'
+  messages:
+    require_login: 'ログインして下さい'
   pages:
     top:
       header: 'プレゼントに迷ったら'
@@ -74,6 +76,7 @@ ja:
     index:
       title: 'プレゼント相談履歴一覧'
       confirm: '本当に削除しますか？'
+      create: '相談する'
     new:
       title: 'AIに相談する'
       enter_info: '相手の情報を入力してください'
@@ -81,6 +84,7 @@ ja:
       input_hobby: '趣味：複数回答可'
       delimit_hobby: '、や・で区切って下さい'
       submit: '提案を受ける'
+      consultant_log: '相談履歴を確認する'
     show:
       title: 'プレゼント提案結果'
       user_result: 'ユーザーの入力:'

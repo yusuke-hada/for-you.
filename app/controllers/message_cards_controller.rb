@@ -3,7 +3,7 @@ class MessageCardsController < ApplicationController
 
   def index
     @q = MessageCard.ransack(params[:q])
-    @message_cards = @q.result(distinct: true).includes(:user).page(params[:page]).order("created_at desc").per(10)
+    @message_cards = @q.result(distinct: true).includes(:user).where(user: current_user).page(params[:page]).order("created_at desc").per(10)
   end
 
   def new

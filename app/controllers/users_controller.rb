@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :require_login
   def step1
     @user = User.new
   end
@@ -47,10 +48,6 @@ class UsersController < ApplicationController
     session.clear
     redirect_to step1_users_path, alert: @user.errors.full_messages
   end
-
-  def edit; end
-
-  def update; end
 
   def check_email
     email = params[:email]
