@@ -6,7 +6,6 @@ ja:
     profile: 'プロフィール'
     top: 'トップページ'
     privacy_policy: 'プライバシーポリシー'
-    terms_of_use: '利用規約'
   messages:
     require_login: 'ログインして下さい'
   pages:
