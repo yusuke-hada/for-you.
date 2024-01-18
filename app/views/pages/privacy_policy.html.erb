@@ -3,7 +3,7 @@
   <div class="border-t border-gray-200">
     <dl>
       <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-        <dt class="text-lg leading-6 font-bold text-gray-900">
+        <dt class="text-lg leading-6 font-medium text-gray-900">
           お客様から取得する情報
         </dt>
         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
@@ -17,7 +17,7 @@
         </dd>
       </div>
       <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-        <dt class="text-lg leading-6 font-bold text-gray-900">
+        <dt class="text-lg leading-6 font-medium text-gray-900">
           お客様の情報を利用する目的
         </dt>
         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
@@ -34,7 +34,7 @@
         </dd>
       </div>
       <div class="bg-gray-50  px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-        <dt class="text-lg leading-6 font-bold text-gray-900">
+        <dt class="text-lg leading-6 font-medium text-gray-900">
           安全管理のために講じた措置
         </dt>
         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
@@ -42,7 +42,7 @@
         </dd>
       </div>
       <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-        <dt class="text-lg leading-6 font-bold text-gray-900">
+        <dt class="text-lg leading-6 font-medium text-gray-900">
           第三者提供
         </dt>
         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
@@ -55,7 +55,7 @@
         </dd>
       </div>
       <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-        <dt class="text-lg leading-6 font-bold text-gray-900">
+        <dt class="text-lg leading-6 font-medium text-gray-900">
           アクセス解析ツール
         </dt>
         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
@@ -66,7 +66,7 @@
         </dd>
       </div>
       <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-        <dt class="text-lg leading-6 font-bold text-gray-900">
+        <dt class="text-lg leading-6 font-medium text-gray-900">
           プライバシーポリシーの変更
         </dt>
         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
@@ -75,7 +75,7 @@
         </dd>
       </div>
       <div class="bg-gray-50  px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-        <dt class="text-lg leading-6 font-bold text-gray-900">
+        <dt class="text-lg leading-6 font-medium text-gray-900">
           お問い合わせ
         </dt>
         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
@@ -86,7 +86,7 @@
       </div>
     </dl>
   </div>
-  <div class="mt-6 mb-6 text-center">
-    <%= link_to "トップページに戻る", root_path, class: "bg-gray-50 border border-secondary py-2 px-5 hover:shadow-lg rounded-full text-lg mx-4", data: { turbo: false } %>
+  <div class="mt-6 text-center">
+    <%= link_to t('.home'), root_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-4", data: { turbo: false } %>
   </div>
 </div>

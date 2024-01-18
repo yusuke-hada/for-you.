@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   end
   root to: 'pages#top'
   get 'pages/privacy_policy', to: 'pages#privacy_policy'
-  get 'pages/terms_of_use', to: 'pages#terms_of_use'
   get 'users/check_email', to: 'users#check_email'
   resource :profile, only: %i[show edit update]
   resources :password_resets, only: %i[new create edit update]
