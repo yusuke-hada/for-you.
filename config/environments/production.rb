@@ -63,8 +63,19 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "for_you__production"
 
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { host: 'foryou-9e28d89ec5bb.herokuapp.com', protocol: 'https' }
+  config.action_mailer.default_url_options = { protocol: 'https', host:'foryou-9e28d89ec5bb.herokuapp.com'}
   config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    port: 587,
+    address:"smtp.gmail.com",
+    domain: 'gmail.com', 
+    user_name: Rails.application.credentials.Gmail[:email], #Gmailアカウントのメールアドレス
+    password: Rails.application.credentials.Gmail[:password], #Gmailで設定したアプリパスワード
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
+
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
