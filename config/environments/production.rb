@@ -66,12 +66,15 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { protocol: 'https', host:'foryou-9e28d89ec5bb.herokuapp.com'}
   config.action_mailer.delivery_method = :smtp
 
+  email = Rails.application.credentials.Gmail[:email]
+  password = Rails.application.credentials.Gmail[:password]
+
   config.action_mailer.smtp_settings = {
     port: 587,
     address:"smtp.gmail.com",
     domain: 'gmail.com', 
-    user_name: Rails.application.credentials.Gmail[:email], #Gmailアカウントのメールアドレス
-    password: Rails.application.credentials.Gmail[:password], #Gmailで設定したアプリパスワード
+    user_name: email, 
+    password: password, 
     authentication: :plain,
     enable_starttls_auto: true
   }
