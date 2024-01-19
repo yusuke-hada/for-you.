@@ -93,6 +93,7 @@ ja:
       title: 'プレゼント提案結果'
       user_result: 'ユーザーの入力:'
       ai_result: 'AIからの提案:'
+      post_text: 'AIから%{result}を提案されました！プレゼントに悩んだらfor youで相談してみませんか？'
       no_result: 'ギフト提案は見つかりませんでした'
       rakuten_title: '楽天市場の検索上位'
       google_search_link: 'Googleで検索する'
