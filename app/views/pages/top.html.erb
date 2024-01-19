@@ -78,13 +78,13 @@
               </svg> 
             </div>
             <div class="flex-grow">
-              <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Coming soon...</h2>
-              <p class="leading-relaxed text-base">Coming soon...</p>
+              <h2 class="text-gray-900 text-lg title-font font-medium mb-3"><%= t('.remind_function')%></h2>
+              <p class="leading-relaxed text-base"><%= t('.remind_text')%></p>
             </div>
           </div>
         </div> 
         <div class="flex justify-center">
-          <%= link_to t('.experience_button'), login_path, class: 'inline-block rounded-lg bg-indigo-500 px-8 py-3 mt-5 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base', data: { turbo: false } %>
+          <%= link_to t('.experience_button'), login_path, class: 'inline-block rounded-lg bg-indigo-500 px-8 py-3 mt-10 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base', data: { turbo: false } %>
         </div>  
       </div>
     </section>

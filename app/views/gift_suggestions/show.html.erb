@@ -18,7 +18,21 @@
     <% if @gift_suggestion.result.present? %>
       <p class="text-lg font-semibold mb-4"><%= t('.ai_result') %></p>
       <div class="bg-white p-4 rounded-lg shadow-md text-center">
-        <%= @gift_suggestion.result %>
+        <div class="flex items-center justify-center">
+          <%= @gift_suggestion.result %>
+          <div class="ml-4">
+            <%= link_to 'Tweet', 'https://twitter.com/share', class: 'twitter-share-button py-2 px-4',
+              data: {
+                size: 'large',
+                text: t('.post_text', result: @gift_suggestion.result),
+                url: 'https://foryou-9e28d89ec5bb.herokuapp.com',
+                show_count: 'false',
+                lang: "ja"
+              },
+              target: '_blank' %>
+              <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </div>
+        </div>
       </div>
     <% else %>
       <p class="text-red-600"><%= t('.no_result') %></p>
