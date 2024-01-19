@@ -27,6 +27,8 @@ ja:
       wish_list_text: 'ユーザーの登録情報からあなたがプレゼントを贈りたい相手に似た条件の相手がどんなものが欲しいのか検索しましょう'
       memo_function: 'メモ機能'
       memo_text: '誰に何を貰ったのか忘れてしまうこともありますので忘れないように記録しておきましょう'
+      remind_function: 'リマインド'
+      remind_text: 'LINE連携を行い大切な人の記念日を登録しておくことでプレゼントの準備を忘れるのを防止できます'
     after_login_top:
       consult_ai: 'AIにプレゼントを相談する'
       ai_description: '渡したい相手の情報を入力して提案を受けよう'
