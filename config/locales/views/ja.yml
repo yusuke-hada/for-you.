@@ -151,6 +151,7 @@ ja:
       search: '検索する'
     new:
       title: 'メッセージカード作成'
+      index: '相談履歴一覧'
       select_image: '背景画像を選択してください'
       message_content: 'メッセージ内容'
       submit: '作成する'
