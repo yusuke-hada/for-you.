@@ -2,10 +2,9 @@ class MessageCardsController < ApplicationController
   before_action :set_message_card, only: %i[edit update destroy]
 
   def index
-    @q = MessageCard.ransack(params[:q])
+    @q = current_user.message_cards.ransack(params[:q])
     @message_cards = @q.result(distinct: true)
                        .includes(:user)
-                       .where(user: current_user)
                        .page(params[:page])
                        .order('created_at desc')
                        .per(10)
@@ -45,12 +44,11 @@ class MessageCardsController < ApplicationController
 
   def destroy
     @message_card.destroy!
-    redirect_to user_message_cards_path, alert: t('.success'), status: :see_other
+    redirect_to message_cards_path, alert: t('.success'), status: :see_other
   end
 
   def image
-    @user = User.find(params[:user_id])
-    @message_card = @user.message_cards.find(params[:id])
+    @message_card = current_user.message_cards.find(params[:id])
 
     begin
       image_data = @message_card.generate_image_with_text
