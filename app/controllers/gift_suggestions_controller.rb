@@ -21,14 +21,14 @@ class GiftSuggestionsController < ApplicationController
   end
 
   def show
-    @gift_suggestion = GiftSuggestion.find(params[:id])
+    @gift_suggestion = current_user.gift_suggestions.find(params[:id])
     @items = RakutenWebService::Ichiba::Item.search(keyword: @gift_suggestion.result, hits: 3)
   end
 
   def destroy
     gift_suggestion = current_user.gift_suggestions.find(params[:id])
     gift_suggestion.destroy!
-    redirect_to user_gift_suggestions_path(current_user), alert: t('.success'), status: :see_other
+    redirect_to gift_suggestions_path, alert: t('.success'), status: :see_other
   end
 
   private
@@ -43,7 +43,7 @@ class GiftSuggestionsController < ApplicationController
     @gift_suggestion.result = @gift_suggestion.generate_suggestion
 
     if @gift_suggestion.save
-      redirect_to user_gift_suggestion_path(current_user, @gift_suggestion)
+      redirect_to gift_suggestion_path(@gift_suggestion)
     else
       flash.now[:alert] = @gift_suggestion.errors.full_messages
       render :new

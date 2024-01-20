@@ -2,10 +2,9 @@ class MemosController < ApplicationController
   before_action :set_memo, only: %i[edit update destroy]
 
   def index
-    @q = Memo.ransack(params[:q])
+    @q = current_user.memos.ransack(params[:q])
     @memos = @q.result(distinct: true)
                .includes(:user)
-               .where(user: current_user)
                .page(params[:page])
                .order('created_at desc')
                .per(10)
@@ -18,7 +17,7 @@ class MemosController < ApplicationController
   def create
     @memo = current_user.memos.build(memo_params)
     if @memo.save
-      redirect_to user_memos_path(current_user), notice: t('.success')
+      redirect_to memos_path, notice: t('.success')
     else
       flash.now[:alert] = @memo.errors.full_messages
       render :new
@@ -29,7 +28,7 @@ class MemosController < ApplicationController
 
   def update
     if @memo.update(memo_params)
-      redirect_to user_memos_path(current_user), notice: t('.success')
+      redirect_to memos_path, notice: t('.success')
     else
       flash.now[:alert] = @memo.errors.full_messages
       render :edit
@@ -38,7 +37,7 @@ class MemosController < ApplicationController
 
   def destroy
     @memo.destroy!
-    redirect_to user_memos_path, alert: t('.success'), status: :see_other
+    redirect_to memos_path, alert: t('.success'), status: :see_other
   end
 
   private

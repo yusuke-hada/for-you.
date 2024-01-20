@@ -22,13 +22,13 @@ Rails.application.routes.draw do
       get 'autocomplete/relationship', to: 'autocomplete#relationship'
       get 'autocomplete/purpose', to: 'autocomplete#purpose'
     end
-    resources :gift_suggestions, only: %i[index new create show destroy]
-    resources :wish_lists, only: %i[index new create edit update destroy]
-    resources :memos, only: %i[index new create edit update destroy]
-    resources :message_cards, only: %i[index new create edit update destroy] do
-      member do
-        get 'image'
-      end
+  end
+  resources :gift_suggestions, only: %i[index new create show destroy]
+  resources :wish_lists, only: %i[index new create edit update destroy]
+  resources :memos, only: %i[index new create edit update destroy]
+  resources :message_cards, only: %i[index new create edit update destroy] do
+    member do
+      get 'image'
     end
   end
 end

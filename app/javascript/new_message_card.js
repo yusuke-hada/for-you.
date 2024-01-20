@@ -16,9 +16,9 @@ document.addEventListener("DOMContentLoaded", function() {
       })
       .then(data => {
         if (data.message_card_id) {
-          let image_url = `/users/${data.user_id}/message_cards/${data.message_card_id}/image`;
+          let image_url = `/message_cards/${data.message_card_id}/image`;
           window.open(image_url, '_blank');
-          window.location.href = `/users/${data.user_id}/message_cards`;
+          window.location.href = `/message_cards`;
         }
       })
       .catch(error => {
