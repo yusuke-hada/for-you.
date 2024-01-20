@@ -1,6 +1,6 @@
 <div class="container max-w-md mx-auto ">
   <h1 class="mb-5 text-4xl text-center"><%= t('.title') %></h1>
-  <%= form_with model: @wish_list, url: user_wish_list_path(current_user,@wish_list), local: true,  data: { turbo: false }, class: "w-96 mx-auto p-6 bg-white rounded-lg shadow-md" do |f| %>
+  <%= form_with model: @wish_list, url: wish_list_path(@wish_list), local: true,  data: { turbo: false }, class: "w-96 mx-auto p-6 bg-white rounded-lg shadow-md" do |f| %>
     <%= render 'form_fields', f: f %>
     <div class="flex items-center justify-between">
       <%= f.submit t('.submit'), class: " mx-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>

@@ -18,7 +18,7 @@ class WishListsController < ApplicationController
   def create
     @wish_list = current_user.wish_lists.build(wish_list_params)
     if @wish_list.save
-      redirect_to user_wish_lists_path(current_user), notice: t('.success')
+      redirect_to wish_lists_path, notice: t('.success')
     else
       flash.now[:alert] = @wish_list.errors.full_messages
       render :new
@@ -29,7 +29,7 @@ class WishListsController < ApplicationController
 
   def update
     if @wish_list.update(wish_list_params)
-      redirect_to user_wish_lists_path(current_user), notice: t('.success')
+      redirect_to wish_lists_path, notice: t('.success')
     else
       flash.now[:alert] = @wish_list.errors.full_messages
       render :edit
@@ -38,7 +38,7 @@ class WishListsController < ApplicationController
 
   def destroy
     @wish_list.destroy!
-    redirect_to user_wish_lists_path, alert: t('.success'), status: :see_other
+    redirect_to wish_lists_path, alert: t('.success'), status: :see_other
   end
 
   private
