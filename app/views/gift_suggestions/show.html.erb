@@ -65,7 +65,7 @@
     </div>
   <% end %>
   <div class="flex justify-around mt-8">
-    <%= link_to t('.suggestion_again'),  new_user_gift_suggestion_path(current_user), class: "bg-green-500 hover:bg-green-400 text-white rounded px-4 py-2" %>
-    <%= link_to t('.back_to_list'), user_gift_suggestions_path(current_user), class: "bg-gray-500 hover:bg-gray-400 text-white rounded px-4 py-2" %>
+    <%= link_to t('.suggestion_again'),  new_gift_suggestion_path, class: "bg-green-500 hover:bg-green-400 text-white rounded px-4 py-2" %>
+    <%= link_to t('.back_to_list'), gift_suggestions_path, class: "bg-gray-500 hover:bg-gray-400 text-white rounded px-4 py-2" %>
   </div>
 </div>
