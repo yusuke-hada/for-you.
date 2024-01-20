@@ -20,7 +20,7 @@ class User < ApplicationRecord
   enum role: { general: 0, admin: 1 }
   scope :with_hobby, -> (hobby) { where("hobby @> ARRAY[?]::varchar[]", [hobby]) }
 
-  def self.ransackable_attributes(auth_object = nil)
+  def self.ransackable_attributes(_auth_object = nil)
     ["age", "business", "gender", "hobby"]
   end
 end
