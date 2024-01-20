@@ -5,22 +5,17 @@ class UsersController < ApplicationController
   end
 
   def step2
-    session[:name] = user_params[:name]
-    session[:email] = user_params[:email]
-    session[:password] = user_params[:password]
-    session[:password_confirmation] = user_params[:password_confirmation]
+    set_user_session_step2
     @user = User.new
   end
 
   def step3
-    session[:age] = user_params[:age]
-    session[:gender] = user_params[:gender]
-    session[:business] = user_params[:business]
-    session[:hobby] = user_params[:hobby]
+    set_user_session_step3
     @user = User.new
     @wish_list = WishList.new
   end
 
+  # HACK: Refactor this method to reduce ABC size and method length.
   def create
     ActiveRecord::Base.transaction do
       @user = User.new(
@@ -56,6 +51,20 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def set_user_session_step2
+    session[:name] = user_params[:name]
+    session[:email] = user_params[:email]
+    session[:password] = user_params[:password]
+    session[:password_confirmation] = user_params[:password_confirmation]
+  end
+
+  def set_user_session_step3
+    session[:age] = user_params[:age]
+    session[:gender] = user_params[:gender]
+    session[:business] = user_params[:business]
+    session[:hobby] = user_params[:hobby]
+  end
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :age, :gender, :business, :hobby)

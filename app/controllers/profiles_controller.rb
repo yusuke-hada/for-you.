@@ -1,9 +1,9 @@
 class ProfilesController < ApplicationController
   before_action :set_user, only: %i[show edit update]
 
-  def show;end
+  def show; end
 
-  def edit;end
+  def edit; end
 
   def update
     if @user.update(user_params)
@@ -22,9 +22,7 @@ class ProfilesController < ApplicationController
 
   def user_params
     permitted_params = params.require(:user).permit(:email, :name, :age, :gender, :business, :hobby)
-    if permitted_params[:hobby].is_a?(String)
-      permitted_params[:hobby] = split_hobby(permitted_params[:hobby])
-    end
+    permitted_params[:hobby] = split_hobby(permitted_params[:hobby]) if permitted_params[:hobby].is_a?(String)
     permitted_params
   end
 

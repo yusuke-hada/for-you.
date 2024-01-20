@@ -9,8 +9,8 @@ class MessageCard < ApplicationRecord
     'image2' => '2B12FFDC-630F-4EB2-959B-81DDD9070543.PNG',
     'image3' => '2163D970-995E-47DA-A45E-8E93F96187F1.PNG',
     'image4' => '3087C17B-FAF4-496E-A3A6-00FC74807949.PNG',
-    'image5' => 'F822E977-4FEA-4BDA-BE77-0EEDB301FC2A.PNG',
-  }.freeze 
+    'image5' => 'F822E977-4FEA-4BDA-BE77-0EEDB301FC2A.PNG'
+  }.freeze
 
   def background_image_url
     key = BACKGROUND_IMAGES[background_image]
@@ -18,34 +18,26 @@ class MessageCard < ApplicationRecord
   end
 
   def generate_image
-    image = MiniMagick::Image.open(self.background_image_url)
-    image.combine_options do |c|
-      c.gravity "center"
-      c.draw "text 0,0 '#{self.recipient_name}'"
-      c.draw "text 0,20 '#{self.message}'"
-      c.pointsize 20
-      c.fill "black"
-    end
-    image_path = Rails.root.join('public', 'images', "generated_#{self.id}.jpg")
-    image.write(image_path)
-    "/images/generated_#{self.id}.jpg"
+    image = create_image_with_text
+    print_image(image)
   end
 
+  # HACK: Refactor this method to reduce ABC size and method length.
   def generate_image_with_text
-    image = MiniMagick::Image.open(self.background_image_url)
+    image = MiniMagick::Image.open(background_image_url)
     font_path = Rails.root.join('public', 'fonts', 'NotoSansJP-VariableFont_wght.ttf').to_s
-    
+
     image.combine_options do |c|
       c.font font_path
       c.gravity 'center'
-      c.pointsize 60 
+      c.pointsize 60
       c.stroke 'black'
       c.strokewidth 2
-      c.draw "text 0,-310 '#{self.recipient_name}'"
+      c.draw "text 0,-310 '#{recipient_name}'"
       c.fill 'black'
     end
 
-    message_lines = self.message.split("\n")
+    message_lines = message.split("\n")
     start_offset_y = -200
     line_height = 70
 
@@ -63,12 +55,12 @@ class MessageCard < ApplicationRecord
     image.to_blob
   end
 
-  def self.ransackable_attributes(auth_object = nil)
+  def self.ransackable_attributes(_auth_object = nil)
     %w[recipient_name message]
   end
 
-  def self.ransackable_associations(auth_object = nil)
-    ["user"]
+  def self.ransackable_associations(_auth_object = nil)
+    ['user']
   end
 
   private
@@ -76,6 +68,24 @@ class MessageCard < ApplicationRecord
   def generate_presigned_url(key)
     s3 = Aws::S3::Resource.new(region: 'ap-northeast-1')
     signer = Aws::S3::Presigner.new(client: s3.client)
-    signer.presigned_url(:get_object, bucket: 'foryoustrage', key: key, expires_in: 3600)
+    signer.presigned_url(:get_object, bucket: 'foryoustrage', key:, expires_in: 3600)
+  end
+
+  def create_image_with_text
+    image = MiniMagick::Image.open(background_image_url)
+    image.combine_options do |c|
+      c.gravity 'center'
+      c.draw "text 0,0 '#{recipient_name}'"
+      c.draw "text 0,20 '#{message}'"
+      c.pointsize 20
+      c.fill 'black'
+    end
+    image
+  end
+
+  def print_image(image)
+    image_path = Rails.root.join('public', 'images', "generated_#{id}.jpg")
+    image.write(image_path)
+    "/images/generated_#{id}.jpg"
   end
 end

@@ -1,9 +1,14 @@
 class MessageCardsController < ApplicationController
-  before_action :set_message_card, only: [:edit,:update,:destroy]
+  before_action :set_message_card, only: %i[edit update destroy]
 
   def index
     @q = MessageCard.ransack(params[:q])
-    @message_cards = @q.result(distinct: true).includes(:user).where(user: current_user).page(params[:page]).order("created_at desc").per(10)
+    @message_cards = @q.result(distinct: true)
+                       .includes(:user)
+                       .where(user: current_user)
+                       .page(params[:page])
+                       .order('created_at desc')
+                       .per(10)
   end
 
   def new
@@ -42,16 +47,16 @@ class MessageCardsController < ApplicationController
     @message_card.destroy!
     redirect_to user_message_cards_path, alert: t('.success'), status: :see_other
   end
-  
+
   def image
     @user = User.find(params[:user_id])
     @message_card = @user.message_cards.find(params[:id])
-  
+
     begin
       image_data = @message_card.generate_image_with_text
       send_data image_data, type: 'image/jpeg', disposition: 'inline'
-    rescue => e
-      Rails.logger.error "#{e.message}"
+    rescue StandardError => e
+      Rails.logger.error e.message
       render json: { error: I18n.t('message_cards.image.image_error') }, status: :internal_server_error
     end
   end
@@ -61,7 +66,7 @@ class MessageCardsController < ApplicationController
   def generate_presigned_url(key)
     s3 = Aws::S3::Resource.new(region: 'ap-northeast-1')
     signer = Aws::S3::Presigner.new(client: s3.client)
-    signer.presigned_url(:get_object, bucket: 'foryoustrage', key: key, expires_in: 3600)
+    signer.presigned_url(:get_object, bucket: 'foryoustrage', key:, expires_in: 3600)
   end
 
   def message_card_params

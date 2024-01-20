@@ -7,3 +7,37 @@ Style/Documentation:
 # Style/FrozenStringLiteralCommentルールを適用しない
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - 'test/test_helper.rb'
+
+Style/SpecialGlobalVars:
+  Exclude:
+    - 'bin/bundle'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'db/schema.rb'
+    - 'config/routes.rb'
+    - 'config/environments/development.rb'
+    - 'config/environments/production.rb'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'db/migrate/*.rb'
+    - 'bin/bundle'
+
+Metrics/CyclomaticComplexity:
+  Exclude:
+    - 'bin/bundle'
+
+Metrics/PerceivedComplexity:
+  Exclude:
+    - 'bin/bundle'
+
+Layout/LineLength:
+  Exclude:
+    - 'config/initializers/sorcery.rb'
+    - 'bin/bundle'
+
