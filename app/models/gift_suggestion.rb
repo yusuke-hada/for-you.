@@ -15,12 +15,13 @@ class GiftSuggestion < ApplicationRecord
     response.dig('choices', 0, 'message', 'content')
   end
 
+  # rubocop:disable Metrics/MethodLength
   def fetch_suggestion(client, input)
     client.chat(
       parameters: {
         model: 'gpt-3.5-turbo',
         messages: [
-          { role: 'system', content: 
+          { role: 'system', content:
             '以下の情報に基づいてプレゼント提案(商品名を一つ、理由などを述べずに必ず商品名だけ、' \
             'ネットショップで購入出来る現実的なもの)を行ってください、提案には"「","」"を付けないでください' },
           { role: 'user', content: input }
@@ -28,6 +29,7 @@ class GiftSuggestion < ApplicationRecord
       }
     )
   end
+  # rubocop:enable Metrics/MethodLength
 
   def format_input
     [

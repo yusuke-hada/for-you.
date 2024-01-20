@@ -1,7 +1,6 @@
 require 'openai'
 require 'rakuten_web_service'
 class GiftSuggestionsController < ApplicationController
-
   def index
     @gift_suggestions = current_user.gift_suggestions.order(created_at: :desc).page(params[:page]).per(5)
   end
@@ -11,18 +10,10 @@ class GiftSuggestionsController < ApplicationController
   end
 
   def create
-    @gift_suggestion = current_user.gift_suggestions.build(gift_suggestion_params.except(:hobbies))
-    @gift_suggestion.hobbies = split_hobby(gift_suggestion_params[:hobbies])
+    @gift_suggestion = build_gift_suggestion
 
-    unless @gift_suggestion.valid?
-      flash.now[:alert] = @gift_suggestion.errors.full_messages
-      return render :new
-    end
-
-    @gift_suggestion.result = @gift_suggestion.generate_suggestion
-    
-    if @gift_suggestion.save
-      redirect_to user_gift_suggestion_path(current_user, @gift_suggestion)
+    if @gift_suggestion.valid?
+      process_gift_suggestion
     else
       flash.now[:alert] = @gift_suggestion.errors.full_messages
       render :new
@@ -41,6 +32,23 @@ class GiftSuggestionsController < ApplicationController
   end
 
   private
+
+  def build_gift_suggestion
+    current_user.gift_suggestions.build(gift_suggestion_params.except(:hobbies)).tap do |gift_suggestion|
+      gift_suggestion.hobbies = split_hobby(gift_suggestion_params[:hobbies])
+    end
+  end
+
+  def process_gift_suggestion
+    @gift_suggestion.result = @gift_suggestion.generate_suggestion
+
+    if @gift_suggestion.save
+      redirect_to user_gift_suggestion_path(current_user, @gift_suggestion)
+    else
+      flash.now[:alert] = @gift_suggestion.errors.full_messages
+      render :new
+    end
+  end
 
   def gift_suggestion_params
     params.require(:gift_suggestion).permit(

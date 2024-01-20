@@ -1,15 +1,14 @@
 class WishListsController < ApplicationController
-  before_action :set_wish_list, only: [:edit,:update,:destroy]
+  before_action :set_wish_list, only: %i[edit update destroy]
 
   def index
     @q = WishList.ransack(params[:q])
-    @wish_lists = @q.result(distinct: true).includes(:user)
-
-    if params[:hobby].present?
-      @wish_lists = @wish_lists.joins(:user).merge(User.with_hobby(params[:hobby]))
-    end
-
-    @wish_lists = @wish_lists.page(params[:page]).order("wish_lists.created_at desc").per(10)
+    @wish_lists = @q.result(distinct: true)
+                    .includes(:user)
+                    .page(params[:page])
+                    .order('wish_lists.created_at desc')
+                    .per(10)
+    apply_hobby_filter if params[:hobby].present?
   end
 
   def new
@@ -50,5 +49,9 @@ class WishListsController < ApplicationController
 
   def set_wish_list
     @wish_list = current_user.wish_lists.find(params[:id])
+  end
+
+  def apply_hobby_filter
+    @wish_lists = @wish_lists.joins(:user).merge(User.with_hobby(params[:hobby]))
   end
 end

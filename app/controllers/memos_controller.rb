@@ -1,9 +1,14 @@
 class MemosController < ApplicationController
-  before_action :set_memo, only: [:edit,:update,:destroy]
+  before_action :set_memo, only: %i[edit update destroy]
 
   def index
     @q = Memo.ransack(params[:q])
-    @memos = @q.result(distinct: true).includes(:user).where(user: current_user).page(params[:page]).order("created_at desc").per(10)
+    @memos = @q.result(distinct: true)
+               .includes(:user)
+               .where(user: current_user)
+               .page(params[:page])
+               .order('created_at desc')
+               .per(10)
   end
 
   def new
@@ -20,7 +25,7 @@ class MemosController < ApplicationController
     end
   end
 
-  def edit ;end
+  def edit; end
 
   def update
     if @memo.update(memo_params)
@@ -35,7 +40,6 @@ class MemosController < ApplicationController
     @memo.destroy!
     redirect_to user_memos_path, alert: t('.success'), status: :see_other
   end
-
 
   private
 

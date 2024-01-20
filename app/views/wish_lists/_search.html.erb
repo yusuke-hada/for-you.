@@ -5,7 +5,7 @@
     <%= f.number_field :user_age_lteq, class: "form-input w-full sm:w-32 border-gray-300 shadow-sm px-1", placeholder: User.human_attribute_name(:age) %>
   </div>
   <div class="mb-2 w-full sm:w-auto">
-    <%= f.select :user_gender_eq, options_for_select([[User.human_attribute_name(:gender), '']] + User.genders.keys.map { |key| [I18n.t("enums.user.gender.#{key}"), key] }), {}, class: "form-select w-full sm:w-64 border-gray-300 shadow-sm text-gray-400"%>
+    <%= f.select :user_gender_eq, options_for_select([[User.human_attribute_name(:gender), '']] + User.genders.map { |key, value| [I18n.t("enums.user.gender.#{key}"), value] }), {}, class: "form-select w-full sm:w-64 border-gray-300 shadow-sm text-gray-400"%>
   </div>
   <div class="mb-2 w-full sm:w-auto">
     <%= f.search_field :user_business_cont, class: "form-input w-full sm:w-64 border-gray-300 shadow-sm px-1", placeholder: User.human_attribute_name(:business) %>

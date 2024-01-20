@@ -8,6 +8,6 @@ class Memo < ApplicationRecord
   end
 
   def self.ransackable_associations(_auth_object = nil)
-    ["user"]
+    ['user']
   end
 end
