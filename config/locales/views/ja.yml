@@ -39,7 +39,10 @@ ja:
       message_card: 'メッセージカード'
       card_description: '背景を選んでメッセージを入力しよう'
     privacy_policy:
+      title: 'プライバシーポリシー'
       home: 'トップページに戻る'
+    terms_of_uses:
+      title: '利用規約'
   users:
     step1:
       title: 'ユーザー登録'
