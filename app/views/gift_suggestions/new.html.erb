@@ -1,3 +1,4 @@
+<% content_for(:title, t('.title')) %>
 <div class="container max-w-2xl mx-auto ">
   <h1 class="mb-5 text-4xl text-center"><%= t('.title') %></h1>
   <%= form_with model: @gift_suggestion, url: gift_suggestions_path, local: true, data: { turbo: false }, class: "w-full p-6 bg-white rounded-lg" do |f| %>

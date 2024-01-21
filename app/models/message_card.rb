@@ -5,11 +5,11 @@ class MessageCard < ApplicationRecord
   validates :background_image, presence: true
 
   BACKGROUND_IMAGES = {
-    'image1' => 'F5E5D560-C7A8-4E94-AAB4-7BD794666BCE.PNG',
-    'image2' => '2B12FFDC-630F-4EB2-959B-81DDD9070543.PNG',
-    'image3' => '2163D970-995E-47DA-A45E-8E93F96187F1.PNG',
-    'image4' => '3087C17B-FAF4-496E-A3A6-00FC74807949.PNG',
-    'image5' => 'F822E977-4FEA-4BDA-BE77-0EEDB301FC2A.PNG'
+    'image1' => 'image1.webp',
+    'image2' => 'image2.webp',
+    'image3' => 'image3.webp',
+    'image4' => 'image4.webp',
+    'image5' => 'image5.webp'
   }.freeze
 
   def background_image_url
