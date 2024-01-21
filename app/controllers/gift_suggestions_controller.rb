@@ -22,7 +22,12 @@ class GiftSuggestionsController < ApplicationController
 
   def show
     @gift_suggestion = current_user.gift_suggestions.find(params[:id])
-    @items = RakutenWebService::Ichiba::Item.search(keyword: @gift_suggestion.result, hits: 3)
+
+    @items = if @gift_suggestion.result.present?
+               RakutenWebService::Ichiba::Item.search(keyword: @gift_suggestion.result, hits: 3)
+             else
+               []
+             end
   end
 
   def destroy

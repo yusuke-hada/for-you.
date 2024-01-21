@@ -36,7 +36,10 @@
         </div>
       </div>
     <% else %>
-      <p class="text-red-600"><%= t('.no_result') %></p>
+      <div class="bg-white p-4 rounded-lg shadow-md text-center">
+        <p class="text-red-500 font-bold"><%= t('.no_result') %></p>
+        <p class="text-red-500 font-bold"><%= t('.proposal') %></p>
+      </div>
     <% end %>
   </div>
 
@@ -60,7 +63,7 @@
     <div class="flex justify-center mt-4">
       <%= link_to t('.rakuten_more_link'), "https://search.rakuten.co.jp/search/mall/#{CGI.escape(@gift_suggestion.result)}", target: "_blank", class: "bg-blue-500 hover:bg-blue-400 text-white rounded px-4 py-2" %>
     </div>
-  <% else %>
+  <% elsif @gift_suggestion.result.present? %>
     <div class="flex justify-center mt-4">
       <%= link_to t('.google_search_link'), "https://www.google.com/search?q=#{CGI.escape(@gift_suggestion.result)}", target: "_blank", class: "bg-blue-500 hover:bg-blue-400 text-white rounded px-4 py-2" %>
     </div>
