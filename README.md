@@ -48,3 +48,9 @@
   
 https://www.figma.com/file/wGQAVxqDG41YjIRCg6FgwO/for-you.?type=design&node-id=0%3A1&mode=design&t=EIJCu57SXe1hTjma-1  
   
+## ER図
+
+https://drive.google.com/file/d/1nbAQVnMFHjkcMOdNGinTU28_iR_Jqhh4/view?usp=sharing  
+
+![image](https://github.com/yusuke-hada/for-you./assets/128974750/3be59109-230a-4042-a280-db878e9162ca)  
+
