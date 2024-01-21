@@ -10,4 +10,10 @@ module ApplicationHelper
 
     alert_classes[type.to_sym] || alert_classes[:default]
   end
+
+  def page_title(page_title = '')
+    base_title = 'foy you'
+
+    page_title.empty? ? base_title : page_title + " | " + base_title
+  end
 end
