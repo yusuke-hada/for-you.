@@ -14,7 +14,7 @@ class PasswordResetsController < ApplicationController
     return not_authenticated if @user.blank?
   end
 
-  # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
+  # HACK: Refactor this method to reduce ABC size and method length.
   def update
     @token = params[:id]
     @user = User.load_from_reset_password_token(params[:id])
@@ -23,12 +23,16 @@ class PasswordResetsController < ApplicationController
     @user.password = params[:user][:password]
     @user.password_confirmation = params[:user][:password_confirmation]
 
-    if @user.save
-      redirect_to login_path, notice: t('.success')
+    if @user.password.present? && @user.password == @user.password_confirmation
+      if @user.change_password(params[:user][:password])
+        redirect_to login_path, notice: t('.success')
+      else
+        flash.now[:alert] = @user.errors.full_messages
+        render :edit
+      end
     else
-      flash.now[:alert] = @user.errors.full_messages
+      flash.now[:alert] = t('.unmatch')
       render :edit
     end
   end
-  # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
 end

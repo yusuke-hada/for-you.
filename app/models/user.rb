@@ -10,10 +10,9 @@ class User < ApplicationRecord
   validates :email, { presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX } }
   validates :password, presence: true, length: { minimum: 5 },
                        if: lambda {
-                         new_record? ||
-                           changes[:crypted_password] ||
-                           reset_password_token.present?
-                       }
+                             new_record? ||
+                               changes[:crypted_password]
+                           }
   validates :password, confirmation: true,
                        if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true,
