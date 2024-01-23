@@ -10,12 +10,16 @@
   <%= form_for @user, url: users_path, local: true,  html: { "data-turbo": "false", id: "registration_form", class: "w-96 mx-auto p-6 bg-white rounded-lg shadow-md"} do |f| %>
     <%= f.fields_for :wish_lists, @user.wish_lists.build do |wl| %>
       <div class="mb-4">
-        <%= wl.label :item_name, class: "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= f.label :item_name, class: "block text-gray-700 text-sm font-bold mb-2" do %>
+          <%= WishList.human_attribute_name(:item_name) %> <span class="text-red-500">*</span>
+        <% end %>
         <%= wl.text_field :item_name, id: "item_name", class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outlin " %>
         <div id="item_nameError" class="error" style="display:none; color:red;"></div>
       </div>
       <div class="mb-4">
-        <%= wl.label :description, class: "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= f.label :description, class: "block text-gray-700 text-sm font-bold mb-2" do %>
+          <%= WishList.human_attribute_name(:description) %> <span class="text-red-500">*</span>
+        <% end %>
         <%= wl.text_field :description, id: "description", class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outlin " %>
         <div id="descriptionError" class="error" style="display:none; color:red;"></div>
       </div>

@@ -3,15 +3,21 @@
   <h1 class="mb-5 text-4xl text-center"><%= t('.title') %></h1>
   <%= form_with model: @user, url: profile_path(current_user), local: true, data: { turbo: false }, class: "w-96 mx-auto p-6 bg-white rounded-lg shadow-md" do |f| %>
     <div class="mb-4">
-      <%= f.label :name, class: "block text-gray-700 text-sm font-bold mb-2" %>
+      <%= f.label :name, class: "block text-gray-700 text-sm font-bold mb-2" do %>
+        <%= f.object.class.human_attribute_name(:name) %> <span class="text-red-500">*</span>
+      <% end %>
       <%= f.text_field :name, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
     </div>
     <div class="mb-4">
-      <%= f.label :email, class: "block text-gray-700 text-sm font-bold mb-2" %>
+      <%= f.label :email, class: "block text-gray-700 text-sm font-bold mb-2" do %>
+        <%= f.object.class.human_attribute_name(:email) %> <span class="text-red-500">*</span>
+      <% end %>
       <%= f.email_field :email, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
     </div>
     <div class="mb-4">
-      <%= f.label :gender, class: "block text-gray-700 text-sm font-bold mb-2" %>
+      <%= f.label :gender, class: "block text-gray-700 text-sm font-bold mb-2" do %>
+        <%= f.object.class.human_attribute_name(:gender) %> <span class="text-red-500">*</span>
+      <% end %>
       <%= f.select :gender, User.genders.keys.map { |k| [I18n.t("enums.user.gender.#{k}"),k]},
       { prompt: t('.select_gender') }, id: "gender", class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
     </div>

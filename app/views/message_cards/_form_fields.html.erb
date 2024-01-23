@@ -1,16 +1,22 @@
 <div class="mb-4">
-  <%= f.label :background_image, class: "block text-gray-700 text-sm font-bold mb-2" %>
+  <%= f.label :background_image, class: "block text-gray-700 text-sm font-bold mb-2" do %>
+    <%= f.object.class.human_attribute_name(:background_image) %> <span class="text-red-500">*</span>
+  <% end %>
   <%= f.select :background_image, 
       options_for_select(@background_images.keys.map { |key| [key.humanize, key] }, selected: @message_card.background_image),
       { include_blank: t('message_cards.new.select_image') },
       class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
 </div>
 <div class="mb-4">
-  <%= f.label :recipient_name, class: "block text-gray-700 text-sm font-bold mb-2" %>
+  <%= f.label :recipient_name, class: "block text-gray-700 text-sm font-bold mb-2" do %>
+    <%= f.object.class.human_attribute_name(:recipient_name) %> <span class="text-red-500">*</span>
+  <% end %>
   <%= f.text_field :recipient_name, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"%>
 </div>
 <div class="mb-4">
-  <%= f.label :message, class: "block text-gray-700 text-sm font-bold mb-2" %>
+  <%= f.label :message, class: "block text-gray-700 text-sm font-bold mb-2" do %>
+    <%= f.object.class.human_attribute_name(:message) %> <span class="text-red-500">*</span>
+  <% end %>
   <%= f.text_area :message, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", rows: 9, placeholder: t('message_cards.new.message_content') %>
 </div>
 <div class="flex items-center justify-between">
