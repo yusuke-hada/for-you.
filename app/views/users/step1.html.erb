@@ -9,22 +9,30 @@
   <h1 class="mb-5 text-4xl text-center"><%= t('.title') %></h1>
     <%= form_for @user, url: step2_users_path, method: :get, local: true, html: { "data-turbo": "false", id: "registration_form", class: "w-96 mx-auto p-6 bg-white rounded-lg shadow-md"} do |f| %>
       <div class="mb-4">
-        <%= f.label :name, class: "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= f.label :name, class: "block text-gray-700 text-sm font-bold mb-2" do %>
+          <%= f.object.class.human_attribute_name(:name) %> <span class="text-red-500">*</span>
+        <% end %>
         <%= f.text_field :name, id: "name", class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
         <div id="nameError" class="error" style="display:none; color:red;"></div>
       </div>
       <div class="mb-4">
-        <%= f.label :email, class: "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= f.label :email, class: "block text-gray-700 text-sm font-bold mb-2" do %>
+          <%= f.object.class.human_attribute_name(:email) %> <span class="text-red-500">*</span>
+        <% end %>
         <%= f.email_field :email, id:"email", class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
         <div id="emailError" class="error" style="display:none; color:red;"></div>
       </div>
       <div class="mb-4">
-        <%= f.label :password, class: "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= f.label :password, class: "block text-gray-700 text-sm font-bold mb-2" do %>
+          <%= f.object.class.human_attribute_name(:password) %> <span class="text-red-500">*</span>
+        <% end %>
         <%= f.password_field :password, id: "password", class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" %>
         <div id="passwordError" class="error" style="display:none; color:red;"></div>
       </div>
       <div class="mb-4">
-        <%= f.label :password_confirmation, class: "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= f.label :password_confirmation, class: "block text-gray-700 text-sm font-bold mb-2" do %>
+          <%= f.object.class.human_attribute_name(:password_confirmation) %> <span class="text-red-500">*</span>
+        <% end %>
         <%= f.password_field :password_confirmation, id: "password_confirmation", class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" %>
         <div id="passwordConfirmationError" class="error" style="display:none; color:red;"></div>
       </div>
