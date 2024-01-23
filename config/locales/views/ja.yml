@@ -81,6 +81,7 @@ ja:
       submit: '作成する'
     update:
       success: 'パスワードを変更しました'
+      unmatch: 'パスワードが一致しません'
   gift_suggestions:
     index:
       title: 'プレゼント相談履歴一覧'
@@ -176,6 +177,8 @@ ja:
       title: 'プロフィール編集'
       delimit_hobby: '、や・で区切って下さい'
       submit: '編集する'
+    update:
+      success: 'プロフィールを編集しました'
   instructions:
     title: "使い方の説明"
     steps:
