@@ -1,7 +1,7 @@
 <% content_for(:title, t('.title')) %>
 <div class="container max-w-md mx-auto ">
   <h1 class="mb-5 text-4xl text-center"><%= t('.title') %></h1>
-  <%= form_with model: @user, url: profile_path(current_user), local: true, data: { turbo: false }, class: "w-96 mx-auto p-6 bg-white rounded-lg shadow-md" do |f| %>
+  <%= form_with model: @user, url: profile_path, local: true, data: { turbo: false }, class: "w-96 mx-auto p-6 bg-white rounded-lg shadow-md" do |f| %>
     <div class="mb-4">
       <%= f.label :name, class: "block text-gray-700 text-sm font-bold mb-2" do %>
         <%= f.object.class.human_attribute_name(:name) %> <span class="text-red-500">*</span>
