@@ -1,5 +1,5 @@
 class UserSessionsController < ApplicationController
-  skip_before_action :require_login, only: %i[new create]
+  skip_before_action :require_login, only: %i[new create guest_login]
   def new; end
 
   def create
@@ -10,6 +10,17 @@ class UserSessionsController < ApplicationController
       flash.now[:alert] = t('.failed')
       render :new
     end
+  end
+
+  def guest_login
+    redirect_to root_path, alert: t('.already_login') if current_user
+
+    random_value = SecureRandom.hex
+    password_value = SecureRandom.hex
+    user = User.create!(name: random_value, email: "#{random_value}@example.com", password: password_value.to_s,
+                        password_confirmation: password_value.to_s, age: 20, gender: 2)
+    auto_login(user)
+    redirect_to root_path, notice: t('.success')
   end
 
   def destroy

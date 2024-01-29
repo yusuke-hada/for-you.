@@ -7,7 +7,7 @@
     <nav class="md:ml-auto flex flex-wrap items-center text-base">
       <%= link_to t('defaults.login'), login_path , class:"mx-6 hover:text-gray-900", data: { turbo: false } %>
       <%= link_to t('defaults.registration'), step1_users_path, class:"mx-6 hover:text-gray-900", data: { turbo: false } %>
-      <a class="mx-6 hover:text-gray-900">ゲストログイン</a>
+      <%= link_to t('defaults.guest_login'), guest_login_path, class: "mx-6 hover:text-gray-900", data: { turbo_method: :post } %>
     </nav>
   </div>
 </header>
