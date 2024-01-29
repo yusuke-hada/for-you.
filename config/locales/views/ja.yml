@@ -2,6 +2,7 @@ ja:
   defaults:
     login: 'ログイン'
     logout: 'ログアウト'
+    guest_login: 'ゲストログイン'
     registration: '会員登録'
     profile: 'プロフィール'
     top: 'トップページ'

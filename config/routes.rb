@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
+  post 'guest_login', to: 'user_sessions#guest_login'
   delete 'logout', to: 'user_sessions#destroy'
   constraints ->(request) { request.session[:user_id].present? } do
     root to: 'pages#after_login_top', as: :logged_in_root
