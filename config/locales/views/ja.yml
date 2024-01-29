@@ -70,6 +70,9 @@ ja:
     destroy:
       confirm: 'ログアウトしますか？'
       success: 'ログアウトしました'
+    guest_login:
+      already_login: '既にログインしています'
+      success: 'ゲストログインしました'
   password_resets:
     new:
       title: 'パスワードリセット'
@@ -219,6 +222,7 @@ ja:
               blank: 'を入力してください'
       messages:
         blank: 'を入力してください'
+        taken: 'は既に登録されている可能性があります'
         too_short: 'は短すぎます（最小%{count}文字）'
         too_long: 'は長すぎます(最長%{count}文字)'
         not_a_number: 'は数値で入力してください'
