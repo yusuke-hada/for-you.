@@ -82,6 +82,8 @@ gem 'enum_help'
 gem 'kaminari'
 gem 'mini_magick'
 gem 'rakuten_web_service'
+gem 'rails_admin'
 gem 'ransack'
 gem 'ruby-openai'
 gem 'sorcery'
+gem "sassc-rails"
