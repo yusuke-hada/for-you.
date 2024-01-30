@@ -77,6 +77,7 @@ group :test do
 end
 
 gem 'aws-sdk-s3'
+gem 'cancancan'
 gem 'config'
 gem 'enum_help'
 gem 'kaminari'

@@ -3,6 +3,9 @@ ja:
     models:
       user: 'ユーザー'
       wish_list: '欲しいものリスト'
+      gift_suggestion: 'プレゼント提案'
+      memo: 'メモ'
+      message_card: 'メッセージカード'
     attributes:
       user:
         name: '名前'
