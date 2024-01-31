@@ -77,11 +77,14 @@ group :test do
 end
 
 gem 'aws-sdk-s3'
+gem 'cancancan'
 gem 'config'
 gem 'enum_help'
 gem 'kaminari'
 gem 'mini_magick'
+gem 'rails_admin'
 gem 'rakuten_web_service'
 gem 'ransack'
 gem 'ruby-openai'
+gem 'sassc-rails'
 gem 'sorcery'

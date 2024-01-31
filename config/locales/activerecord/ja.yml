@@ -3,22 +3,35 @@ ja:
     models:
       user: 'ユーザー'
       wish_list: '欲しいものリスト'
+      gift_suggestion: 'プレゼント提案'
+      memo: 'メモ'
+      message_card: 'メッセージカード'
     attributes:
       user:
         name: '名前'
         email: 'メールアドレス'
         password: 'パスワード'
         password_confirmation: 'パスワード(確認)'
+        crypted_password: 'パスワード'
+        salt: 'ソルト'
         age: '年齢'
         gender: '性別'
         business: '職業'
         hobby: '趣味'
+        role: '役割'
+        created_at: '作成日時'
+        updated_at: '更新日時'
       wish_list:
+        user: 'ユーザー'
         item_name: '欲しいもの'
         description: '詳細'
+        created_at: '作成日時'
+        updated_at: '更新日時'
       wish_lists:
         item_name: '欲しいもの'
         description: '詳細'
+        created_at: '作成日時'
+        updated_at: '更新日時'
       gift_suggestion:
         age: '年齢'
         gender: '性別'
@@ -29,14 +42,23 @@ ja:
         relationship: '関係性'
         created_at: '相談日時'
         result: '提案された商品'
+        user: 'ユーザー'
+        created_at: '作成日時'
+        updated_at: '更新日時'
       memo:
         name: '名前'
         goods: 'プレゼント'
         time: 'いつ頂いたか'
+        user: 'ユーザー'
+        created_at: '作成日時'
+        updated_at: '更新日時'
       message_card:
         recipient_name: '宛名'
         message: 'メッセージ'
         background_image: '背景画像'
+        user: 'ユーザー'
+        created_at: '作成日時'
+        updated_at: '更新日時'
   enums:
     user:
       gender:
