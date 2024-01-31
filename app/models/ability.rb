@@ -5,9 +5,10 @@ class Ability
 
   def initialize(user)
     return unless user && user&.admin?
+
     can :access, :rails_admin
     can :manage, :all
-    
+
     # Define abilities for the user here. For example:
     #
     #   return unless user.present?
