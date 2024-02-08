@@ -187,10 +187,13 @@ ja:
       submit: '登録する'
     create:
       success: '記念日を登録しました'
-    show:
     edit:
+      title: '記念日編集'
+      submit: '編集する'
     update:
+      success: '記念日を編集しました'
     destroy:
+      success: '記念日を削除しました'
   profiles:
     show:
       title: 'プロフィール詳細'
