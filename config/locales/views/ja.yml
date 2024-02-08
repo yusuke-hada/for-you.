@@ -39,6 +39,8 @@ ja:
       list_description: 'ユーザーがどのようなものが欲しいか検索しよう'
       message_card: 'メッセージカード'
       card_description: '背景を選んでメッセージを入力しよう'
+      anniversary_function: 'リマインダー機能'
+      anniversary_description: '大切な記念日を登録してリマインダー通知を受け取ろう'
     privacy_policy:
       title: 'プライバシーポリシー'
       home: 'トップページに戻る'
