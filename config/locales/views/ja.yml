@@ -173,6 +173,24 @@ ja:
       success: 'メッセージカードを削除しました'
     image:
       image_error: '画像を生成できませんでした'
+  anniversaries:
+    index:
+      title: "記念日一覧"
+      confirm: '本当に削除しますか？'
+      create: '新規作成'
+      search_word: '記念日・詳細'
+      search: '検索する'
+    new:
+      title: "記念日登録"
+      title_placeholder: '何の記念日か入力してください'
+      description_placeholder: '詳細を入力してください'
+      submit: '登録する'
+    create:
+      success: '記念日を登録しました'
+    show:
+    edit:
+    update:
+    destroy:
   profiles:
     show:
       title: 'プロフィール詳細'

@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-  get 'anniversaries/index'
-  get 'anniversaries/new'
-  get 'anniversaries/create'
-  get 'anniversaries/show'
-  get 'anniversaries/edit'
-  get 'anniversaries/update'
-  get 'anniversaries/destroy'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
   get 'login', to: 'user_sessions#new'
