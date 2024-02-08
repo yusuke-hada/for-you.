@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'anniversaries/index'
+  get 'anniversaries/new'
+  get 'anniversaries/create'
+  get 'anniversaries/show'
+  get 'anniversaries/edit'
+  get 'anniversaries/update'
+  get 'anniversaries/destroy'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
   get 'login', to: 'user_sessions#new'
@@ -29,6 +36,7 @@ Rails.application.routes.draw do
   resources :gift_suggestions, only: %i[index new create show destroy]
   resources :wish_lists, only: %i[index new create edit update destroy]
   resources :memos, only: %i[index new create edit update destroy]
+  resources :anniversaries
   resources :message_cards, only: %i[index new create edit update destroy] do
     member do
       get 'image'
