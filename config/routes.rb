@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post 'login', to: 'user_sessions#create'
   post 'guest_login', to: 'user_sessions#guest_login'
   delete 'logout', to: 'user_sessions#destroy'
+  post '/callback' => 'linebot#callback'
   constraints ->(request) { request.session[:user_id].present? } do
     root to: 'pages#after_login_top', as: :logged_in_root
   end
