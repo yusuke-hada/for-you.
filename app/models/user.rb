@@ -5,6 +5,8 @@ class User < ApplicationRecord
   has_many :memos, dependent: :destroy
   has_many :message_cards, dependent: :destroy
   has_many :anniversaries, dependent: :destroy
+  has_many :authentications, dependent: :destroy
+  accepts_nested_attributes_for :authentications
   accepts_nested_attributes_for :wish_lists
   validates :name, length: { maximum: 252 }, presence: true
   VALID_EMAIL_REGEX = /\A[a-zA-Z0-9_+-]+(\.[a-zA-Z0-9_+-]+)*@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}\z/
@@ -27,11 +29,18 @@ class User < ApplicationRecord
   validates :gender, presence: true
   validates :business, length: { maximum: 20 }
   validates :hobby, length: { maximum: 255 }
+  validates :line_uid, uniqueness: true
   enum gender: { man: 0, woman: 1, other: 2 }
   enum role: { general: 0, admin: 1 }
   scope :with_hobby, ->(hobby) { where('hobby @> ARRAY[?]::varchar[]', [hobby]) }
 
   def self.ransackable_attributes(_auth_object = nil)
     %w[age business gender hobby]
+  end
+
+  def generate_token
+    token = SecureRandom.hex(10)
+    self.update(line_token: token) # トークンをユーザーレコードに保存
+    token # 生成したトークンを返す
   end
 end
