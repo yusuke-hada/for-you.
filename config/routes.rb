@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
+  post "oauth/callback", to: "oauths#callback"
+  get "oauth/callback", to: "oauths#callback"
+  get "oauth/:provider", to: "oauths#oauth", as: :auth_at_provider
+  post :line_events, to: 'line_events#recieve'
+  get 'users/line_connect', to: 'users#line_connect'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   post 'guest_login', to: 'user_sessions#guest_login'
   delete 'logout', to: 'user_sessions#destroy'
-  post '/callback' => 'linebot#callback'
   constraints ->(request) { request.session[:user_id].present? } do
     root to: 'pages#after_login_top', as: :logged_in_root
   end
