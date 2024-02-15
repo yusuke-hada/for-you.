@@ -15,7 +15,7 @@ class LineEventsController < ApplicationController
     events.each do |event|
       case event
       when Line::Bot::Event::Follow # 友達登録イベント
-        user_id = event['source']['userId'] # LINEのユーザーIDを取得
+        user_id = event['source']['sub'] # LINEのユーザーIDを取得
         # ここでユーザーIDをアプリのユーザーアカウントに紐づける処理を行う
         token = extract_token_from_message(event.message['text'])
         user = User.find_by(line_token: token)
