@@ -37,10 +37,4 @@ class User < ApplicationRecord
   def self.ransackable_attributes(_auth_object = nil)
     %w[age business gender hobby]
   end
-
-  def generate_token
-    token = SecureRandom.hex(10)
-    self.update(line_token: token) # トークンをユーザーレコードに保存
-    token # 生成したトークンを返す
-  end
 end

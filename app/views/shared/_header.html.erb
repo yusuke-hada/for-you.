@@ -9,7 +9,6 @@
       <%= link_to t('defaults.profile'), profile_path, class:"mx-6 hover:text-gray-900", data: { turbo: false } %>
       <%= link_to t('defaults.logout'), logout_path, class:"mx-6 hover:text-gray-900", data: { turbo_method: :delete, turbo_confirm: t('user_sessions.destroy.confirm') } %>
       <%= link_to 'Login with Line', auth_at_provider_path(provider: :line) %>
-      <a href="<%= @line_connect_url %>">LINEと連携する</a>
     </nav>
   </div>
 </header>

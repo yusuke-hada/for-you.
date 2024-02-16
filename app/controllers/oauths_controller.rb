@@ -7,10 +7,11 @@ class OauthsController < ApplicationController
   def callback
     Rails.logger.info request.env['omniauth.auth'].inspect
     provider = auth_params[:provider]
+    login_from(provider) # これやると@user_hashが使えるようになる
     if @user = current_user
       # 既にログインしているユーザーがLINEアカウントと連携する処理
-      provider_user_id = request.env['omniauth.auth']['userId'] # LINEから返されたユーザーID
-      @user.update(line_uid: provider_user_id) # ユーザー情報にLINEユーザーIDを紐づける
+      provider_user_id = @user_hash.dig(:user_info, "userId") # @user_hashにuserIdが入ってるからそれと紐付けを行う
+      @user.update(line_uid: provider_user_id)
       redirect_to root_path, notice: 'LINEアカウントと連携しました'
     else
       # 新規ユーザー作成またはログイン処理
