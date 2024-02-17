@@ -9,7 +9,6 @@ class OauthsController < ApplicationController
     login_from(provider) # これやると@user_hashが使えるようになる
     if @user = current_user
       # 既にログインしているユーザーがLINEアカウントと連携する処理
-      binding.pry
       provider_user_id = @user_hash.dig(:user_info, "userId") # @user_hashにuserIdが入ってるからそれと紐付けを行う
       @user.update(line_uid: provider_user_id)
       redirect_to root_path, notice: 'LINEアカウントと連携しました'
