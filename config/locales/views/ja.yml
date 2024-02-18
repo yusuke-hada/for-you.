@@ -8,6 +8,7 @@ ja:
     top: 'トップページ'
     privacy_policy: 'プライバシーポリシー'
     terms_of_use: '利用規約'
+    line_connect: 'LINE連携'
   messages:
     require_login: 'ログインして下さい'
   pages:
@@ -196,6 +197,10 @@ ja:
       success: '記念日を編集しました'
     destroy:
       success: '記念日を削除しました'
+  oauths:
+    callback:
+      success: 'LINEアカウントと連携しました'
+      cancel: 'LINE連携をキャンセルしました'
   profiles:
     show:
       title: 'プロフィール詳細'

@@ -6,20 +6,18 @@ class OauthsController < ApplicationController
 
   def callback
     provider = auth_params[:provider]
-    login_from(provider) # これやると@user_hashが使えるようになる
+    login_from(provider)
     if @user = current_user
-      # 既にログインしているユーザーがLINEアカウントと連携する処理
-      provider_user_id = @user_hash.dig(:user_info, "userId") # @user_hashにuserIdが入ってるからそれと紐付けを行う
+      provider_user_id = @user_hash.dig(:user_info, "userId")
       @user.update(line_uid: provider_user_id)
-      redirect_to root_path, notice: 'LINEアカウントと連携しました'
+      redirect_to root_path, notice: t('.success')
     else
-      # 新規ユーザー作成またはログイン処理
       if auth_params[:denied].present?
-        redirect_to root_path, notice: "LINE連携をキャンセルしました"
+        redirect_to root_path, notice: t('.cancel')
         return
       end
       create_user_from(provider) unless login_from(provider)
-      redirect_to root_path, notice: "LINEアカウントと連携しました"
+      redirect_to root_path, notice: t('.success')
     end
   end
 
