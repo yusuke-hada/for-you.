@@ -6,6 +6,7 @@ ja:
       gift_suggestion: 'プレゼント提案'
       memo: 'メモ'
       message_card: 'メッセージカード'
+      anniversary: '記念日'
     attributes:
       user:
         name: '名前'
@@ -19,6 +20,7 @@ ja:
         business: '職業'
         hobby: '趣味'
         role: '役割'
+        line_uid: 'LINEID'
         created_at: '作成日時'
         updated_at: '更新日時'
       wish_list:
@@ -59,6 +61,10 @@ ja:
         user: 'ユーザー'
         created_at: '作成日時'
         updated_at: '更新日時'
+      anniversary:
+        title: '記念日'
+        description: '詳細'
+        date: '日付'
   enums:
     user:
       gender:

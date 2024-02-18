@@ -1,0 +1,16 @@
+<div class="mb-4">
+  <%= f.label :title, class: "block text-gray-700 text-sm font-bold mb-2" do %>
+    <%= f.object.class.human_attribute_name(:title) %> <span class="text-red-500">*</span>
+  <% end %>
+  <%= f.text_field :title, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", placeholder: t('anniversaries.new.title_placeholder') %>
+</div>
+<div class="mb-4">
+  <%= f.label :description, class: "block text-gray-700 text-sm font-bold mb-2" do %>
+    <%= f.object.class.human_attribute_name(:description) %> <span class="text-red-500">*</span>
+  <% end %>
+  <%= f.text_field :description, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", placeholder: t('anniversaries.new.description_placeholder') %>
+</div>
+<div class="mb-4">
+  <%= f.label :date, class: "block text-gray-700 text-sm font-bold mb-2" %>
+  <%= f.date_field :date, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+</div>

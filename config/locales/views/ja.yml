@@ -8,6 +8,7 @@ ja:
     top: 'トップページ'
     privacy_policy: 'プライバシーポリシー'
     terms_of_use: '利用規約'
+    line_connect: 'LINE連携'
   messages:
     require_login: 'ログインして下さい'
   pages:
@@ -39,6 +40,8 @@ ja:
       list_description: 'ユーザーがどのようなものが欲しいか検索しよう'
       message_card: 'メッセージカード'
       card_description: '背景を選んでメッセージを入力しよう'
+      anniversary_function: 'リマインダー機能'
+      anniversary_description: '大切な記念日を登録してリマインダー通知を受け取ろう'
     privacy_policy:
       title: 'プライバシーポリシー'
       home: 'トップページに戻る'
@@ -173,6 +176,31 @@ ja:
       success: 'メッセージカードを削除しました'
     image:
       image_error: '画像を生成できませんでした'
+  anniversaries:
+    index:
+      title: "記念日一覧"
+      confirm: '本当に削除しますか？'
+      create: '新規作成'
+      search_word: '記念日・詳細'
+      search: '検索する'
+    new:
+      title: "記念日登録"
+      title_placeholder: '何の記念日か入力してください'
+      description_placeholder: '詳細を入力してください'
+      submit: '登録する'
+    create:
+      success: '記念日を登録しました'
+    edit:
+      title: '記念日編集'
+      submit: '編集する'
+    update:
+      success: '記念日を編集しました'
+    destroy:
+      success: '記念日を削除しました'
+  oauths:
+    callback:
+      success: 'LINEアカウントと連携しました'
+      cancel: 'LINE連携をキャンセルしました'
   profiles:
     show:
       title: 'プロフィール詳細'

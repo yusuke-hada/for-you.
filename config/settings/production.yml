@@ -1,0 +1,2 @@
+sorcery:
+  line_callback_url: 'https://www.present-for-you.jp/oauth/callback?provider=line'
