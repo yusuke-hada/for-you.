@@ -8,7 +8,9 @@
       <%= link_to t('defaults.top'), root_path, class:"my-1 md:mx-6 hover:text-gray-900", data: { turbo: false } %>
       <%= link_to t('defaults.profile'), profile_path, class:"my-1 md:mx-6 hover:text-gray-900", data: { turbo: false } %>
       <%= link_to t('defaults.logout'), logout_path, class:"my-1 md:mx-6 hover:text-gray-900", data: { turbo_method: :delete, turbo_confirm: t('user_sessions.destroy.confirm') } %>
-      <%= link_to t('defaults.line_connect'), auth_at_provider_path(provider: :line), class:"my-1 md:mx-6 hover:text-gray-900", data: { turbo: false } %>
+      <% if current_user.line_uid.blank? %>
+        <%= link_to t('defaults.line_connect'), auth_at_provider_path(provider: :line), class:"my-1 md:mx-6 hover:text-gray-900", data: { turbo: false } %>
+      <% end %>
     </nav>
   </div>
 </header>

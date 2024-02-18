@@ -20,6 +20,7 @@ ja:
         business: '職業'
         hobby: '趣味'
         role: '役割'
+        line_uid: 'LINEID'
         created_at: '作成日時'
         updated_at: '更新日時'
       wish_list:
