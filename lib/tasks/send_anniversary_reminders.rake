@@ -1,4 +1,4 @@
-namespace :notifications do
+namespace :anniversary do
   desc "登録された記念日のうち一ヶ月前、二週間前、１週間前、当日に通知を送信"
   task send_anniversary_notifications: :environment do
     client = Line::Bot::Client.new { |config|
@@ -9,18 +9,18 @@ namespace :notifications do
   
     Anniversary.find_each do |anniversary|
       days_until_anniversary = (anniversary.date - today).to_i
-      puts "Sending notification for #{anniversary.title}"
+      puts "Sending anniversary for #{anniversary.title}"
       message_text = case days_until_anniversary
                      when 30
-                       "1ヶ月前です！#{anniversary.title}の準備はできていますか？"
+                       "#{anniversary.title}1ヶ月前です!プレゼントの準備はできていますか？"
                      when 14
-                       "2週間前です！#{anniversary.title}に何をしようか考えてみましょう。"
+                       "#{anniversary.title}2週間前です!何をしようか考えましたか？"
                      when 7
-                       "1週間前です！#{anniversary.title}が近づいています。"
+                       "#{anniversary.title}1週間前です!"
                      when 0
-                       "今日は#{anniversary.title}です！お祝いを忘れずに。"
+                       "今日は#{anniversary.title}です！おめでとうございます！"
                      else
-                       nil # 通知する必要がない日
+                       nil
                      end
       
       if message_text
@@ -28,11 +28,9 @@ namespace :notifications do
           type: 'text',
           text: message_text
         }
-      
-        # ここでLINEユーザーIDを指定してメッセージを送信します
-        # LINEユーザーIDは、ユーザーがボットと友だちになったときに取得できます
-        response = client.push_message(anniversary.user.line_user_id, message)
+        response = client.push_message(anniversary.user.line_uid, message)
         puts response
+        # 以下エラーハンドリングを追加する
       end
     end
   end
