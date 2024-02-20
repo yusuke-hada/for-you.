@@ -11,7 +11,7 @@ namespace :anniversary do
       days_until_anniversary = (anniversary.date - today).to_i
       puts "Sending anniversary for #{anniversary.title}"
       message_text = case days_until_anniversary
-                     when 30
+                     when 28
                        "#{anniversary.date}#{anniversary.title}まで1ヶ月です!プレゼントの準備はできていますか？\n#{anniversary.description}\nhttps://www.present-for-you.jp"
                      when 14
                        "#{anniversary.date}#{anniversary.title}まで2週間です!何をしようか考えましたか？\n#{anniversary.description}\nhttps://www.present-for-you.jp"
