@@ -12,21 +12,13 @@ namespace :anniversary do
       puts "Sending anniversary for #{anniversary.title}"
       message_text = case days_until_anniversary
                      when 30
-                       "#{anniversary.date}#{anniversary.title}まで1ヶ月です!プレゼントの準備はできていますか？"
-                       "#{anniversary.description}"
-                       "https://www.present-for-you.jp"
+                       "#{anniversary.date}#{anniversary.title}まで1ヶ月です!プレゼントの準備はできていますか？\n#{anniversary.description}\nhttps://www.present-for-you.jp"
                      when 14
-                       "#{anniversary.date}#{anniversary.title}まで2週間です!何をしようか考えましたか？"
-                       "#{anniversary.description}"
-                       "https://www.present-for-you.jp"
+                       "#{anniversary.date}#{anniversary.title}まで2週間です!何をしようか考えましたか？\n#{anniversary.description}\nhttps://www.present-for-you.jp"
                      when 7
-                       "#{anniversary.date}#{anniversary.title}まで1週間です!プレゼントが決まってなかったら急いで準備しましょう！"
-                       "#{anniversary.description}"
-                       "https://www.present-for-you.jp"
+                       "#{anniversary.date}#{anniversary.title}まで1週間です!プレゼントが決まってなかったら急いで準備しましょう！\n#{anniversary.description}\nhttps://www.present-for-you.jp"
                      when 0
-                       "#{anniversary.date}今日は#{anniversary.title}です！おめでとうございます！"
-                       "#{anniversary.description}"
-                       "https://www.present-for-you.jp"
+                       "#{anniversary.date}今日は#{anniversary.title}です！おめでとうございます！\n#{anniversary.description}\nhttps://www.present-for-you.jp"
                      else
                        nil
                      end
