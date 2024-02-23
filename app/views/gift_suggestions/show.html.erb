@@ -43,7 +43,7 @@
     <% end %>
   </div>
   <% if @matching_wish_lists.any? %>
-    <p class="text-xl font-semibold mb-4 mt-10">同じ趣味を持つユーザーの欲しいものリスト:</p>
+    <p class="text-xl font-semibold mb-4 mt-10"><%= t('.matching_wish_lists') %></p>
     <%= link_to wish_lists_path, class:"mt-4 mb-10 overflow-auto", data: { turbo: false } do %>
       <table class="min-w-full table-auto bg-white rounded-lg shadow">
         <thead class="bg-gray-200">

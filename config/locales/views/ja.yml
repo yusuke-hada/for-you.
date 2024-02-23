@@ -108,6 +108,7 @@ ja:
       ai_result: 'AIからの提案:'
       post_text: 'AIから%{result}を提案されました！プレゼントに悩んだらfor youで相談してみませんか？'
       no_result: '申し訳ありません、プレゼント提案が見つかりませんでした'
+      matching_wish_lists: '同じ趣味を持つユーザーの欲しいものリスト:'
       proposal: '条件を変えてもう一度相談して下さい'
       rakuten_title: '楽天市場の検索上位'
       google_search_link: 'Googleで検索する'
