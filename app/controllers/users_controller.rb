@@ -82,7 +82,7 @@ class UsersController < ApplicationController
 
   def line_connect
     @user_token = current_user.generate_token
-    line_account_id = "@660masva" 
+    line_account_id = '@660masva'
     @line_connect_url = "https://line.me/R/nv/recommendOA/#{line_account_id}?token=#{@user_token}"
   end
 end
