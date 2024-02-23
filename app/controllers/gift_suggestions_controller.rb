@@ -22,8 +22,7 @@ class GiftSuggestionsController < ApplicationController
 
   def show
     @gift_suggestion = current_user.gift_suggestions.find(params[:id])
-    gift_suggestion_hobbies = @gift_sugegstion.hobbies
-    matching_users = User.where("hobby && ARRAY[?]::varchar[]", gift_suggestion_hobbies)
+    matching_users = User.where('hobby && ARRAY[?]::varchar[]', @gift_suggestion.hobbies)
     @matching_wish_lists = WishList.where(user_id: matching_users.pluck(:id))
     @items = if @gift_suggestion.result.present?
                RakutenWebService::Ichiba::Item.search(keyword: @gift_suggestion.result, hits: 3)

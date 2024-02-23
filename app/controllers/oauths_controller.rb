@@ -8,17 +8,16 @@ class OauthsController < ApplicationController
     provider = auth_params[:provider]
     login_from(provider)
     if @user = current_user
-      provider_user_id = @user_hash.dig(:user_info, "userId")
+      provider_user_id = @user_hash.dig(:user_info, 'userId')
       @user.update(line_uid: provider_user_id)
-      redirect_to root_path, notice: t('.success')
     else
       if auth_params[:denied].present?
         redirect_to root_path, notice: t('.cancel')
         return
       end
       create_user_from(provider) unless login_from(provider)
-      redirect_to root_path, notice: t('.success')
     end
+    redirect_to root_path, notice: t('.success')
   end
 
   private
