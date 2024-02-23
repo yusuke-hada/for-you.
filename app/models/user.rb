@@ -29,7 +29,7 @@ class User < ApplicationRecord
   validates :gender, presence: true
   validates :business, length: { maximum: 20 }
   validates :hobby, length: { maximum: 255 }
-  validates :line_uid, uniqueness: true
+  validates :line_uid, uniqueness: true, allow_nil: true
   enum gender: { man: 0, woman: 1, other: 2 }
   enum role: { general: 0, admin: 1 }
   scope :with_hobby, ->(hobby) { where('hobby @> ARRAY[?]::varchar[]', [hobby]) }
