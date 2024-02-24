@@ -16,7 +16,7 @@ namespace :anniversary do
                      when 14
                        "#{anniversary.date}#{anniversary.title}まで2週間です!何をしようか考えましたか？\n#{anniversary.description}\nhttps://www.present-for-you.jp"
                      when 7
-                       "#{anniversary.date}#{anniversary.title}まで1週間です!プレゼントが決まってなかったら急いで準備しましょう！\n#{anniversary.description}\nhttps://www.present-for-you.jp"
+                       "#{anniversary.date}#{anniversary.title}まで1週間です!プレゼントが決まってなかったらfor youで急いで準備しましょう！\n#{anniversary.description}\nhttps://www.present-for-you.jp"
                      when 0
                        "#{anniversary.date}今日は#{anniversary.title}です！おめでとうございます！\n#{anniversary.description}\nhttps://www.present-for-you.jp"
                      end
