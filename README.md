@@ -1,4 +1,6 @@
-# for-you.
+# for-you.  
+  
+![Alt text](README_top.png)  
   
 ## サービス概要  
   
@@ -24,7 +26,7 @@
 「for you.」はユーザーがプレゼントを贈りたい相手の情報を入力することでAIが分析し、プレゼントを提案してくれるサービスです。それ以外にもユーザーのほしい物リストを閲覧しプレゼント選びの参考にしてもらいたいと思います。メッセージカードの作成を行えるためプレゼントと一緒に贈ることができます。また誰に何を贈ったのかを登録することで今後その方へ贈るプレゼントの参考にしたり、リマインド機能で記念日などの設定した日付の数週間前から通知を送ることで当サービスを継続して利用していただけるようにしていきます。   
    
    
-## 実装を予定している機能  
+## 実装機能  
 ### MVP  
 * 会員登録(入力する情報が多くなるのでステップ入力機能を実装)  
 * ログイン/ログアウト  
@@ -39,16 +41,26 @@
 * SNSシェア機能  
   
   
-### その後の機能  
+### 本リリース  
+* LINE連携 
 * リマインド機能(LINE通知)  
 * ゲストログイン  
 * admin機能  
+
+## 技術構成　　
+| カテゴリ | 技術 |
+| --- | --- |
+| フロントエンド | Javascript / TailwindCSS |
+| バックエンド | Rails 7.0.8 / Ruby 3.1.4 |
+| データベース | PostgreSQL |
+| インフラ | Heroku |
+| API | OpenAI API / Rakuten Ichiba Item Search API / LINE Messaging API |
+| その他 | Github |
 
 ## 画面遷移図  
   
 https://www.figma.com/file/wGQAVxqDG41YjIRCg6FgwO/for-you.?type=design&node-id=0%3A1&mode=design&t=EIJCu57SXe1hTjma-1  
   
 ## ER図
-  
-![image](https://github.com/yusuke-hada/for-you./assets/128974750/3be59109-230a-4042-a280-db878e9162ca)  
 
+![Alt text](image-1.png)  
