@@ -39,10 +39,21 @@
 * SNSシェア機能  
   
   
-### その後の機能  
+### 本リリース  
+* LINE連携 
 * リマインド機能(LINE通知)  
 * ゲストログイン  
 * admin機能  
+
+## 技術構成　　
+| カテゴリ | 技術 |
+| --- | --- |
+| フロントエンド | Javascript / TailwindCSS |
+| バックエンド | Rails 7.0.8 / Ruby 3.1.4 |
+| データベース | PostgreSQL |
+| インフラ | Heroku |
+| API | OpenAI API / Rakuten Ichiba Item Search API / LINE Messaging API |
+| その他 | Github |
 
 ## 画面遷移図  
   
